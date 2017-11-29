@@ -1,0 +1,29 @@
+<html>
+
+  <head>
+    <title>Flury Bryant Design Group, Inc.</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+
+  <body>
+    <center>
+      <div class="page">
+        <center>
+          Site temporarily closed for remodeling.
+          <br>
+          <br><img src="/house.jpg">
+          <br>
+          <br><img src="/flurybryant.jpg">
+          <br>
+          <font class="caps">
+            <div style="padding: 5;">DESIGNERS OF FINE HOMES</div>
+            <div sytle="width: 100%; border-color: #B39E36; border-style: solid; border-width: 1; border-left-width: 0; border-right-width: 0;">
+              15951 LOS GATOS BOULEVARD, SUITE 3, LOS GATOS, CALIFORNIA 95032&nbsp;&nbsp;(408) 356-5500&nbsp;&nbsp;FAX (408) 356-5115
+            </div>
+          </font>
+        </center>
+      </div>
+    </center>
+  </body>
+
+</html>

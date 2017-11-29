@@ -1,0 +1,173 @@
+<html>
+
+  <head>
+    <title>Flury Bryant Design Group, Inc.</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="/script.js"></script>
+
+<script>
+
+    var rows = 2;
+    var cols = 2;
+
+    var cell_width = "";
+    var cell_height = "";
+
+    var imgs = new Array(
+"0004",
+"0005",
+"0006",
+"0007",
+"0043",
+"0044",
+"0045",
+"0000",
+"0001",
+"0015",
+"0016",
+"0040",
+"0026",
+"0027",
+"0028",
+"0072",
+"0046",
+"0047",
+"0048",
+"0050",
+"0051",
+"0052",
+"0053",
+"0054",
+"0056",
+"0029",
+"0023",
+"0024",
+"0025",
+"0003",
+"0037",
+"0010",
+"0008",
+"0012",
+"0009",
+"0014",
+"0013",
+"0011",
+"0042",
+"0041",
+"0017",
+"0020",
+"0019",
+"0018",
+"0021",
+"0022",
+"0030",
+"0031",
+"0034",
+"0032",
+"0036",
+"0033",
+"0035",
+"0039",
+"0038",
+"0057",
+"0059",
+"0060",
+"0062",
+"0063",
+"0065",
+"0066",
+"0067",
+"0068",
+"0069",
+"0070",
+"0071",
+"0075",
+"0076"
+    );
+
+    var params = new Array();
+    params = query_params();
+    p = (params["p"] || 0) * 1;
+
+    function img_i(r, c) {
+        return rows * cols * p + cols * r + c;
+    }
+
+</script>
+
+  </head>
+
+  <body>
+    <center>
+      <div class="page">
+        <center><iframe src="/links.html" frameborder="0" class="links_frame"></iframe></center>
+        <center>
+          <br>
+
+<script>
+
+    var prevnext = ""
+        + "<table width=\"100%\">"
+        + "  <tr>"
+        + "    <td class=\"caps\">";
+    if (p > 0) { prevnext += "<a href=\"?p=" + (p - 1) + "\"><img src=\"prev.jpg\" border=\"0\"></a>"; }
+    else { prevnext += "&nbsp;"; }
+    prevnext += "</td>"
+        + "    <td class=\"caps\" style=\"text-align: right;\">";
+    if (img_i(rows, 0) < imgs.length) {
+        prevnext += "<a href=\"?p=" + (p + 1) + "\"><img src=\"next.jpg\" border=\"0\"></a>";
+    }
+    else { prevnext += "&nbsp;"; }
+    prevnext += "</td>"
+        + "  </tr>"
+        + "</table>";
+
+    document.write(prevnext);
+    document.write("<table cellpadding=\"0\" cellspacing=\"10\">");
+    var r = 0;
+    for (r = 0; r < rows && img_i(r, 0) < imgs.length; r++) {
+        document.write("<tr height=\"" + cell_height + "\">");
+        var c = 0;
+        for (c = 0; c < cols && img_i(r, c) < imgs.length; c++) {
+            var img_name = imgs[img_i(r, c)];
+            document.write("<td width=\"" + cell_width + "\">");
+            document.write("  <center>");
+            document.write("    <table bgcolor=\"#FFFFFF\" cellspacing=\"0\" cellpadding=\"0\">");
+            document.write("      <tr>");
+            document.write("        <td><img src=\"frame/corner_tl.jpg\" border=\"0\"></td>");
+            document.write("        <td style=\"background-image: url(frame/side_t.jpg);\"></td>");
+            document.write("        <td><img src=\"frame/corner_tr.jpg\" border=\"0\"></td>");
+            document.write("      </tr>");
+            document.write("      <tr>");
+            document.write("        <td style=\"background-image: url(frame/side_l.jpg);\"></td>");
+            document.write("        <td style=\"font-size: 0pt;\">");
+            document.write("          <a href=\"large/" + img_name + ".jpg\" target=\"_new\">");
+            document.write("            <img src=\"thumb/" + img_name + ".jpg\" border=\"0\">");
+            document.write("          </a>");
+            document.write("        </td>");
+            document.write("        <td style=\"background-image: url(frame/side_r.jpg);\"></td>");
+            document.write("      </tr>");
+            document.write("      <tr>");
+            document.write("        <td><img src=\"frame/corner_bl.jpg\" border=\"0\"></td>");
+            document.write("        <td style=\"background-image: url(frame/side_b.jpg);\"></td>");
+            document.write("        <td><img src=\"frame/corner_br.jpg\" border=\"0\"></td>");
+            document.write("      </tr>");
+            document.write("    </table>");
+            document.write("  </center>");
+            document.write("</td>");
+        }
+        for (; c < cols; c++) {
+            document.write("<td width=\"" + cell_width + "\">&nbsp;</td>");
+        }
+    }
+    document.write("</table>");
+    document.write(prevnext);
+
+</script>
+
+        </center>
+      </div>
+    </center>
+  </body>
+
+</html>

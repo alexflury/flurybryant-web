@@ -1,0 +1,88 @@
+<html>
+
+  <head>
+    <title>Flury Bryant Design Group, Inc.</title>
+    <link rel="stylesheet" href="/style.css">
+
+<script>
+
+    var links = new Array;
+    links[0] = new Array;
+    links[0]["href"] = "/about";
+    links[0]["txt"] = "ABOUT US";
+    links[1] = new Array;
+    links[1]["href"] = "/photos";
+    links[1]["txt"] = "PHOTO GALLERY";
+    links[2] = new Array;
+    links[2]["href"] = "/contact";
+    links[2]["txt"] = "CONTACT US";
+    links[3] = new Array;
+    links[3]["href"] = "/";
+    links[3]["txt"] = "HOME";
+
+    function get_link(i) {
+        return document.getElementById("link_" + i);
+    }
+
+    function link_click(i) {
+        window.top.location = links[i]["href"];
+    }
+
+    function link_mouseover(i) {
+        get_link(i).style.backgroundColor = "#F2DF61";
+    }
+
+    function link_mouseout(i) {
+        get_link(i).style.backgroundColor = "#CCBC52";
+    }
+/*
+    var cur = -1;
+    var url = window.top.location + "";
+    for (var i = 0; i < links.length; i++) {
+        if (url.indexOf(".com" + links[i]["href"]) > -1) {
+            cur = i;
+            break;
+        }
+    }
+*/
+</script>
+
+  </head>
+
+  <body style="margin: 0;">
+    <center>
+      <div class="page">
+        <center>
+
+<script>
+
+    if (window.location.search.substr(1) != "noimg") {
+        document.write("<img src=\"/flurybryant.jpg\">");
+    }
+
+</script>
+
+          <table class="links_table" cellspacing="0" cellpadding="0">
+            <tr>
+
+<script>
+
+    var td_width = 100 / links.length;
+
+    for (var i = 0; i < links.length; i++) {
+        var td_class = "top_link_" + (i < links.length - 1 ? "l" : "r");
+        document.write("<td width=\"" + td_width + "%\" id=\"link_" + i + "\" class=\"" + td_class + "\" onmouseover=\"link_mouseover(" + i + ");\" onmouseout=\"link_mouseout(" + i + ");\" onmouseup=\"link_click(" + i + ");\">");
+        document.write("  <font class=\"caps\">" + links[i]["txt"] + "</font>");
+        document.write("</td>");
+    }
+
+</script>
+
+            </tr>
+          </table>
+        </center>
+      </div>
+    </center>
+  </body>
+
+</html>
