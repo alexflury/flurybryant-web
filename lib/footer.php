@@ -1,6 +1,5 @@
     </div>
     <div id="ft">
-      <div class="moulding"></div>
     </div>
 
 <?php

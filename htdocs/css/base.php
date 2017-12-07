@@ -85,9 +85,10 @@ ul {
 
 #hd {
   background: <?php echo $COLOR['HEADER']; ?>;
-  height: <?php echo (110 + $SIZE['MOULDING_HEIGHT']); ?>px;
+  height: 110px;
   width: 100%;
   text-align: center;
+  border-bottom: 1px solid #214536;
 }
 
 #hd .house-logo-container {
@@ -157,9 +158,10 @@ ul {
 
 #ft {
   background: <?php echo $COLOR['HEADER']; ?>;
-  height: <?php echo $SIZE['MOULDING_HEIGHT']; ?>px;
+  height: 0px
   text-align: center;
   width: 100%;
+  border-top: 1px solid #214536;
 }
 
 #ft .moulding {

@@ -25,6 +25,5 @@
           <li><a href="/contact">Contact Us</a></li>
         </ul>
       </div>
-      <div class="moulding"></div>
     </div>
     <div id="bd">
