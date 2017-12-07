@@ -170,6 +170,11 @@ ul {
   background: url(/images/moulding-bottom.jpg);
 }
 
+#ft .houzz-container {
+  margin-top: 10px;
+}
+
+
 /* Body */
 
 #bd {
