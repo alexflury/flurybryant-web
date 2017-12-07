@@ -81,6 +81,10 @@ ul {
   padding: 3px 0;
 }
 
+.clearb {
+  clear: both;
+}
+
 /* Header */
 
 #hd {
@@ -188,8 +192,7 @@ ul {
 /* Home */
 
 #home #slideshow {
-  float: right;
-  margin: -5px 6px 10px 10px;
+
 }
 
 /* About */
