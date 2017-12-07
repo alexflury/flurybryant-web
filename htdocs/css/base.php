@@ -558,8 +558,8 @@ table#towns td {
 }
 
 #slideshow .photo {
-  width: <?php echo $SIZE['PHOTO_WIDTH']; ?>px;
-  height: <?php echo $SIZE['PHOTO_HEIGHT']; ?>px;
+  width: 100%;
+  height: 800px;
   text-align: center;
   position: relative;
 }
