@@ -119,22 +119,23 @@ ul {
   padding: 0;
   position: absolute;
   left: 220px;
-  top: 70px;
+  top: 80px;
   z-index: 20;
 }
 
 #hd .links a {
   color: #FFFFFF;
+  font-size: 18px;
 }
 
 #hd .links a:hover {
-  color: #999;
+  color: #E0E0E0;
   text-decoration: none;
 }
 
 #hd .links li {
   float: left;
-  padding: 0 10px;
+  padding: 0 15px;
   line-height: 1.1em;
   height: 21px
 }
