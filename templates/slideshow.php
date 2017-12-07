@@ -20,14 +20,6 @@ $next_style = $slideshow_photo < count($slideshow_photos) ? '' : ' style="visibi
 
 <div id="slideshow">
   <div class="photo">
-    <div class="photo-moulding-top"></div>
-    <div class="photo-moulding-right"></div>
-    <div class="photo-moulding-bottom"></div>
-    <div class="photo-moulding-left"></div>
-    <div class="photo-moulding-tl"></div>
-    <div class="photo-moulding-tr"></div>
-    <div class="photo-moulding-br"></div>
-    <div class="photo-moulding-bl"></div>
     <div class="matte">
       <?php
       $photo_sequence_photos = $slideshow_photos;

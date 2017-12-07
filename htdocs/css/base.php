@@ -541,7 +541,7 @@ table#towns td {
   left: 0;
   right: 0;
   text-align: center;
-  background-color: #FFFFFF;
+  background-color: <?php echo $COLOR['BODY'] ?>;
   background-repeat: no-repeat;
   background-position: top center;
 }
@@ -549,7 +549,7 @@ table#towns td {
 /* Slideshow */
 
 #slideshow {
-  margin-top: -5px;
+
 }
 
 #slideshow .photo-sequence .photo-frame {
@@ -558,12 +558,9 @@ table#towns td {
 }
 
 #slideshow .photo {
-  margin-top: 5px;
-  border: 22px solid <?php echo $COLOR['BODY']; ?>;
-  width: <?php echo ($SIZE['PHOTO_WIDTH'] + 20); ?>px;
-  height: <?php echo ($SIZE['PHOTO_HEIGHT'] + 20); ?>px;
+  width: <?php echo $SIZE['PHOTO_WIDTH']; ?>px;
+  height: <?php echo $SIZE['PHOTO_HEIGHT']; ?>px;
   text-align: center;
-  background: #FFFFFF;
   position: relative;
 }
 
@@ -640,7 +637,7 @@ table#towns td {
 }
 
 #slideshow .photo .matte {
-  margin: 10px;
+
 }
 
 #slideshow .photo img {
