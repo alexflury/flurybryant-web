@@ -6,7 +6,7 @@ print_header();
 
 ?>
 
-<div id="home" class="center-page">
+<div id="home">
 <?php include('../templates/slideshow.php'); ?>
 	<div class="clearb"></div>
 </div>
