@@ -93,6 +93,7 @@ ul {
   width: 100%;
   text-align: center;
   border-bottom: 1px solid #214536;
+  overflow: hidden;
 }
 
 #hd .house-logo-container {
@@ -116,15 +117,19 @@ ul {
   top: 20px;
 }
 
-#hd .links {
-  list-style: none;
+#hd .links-container {
   margin: 6px 0 0 0;
-  padding: 0;
   position: absolute;
   left: 232px;
   top: 75px;
   z-index: 20;
   width: <?php echo ($SIZE['MIN_PAGE_WIDTH'] - 252); ?>px;
+  height: <?php echo ($SIZE['HD_HEIGHT'] - 75); ?>px;
+}
+
+#hd .links {
+  list-style: none;
+  padding: 0;
 }
 
 #hd .links a {
@@ -141,7 +146,8 @@ ul {
   float: left;
   padding: 0 17px;
   line-height: 1.1em;
-  height: 21px
+  height: <?php echo ($SIZE['HD_HEIGHT'] - 75); ?>px;
+  cursor: pointer;
 }
 
 #hd .links li.left {
@@ -157,6 +163,17 @@ ul {
   width: 100%;
   height: <?php echo $SIZE['MOULDING_HEIGHT']; ?>px;
   background: url(/images/moulding-top.jpg);
+}
+
+#hd .menu-panel {
+  position: absolute;
+  left: 0;
+  top: <?php echo $SIZE['HD_HEIGHT'] ?>px;
+  width: 100%;
+  height: 200px;
+  background: <?php echo $COLOR['BODY']; ?>;
+  display: none;
+  z-index: 1000;
 }
 
 /* Footer */

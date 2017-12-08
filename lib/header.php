@@ -18,14 +18,16 @@
         </a>
       </div>
       <div class="flurybryant-logo" src="/images/flurybryant.jpg"></div>
-      <ul class="links">
-        <li class="left"><a href="/">Home</a></li>
-        <li><a href="/about">About Us</a></li>
-        <li><a href="/portfolio">Portfolio</a></li>
-        <li><a href="/documents">Our Documents</a></li>
-        <li><a href="/contact">Contact Us</a></li>
-      </ul>
-      <div class="hd-menu-panel"></div>
+      <div class="links-container">
+        <ul class="links">
+          <li class="left home-link"><a href="/">Home</a></li>
+          <li class="about-link"><a href="/about">About Us</a></li>
+          <li class="portfolio-link"><a href="/portfolio">Portfolio</a></li>
+          <li class="documents-link"><a href="/documents">Our Documents</a></li>
+          <li class="contact-link"><a href="/contact">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="menu-panel"></div>
     </div>
     <div id="bd">
 
