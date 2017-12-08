@@ -79,7 +79,7 @@ function get_photos($album_name) {
   readdir($dir);
   readdir($dir);
   while ($filename = readdir($dir)) {
-    if ($filename != '.' && $filename != '..') {
+    if (substr($filename, 0, 1) != '.') {
       $photos[] = $album_name . '/' . $filename;
     }
   }
