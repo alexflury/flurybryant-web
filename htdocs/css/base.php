@@ -121,8 +121,8 @@ ul {
   margin: 6px 0 0 0;
   padding: 0;
   position: absolute;
-  left: 250px;
-  top: 80px;
+  left: 252px;
+  top: 75px;
   z-index: 20;
 }
 
