@@ -7,7 +7,7 @@ FB.Modules.PhotoSequence = function(photos, photoNum, speed, width, height, id, 
   this.thumbs = thumbs;
   this.getHtml();
   this.initFrames();
-  this.loadPhoto(photoNum - 1);
+  this.loadPhoto(photoNum - 1, 1);
 }
 
 FB.Modules.PhotoSequence.prototype = {
@@ -62,7 +62,10 @@ FB.Modules.PhotoSequence.prototype = {
     return this.loading;
   },
 
-  loadPhoto: function(photoNum) {
+  loadPhoto: function(photoNum, speed) {
+    if (speed === undefined || speed === null) {
+      speed = this.speed;
+    }
     if (this.loading || photoNum < 0 || photoNum >= this.photos.length) {
       return false;
     }
@@ -97,7 +100,7 @@ FB.Modules.PhotoSequence.prototype = {
       frameNum = this.prevFrameNum(frameNum);
       photoNum = this.prevPhotoNum(photoNum);
     }
-    this.showFrame(newFrameNum);
+    this.showFrame(newFrameNum, speed);
     return true;
   },
 
@@ -133,20 +136,20 @@ FB.Modules.PhotoSequence.prototype = {
     return photoNum + 1;
   },
 
-  showFrame: function(newFrameNum) {
+  showFrame: function(newFrameNum, speed) {
     this.frames[this.frameNum].setZIndex(0);
     this.frames[newFrameNum].setOpacity(0);
     this.frames[newFrameNum].setZIndex(1);
     this.frames[newFrameNum].show();
-    this.fadeIn(newFrameNum);
+    this.fadeIn(newFrameNum, speed);
   },
 
-  fadeIn: function(newFrameNum) {
+  fadeIn: function(newFrameNum, speed) {
     var fadingOut = false; //this.frames[this.frameNum].fadeOut();
-    var fadingIn = this.frames[newFrameNum].fadeIn()
+    var fadingIn = this.frames[newFrameNum].fadeIn(speed)
     if (fadingIn || fadingOut) {
       var ps = this;
-      setTimeout(function() { ps.fadeIn(newFrameNum); }, this.fadeWait);
+      setTimeout(function() { ps.fadeIn(newFrameNum, speed); }, this.fadeWait);
     } else {
       this.frames[this.frameNum].hide();
       if (this.loadLater) {
@@ -246,14 +249,14 @@ FB.Modules.PhotoSequence.Frame.prototype = {
     return true;
   },
 
-  fadeIn: function() {
-    if (this.opacity > 1 - this.opacityStep) {
+  fadeIn: function(speed) {
+    if (this.opacity > 1 - speed) {
       if (this.opacity < 1) {
         this.setOpacity(1);
       }
       return false;
     }
-    this.setOpacity(this.opacity + this.opacityStep);
+    this.setOpacity(this.opacity + speed);
     return true;
   }
 };
