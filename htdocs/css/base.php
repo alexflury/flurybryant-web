@@ -124,6 +124,7 @@ ul {
   left: 252px;
   top: 75px;
   z-index: 20;
+  width: <?php echo ($SIZE['MIN_PAGE_WIDTH'] - 252); ?>px;
 }
 
 #hd .links a {

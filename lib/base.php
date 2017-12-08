@@ -26,7 +26,8 @@ $SIZE = array(
   'DOCUMENT_MAG_BORDER' => 3,
   'HD_HEIGHT' => 110,
   'FT_HEIGHT' => 60,
-  'MIN_BD_HEIGHT' => 300
+  'MIN_PAGE_HEIGHT' => 500,
+  'MIN_PAGE_WIDTH' => 780
 );
 
 $JS = js('fb.js');
