@@ -13,7 +13,9 @@
   <body>
     <div id="hd">
       <div class="house-logo-container">
-        <img src="/images/house.jpg" class="house-logo" />
+        <a href="/">
+          <img src="/images/house.jpg" class="house-logo" />
+        </a>
       </div>
       <div class="flurybryant-logo" src="/images/flurybryant.jpg"></div>
       <ul class="links">
