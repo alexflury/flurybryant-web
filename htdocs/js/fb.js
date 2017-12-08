@@ -143,7 +143,7 @@ var FB = {
       },
 
       doAutoResize: function() {
-        pageHeight = FB.util.getPageSize()[1];
+        pageHeight = FB.util.getPageSize()[3];
         var elements = FB.util.Dom.getAutoResizeElements();
         for (var e = 0; e < elements.length; e++) {
           elements[e].element.style.height = (pageHeight - elements[e].delta) + 'px';
