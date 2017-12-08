@@ -25,5 +25,13 @@
         <li><a href="/documents">Our Documents</a></li>
         <li><a href="/contact">Contact Us</a></li>
       </ul>
+      <div class="hd-menu-panel"></div>
     </div>
     <div id="bd">
+
+<?php
+
+global $JS;
+$JS .= js('header.js') . raw_js('var header = new FB.Modules.Header();');
+
+?>
