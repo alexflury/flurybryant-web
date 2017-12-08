@@ -7,8 +7,12 @@ print_header();
 ?>
 
 <div id="home">
-<?php include('../templates/slideshow.php'); ?>
+	<?php 
+	$slideshow_auto_resize_delta = $SIZE['HD_HEIGHT'] + $SIZE['FT_HEIGHT'];
+	include('../templates/slideshow.php');
+	?>
 	<div class="clearb"></div>
+
 </div>
 
 <?php

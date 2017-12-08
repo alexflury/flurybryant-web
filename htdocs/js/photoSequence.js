@@ -26,6 +26,14 @@ FB.Modules.PhotoSequence.prototype = {
   finishLoadingCallback: null,
   html: null,
 
+  getRootHtml: function() {
+    return this.html;
+  },
+
+  getFramesHtml: function() {
+    return FB.util.Dom.getElementsByClassName('photo-frame', this.html);
+  },
+
   getHtml: function() {
     this.html = FB.util.Dom.get(this.id);
     var frameHtmls = FB.util.Dom.getElementsByClassName('photo-frame', this.html);

@@ -165,7 +165,7 @@ ul {
   text-align: center;
   width: 100%;
   border-top: 1px solid #214536;
-  height: <?php echo $SIZE['FT_HEIGHT']; ?>px;
+  height: <?php echo $SIZE['FT_HEIGHT'] - 10; ?>px;
 }
 
 #ft .moulding {
@@ -521,7 +521,6 @@ table#towns td {
 .photo-sequence {
   position: relative;
   width: 100%;
-  height: 800px;
 }
 
 .photo-sequence .script-only {
@@ -555,7 +554,6 @@ table#towns td {
 
 #slideshow .photo-sequence .photo-frame {
   width: 100%;
-  height: 800px;
 }
 
 #slideshow .photo {

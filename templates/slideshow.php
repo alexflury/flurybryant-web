@@ -17,6 +17,10 @@ if (!isset($slideshow_period)) {
   $slideshow_period = 20000;
 }
 
+if (!isset($slideshow_auto_resize_delta)) {
+  $slideshow_auto_resize_delta = 'null';
+}
+
 $prev_style = $slideshow_photo > 1 ? '' : ' style="visibility: hidden;"';
 $next_style = $slideshow_photo < count($slideshow_photos) ? '' : ' style="visibility: hidden;"';
 
@@ -44,5 +48,5 @@ $next_style = $slideshow_photo < count($slideshow_photos) ? '' : ' style="visibi
 <?php
 
 $JS .= js('Slideshow.js') . '<script type="text/javascript"><!--' . "\n";
-$JS .= 'var slideshow = new FB.Modules.Slideshow(photoSequence, ' . ($slideshow_auto ? 'true' : 'false') . ', ' . $slideshow_period . ');' . "\n";
+$JS .= 'var slideshow = new FB.Modules.Slideshow(photoSequence, ' . ($slideshow_auto ? 'true' : 'false') . ', ' . $slideshow_period . ', ' . $slideshow_auto_resize_delta . ');' . "\n";
 $JS .= '--></script>' . "\n";

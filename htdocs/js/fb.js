@@ -68,6 +68,9 @@ var FB = {
     },
 
     Dom: {
+
+      autoResizeElements: null,
+
       get: function(name) {
 	return document.getElementById(name);
       },
@@ -124,7 +127,29 @@ var FB = {
         if (style.opacity != undefined) { // Opera
           style.opacity = alpha;
         }
+      },
+
+      getAutoResizeElements: function() {
+        return FB.util.Dom.autoResizeElements;
+      },
+
+      registerAutoResizeHeight: function(el, delta) {
+        if (FB.util.Dom.autoResizeElements === null) {
+          FB.util.Event.addListener(window, 'resize', FB.util.Dom.doAutoResize);
+          FB.util.Event.addListener(window, 'load', FB.util.Dom.doAutoResize);
+          FB.util.Dom.autoResizeElements = [];
+        }
+        FB.util.Dom.autoResizeElements.push({'element': el, 'delta': delta});
+      },
+
+      doAutoResize: function() {
+        pageHeight = FB.util.getPageSize()[1];
+        var elements = FB.util.Dom.getAutoResizeElements();
+        for (var e = 0; e < elements.length; e++) {
+          elements[e].element.style.height = (pageHeight - elements[e].delta) + 'px';
+        }
       }
+
     },
 
     Event: {
