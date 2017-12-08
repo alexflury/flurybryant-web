@@ -89,7 +89,7 @@ ul {
 
 #hd {
   background: <?php echo $COLOR['HEADER']; ?>;
-  height: 110px;
+  height: <?php echo $SIZE['HD_HEIGHT']; ?>px;
   width: 100%;
   text-align: center;
   border-bottom: 1px solid #214536;
@@ -162,10 +162,10 @@ ul {
 
 #ft {
   background: <?php echo $COLOR['HEADER']; ?>;
-  height: 0px
   text-align: center;
   width: 100%;
   border-top: 1px solid #214536;
+  height: <?php echo $SIZE['FT_HEIGHT']; ?>px;
 }
 
 #ft .moulding {

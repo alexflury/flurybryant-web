@@ -23,7 +23,9 @@ $SIZE = array(
   'DOCUMENT_VIEW_HEIGHT' => 557,
   'DOCUMENT_MAG_WIDTH' => 468,
   'DOCUMENT_MAG_HEIGHT' => 336,
-  'DOCUMENT_MAG_BORDER' => 3
+  'DOCUMENT_MAG_BORDER' => 3,
+  'HD_HEIGHT' => 110,
+  'FT_HEIGHT' => 75
 );
 
 $JS = js('fb.js');
