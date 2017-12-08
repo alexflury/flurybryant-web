@@ -520,7 +520,8 @@ table#towns td {
 
 .photo-sequence {
   position: relative;
-  height: 1px;
+  width: 100%;
+  height: 800px;
 }
 
 .photo-sequence .script-only {
@@ -557,8 +558,6 @@ table#towns td {
 }
 
 #slideshow .photo {
-  width: 100%;
-  height: 800px;
   text-align: center;
   position: relative;
 }
