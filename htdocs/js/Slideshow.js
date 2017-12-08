@@ -1,8 +1,9 @@
-FB.Modules.Slideshow = function(photoSequence, isAuto, period, autoResizeDelta) {
+FB.Modules.Slideshow = function(photoSequence, isAuto, period, autoResizeDelta, autoResizeMin) {
   this.photoSequence = photoSequence;
   this.isAuto = isAuto;
   this.period = period;
   this.autoResizeDelta = autoResizeDelta;
+  this.autoResizeMin = autoResizeMin
   this.getHtml();
   this.addListeners();
   this.scheduleNext();
@@ -31,10 +32,10 @@ FB.Modules.Slideshow.prototype = {
       FB.util.Event.addListener(this.nextLinkHtml, 'click', this.getNexter());
     }
     if (this.autoResizeDelta !== null) {
-      FB.util.Dom.registerAutoResizeHeight(this.photoSequence.getRootHtml(), this.autoResizeDelta);
+      FB.util.Dom.registerAutoResizeHeight(this.photoSequence.getRootHtml(), this.autoResizeDelta, this.autoResizeMin);
       var framesHtml = this.photoSequence.getFramesHtml();
       for (var e = 0; e < framesHtml.length; e++) {
-        FB.util.Dom.registerAutoResizeHeight(framesHtml[e], this.autoResizeDelta);
+        FB.util.Dom.registerAutoResizeHeight(framesHtml[e], this.autoResizeDelta, this.autoResizeMin);
       }
     }
   },

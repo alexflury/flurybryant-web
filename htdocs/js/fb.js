@@ -133,20 +133,24 @@ var FB = {
         return FB.util.Dom.autoResizeElements;
       },
 
-      registerAutoResizeHeight: function(el, delta) {
+      registerAutoResizeHeight: function(el, delta, minHeight) {
         if (FB.util.Dom.autoResizeElements === null) {
           FB.util.Event.addListener(window, 'resize', FB.util.Dom.doAutoResize);
           FB.util.Event.addListener(window, 'load', FB.util.Dom.doAutoResize);
           FB.util.Dom.autoResizeElements = [];
         }
-        FB.util.Dom.autoResizeElements.push({'element': el, 'delta': delta});
+        FB.util.Dom.autoResizeElements.push({'element': el, 'delta': delta, 'min': minHeight});
       },
 
       doAutoResize: function() {
         pageHeight = FB.util.getPageSize()[3];
         var elements = FB.util.Dom.getAutoResizeElements();
         for (var e = 0; e < elements.length; e++) {
-          elements[e].element.style.height = (pageHeight - elements[e].delta) + 'px';
+          if (elements[e].min === undefined || elements[e].min === null) {
+            elements[e].element.style.height = (pageHeight - elements[e].delta) + 'px';
+          } else {
+            elements[e].element.style.height = Math.max(elements[e].min, (pageHeight - elements[e].delta)) + 'px';
+          }
         }
       }
 
