@@ -97,7 +97,7 @@ ul {
 
 #hd .house-logo-container {
   position: absolute;
-  left: 10px;
+  left: 0px;
   top: 5px;
   overflow: hidden;
 }
@@ -112,7 +112,7 @@ ul {
   background: url(/images/flurybryant.jpg);
   position: absolute;
   z-index: 20;
-  left: 250px;
+  left: 220px;
   top: 20px;
 }
 
@@ -121,7 +121,7 @@ ul {
   margin: 6px 0 0 0;
   padding: 0;
   position: absolute;
-  left: 252px;
+  left: 232px;
   top: 75px;
   z-index: 20;
   width: <?php echo ($SIZE['MIN_PAGE_WIDTH'] - 252); ?>px;
@@ -166,7 +166,7 @@ ul {
   text-align: center;
   width: 100%;
   border-top: 1px solid #214536;
-  height: <?php echo $SIZE['FT_HEIGHT'] - 10; ?>px;
+  height: <?php echo $SIZE['FT_HEIGHT'] - 20; ?>px;
 }
 
 #ft .moulding {
@@ -522,6 +522,7 @@ table#towns td {
 .photo-sequence {
   position: relative;
   width: 100%;
+  min-width: <?php echo $SIZE['MIN_PAGE_WIDTH'] ?>px;
 }
 
 .photo-sequence .script-only {
@@ -555,6 +556,7 @@ table#towns td {
 
 #slideshow .photo-sequence .photo-frame {
   width: 100%;
+  min-width: <?php echo $SIZE['MIN_PAGE_WIDTH'] ?>px;
 }
 
 #slideshow .photo {
