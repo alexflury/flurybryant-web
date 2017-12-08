@@ -14,7 +14,7 @@ if (!isset($slideshow_auto)) {
 }
 
 if (!isset($slideshow_period)) {
-  $slideshow_period = 10000;
+  $slideshow_period = 20000;
 }
 
 $prev_style = $slideshow_photo > 1 ? '' : ' style="visibility: hidden;"';
