@@ -543,7 +543,8 @@ table#towns td {
   text-align: center;
   background-color: <?php echo $COLOR['BODY'] ?>;
   background-repeat: no-repeat;
-  background-position: top center;
+  background-position: center;
+  background-size: cover;
 }
 
 /* Slideshow */
@@ -553,8 +554,8 @@ table#towns td {
 }
 
 #slideshow .photo-sequence .photo-frame {
-  width: <?php echo $SIZE['PHOTO_WIDTH']; ?>px;
-  height: <?php echo $SIZE['PHOTO_HEIGHT']; ?>px;
+  width: 100%;
+  height: 800px;
 }
 
 #slideshow .photo {
