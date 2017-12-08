@@ -12,18 +12,16 @@
 
   <body>
     <div id="hd">
-      <div class="center-page">
-	<div class="house-logo-container">
-          <img src="/images/house.jpg" class="house-logo" />
-	</div>
-        <div class="flurybryant-logo" src="/images/flurybryant.jpg"></div>
-        <ul class="links">
-          <li class="left"><a href="/">Home</a></li>
-          <li><a href="/about">About Us</a></li>
-          <li><a href="/portfolio">Portfolio</a></li>
-          <li><a href="/documents">Our Documents</a></li>
-          <li><a href="/contact">Contact Us</a></li>
-        </ul>
+      <div class="house-logo-container">
+        <img src="/images/house.jpg" class="house-logo" />
       </div>
+      <div class="flurybryant-logo" src="/images/flurybryant.jpg"></div>
+      <ul class="links">
+        <li class="left"><a href="/">Home</a></li>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/portfolio">Portfolio</a></li>
+        <li><a href="/documents">Our Documents</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+      </ul>
     </div>
     <div id="bd">

@@ -103,8 +103,7 @@ ul {
 }
 
 #hd .house-logo {
-  position: relative;
-  left: -40px;
+
 }
 
 #hd .flurybryant-logo {
@@ -113,7 +112,7 @@ ul {
   background: url(/images/flurybryant.jpg);
   position: absolute;
   z-index: 20;
-  left: 217px;
+  left: 250px;
   top: 20px;
 }
 
@@ -122,7 +121,7 @@ ul {
   margin: 6px 0 0 0;
   padding: 0;
   position: absolute;
-  left: 220px;
+  left: 250px;
   top: 80px;
   z-index: 20;
 }
@@ -139,7 +138,7 @@ ul {
 
 #hd .links li {
   float: left;
-  padding: 0 15px;
+  padding: 0 17px;
   line-height: 1.1em;
   height: 21px
 }
@@ -176,7 +175,7 @@ ul {
 }
 
 #ft .houzz-container {
-  margin-top: 10px;
+  padding: 10px;
 }
 
 
