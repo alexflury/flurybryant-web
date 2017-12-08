@@ -29,8 +29,8 @@ FB.Modules.Header.prototype = {
 
 	addListeners: function() {
 		var hd = this;
-		FB.util.Event.addListener(this.linksContainerHtml, 'mouseover', function() { hd.linksMouseOver(); });
-		FB.util.Event.addListener(this.linksContainerHtml, 'mouseout', function() { hd.linksMouseOut(); });
+		FB.util.Event.addListener(this.html, 'mouseover', function() { hd.headerMouseOver(); });
+		FB.util.Event.addListener(this.html, 'mouseout', function() { hd.headerMouseOut(); });
 		FB.util.Event.addListener(this.menuPanelHtml, 'mouseover', function() { hd.menuPanelMouseOver(); });
 		FB.util.Event.addListener(this.menuPanelHtml, 'mouseout', function() { hd.menuPanelMouseOut(); });
 		FB.util.Event.addListener(this.linksHtml.about, 'mouseover', function() { hd.showMenuPanel(); });
@@ -47,12 +47,12 @@ FB.Modules.Header.prototype = {
 		this.menuPanelHtml.style.display = 'none';
 	},
 
-	linksMouseOver: function() {
-		this.isMouseOverLinks = true;
+	headerMouseOver: function() {
+		this.isMouseOverHeader = true;
 	},
 
-	linksMouseOut: function() {
-		this.isMouseOverLinks = false;
+	headerMouseOut: function() {
+		this.isMouseOverHeader = false;
 		this.mouseOut();
 	},
 
@@ -71,7 +71,7 @@ FB.Modules.Header.prototype = {
 	},
 
 	checkMouseOut: function() {
-		if (!this.isMouseOverLinks && !this.isMouseOverMenuPanel) {
+		if (!this.isMouseOverHeader && !this.isMouseOverMenuPanel) {
 			this.hideMenuPanel();
 		}
 	}
