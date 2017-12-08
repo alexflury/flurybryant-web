@@ -25,8 +25,8 @@ if (isset($photo_sequence_use_thumbs) and $photo_sequence_use_thumbs) {
 
 <?php
 
-if (!isset($photo_sequence_speed)) {
-  $photo_sequence_speed = '';
+if (!isset($photo_sequence_fade_speed)) {
+  $photo_sequence_fade_speed = 0.025;
 }
 
 if (!isset($photo_sequence_width)) {
@@ -45,7 +45,7 @@ if (isset($photo_sequence_init) and !$photo_sequence_init) {
 }
 
 $JS .= js('photoSequence.js') . '<script type="text/javascript"><!--' . "\n";
-$JS .= "var $photo_sequence_id = new FB.Modules.PhotoSequence(new Array('" . implode("','", $photo_sequence_photos) . "'), $photo_sequence_init_photo, '$photo_sequence_speed', $photo_sequence_width, $photo_sequence_height, '$photo_sequence_id', $photo_sequence_use_thumbs);\n";
+$JS .= "var $photo_sequence_id = new FB.Modules.PhotoSequence(new Array('" . implode("','", $photo_sequence_photos) . "'), $photo_sequence_init_photo, $photo_sequence_fade_speed, $photo_sequence_width, $photo_sequence_height, '$photo_sequence_id', $photo_sequence_use_thumbs);\n";
 $JS .= '--></script>' . "\n";
 
 ?>

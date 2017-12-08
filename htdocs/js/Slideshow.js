@@ -1,6 +1,7 @@
-FB.Modules.Slideshow = function(photoSequence, isAuto) {
+FB.Modules.Slideshow = function(photoSequence, isAuto, period) {
   this.photoSequence = photoSequence;
   this.isAuto = isAuto;
+  this.period = period;
   this.getHtml();
   this.addListeners();
   this.scheduleNext();
@@ -11,6 +12,7 @@ FB.Modules.Slideshow.prototype = {
   isAuto: true,
   prevLinkHtml: null,
   nextLinkHtml: null,
+  period: null,
 
   getHtml: function() {
     if (!this.isAuto) {
@@ -61,6 +63,6 @@ FB.Modules.Slideshow.prototype = {
 
   scheduleNext: function() {
     if (!this.isAuto) { return; }
-    setTimeout('slideshow.next();', 5000);
+    setTimeout('slideshow.next();', this.period);
   }
 };

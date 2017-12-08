@@ -13,7 +13,7 @@ FB.Modules.PhotoSequence = function(photos, photoNum, speed, width, height, id, 
 FB.Modules.PhotoSequence.prototype = {
   width: -1,
   height: -1,
-  speed: '',
+  speed: null,
   thumbs: false,
   fadeWait: 50,
   photoNum: 0,
@@ -172,9 +172,7 @@ FB.Modules.PhotoSequence.prototype = {
 
 FB.Modules.PhotoSequence.Frame = function(html, speed, width, height, thumbs) {
   this.html = html
-  if (speed == 'fast') {
-    this.opacityStep = 0.1;
-  }
+  this.opacityStep = speed;
   this.width = width;
   this.height = height;
   this.thumbs = thumbs;
@@ -189,7 +187,7 @@ FB.Modules.PhotoSequence.Frame = function(html, speed, width, height, thumbs) {
 FB.Modules.PhotoSequence.Frame.prototype = {
   width: -1,
   height: -1,
-  opacityStep: 0.025,
+  opacityStep: null,
   html: null,
   curPhoto: null,
   opacity: 1,
