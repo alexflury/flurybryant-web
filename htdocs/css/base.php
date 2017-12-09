@@ -170,7 +170,7 @@ ul {
   left: 0;
   top: <?php echo $SIZE['HD_HEIGHT'] ?>px;
   width: 100%;
-  height: 200px;
+  height: 120px;
   background: <?php echo $COLOR['BODY']; ?>;
   display: none;
   z-index: 1000;
@@ -179,6 +179,13 @@ ul {
 #hd .menu-panel ul {
   display: none;
   position: absolute;
+  top: 0;
+  list-style: none;
+  text-align: left;
+}
+
+#hd .menu-panel li {
+  padding: 5px 17px;
 }
 
 /* Footer */
