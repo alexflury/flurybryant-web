@@ -138,7 +138,6 @@ ul {
 }
 
 #hd .links a:hover {
-  color: #E0E0E0;
   text-decoration: none;
 }
 
@@ -174,6 +173,7 @@ ul {
   background: <?php echo $COLOR['MENU_PANEL']; ?>;
   display: none;
   z-index: 1000;
+  cursor: pointer;
 }
 
 #hd .menu-panel ul {
@@ -193,6 +193,11 @@ ul {
 
 #hd .menu-panel li {
   padding: 9px 17px;
+}
+
+#hd .menu-panel a:hover {
+  text-decoration: none;
+  color: <?php echo $COLOR['HEADER'] ?>;
 }
 
 /* Footer */
