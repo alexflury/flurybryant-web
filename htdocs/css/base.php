@@ -203,6 +203,34 @@ ul {
   color: <?php echo $COLOR['HEADER'] ?>;
 }
 
+#hd .sublink-menu-panel.contact-menu-panel {
+  width: 100%;
+}
+
+#hd .contact-menu-panel ul {
+  height: 50px;
+}
+
+#hd .contact-menu-panel li {
+  float: left;
+  display: block;
+  padding-left: 20px;
+}
+
+#hd .contact-menu-panel td {
+  padding: 3px 7px;
+}
+
+#hd .contact-menu-panel td.label {
+  padding-left: 0;
+  font-weight: bold;
+}
+
+#hd .contact-menu-panel h1 {
+  margin: 15px 0;
+  font-size: 30px;
+}
+
 /* Footer */
 
 #ft {
