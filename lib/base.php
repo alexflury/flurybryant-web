@@ -29,7 +29,7 @@ $SIZE = array(
   'HD_HEIGHT' => 110,
   'FT_HEIGHT' => 70,
   'MIN_PAGE_HEIGHT' => 500,
-  'MIN_PAGE_WIDTH' => 780,
+  'MIN_PAGE_WIDTH' => 880,
   'MENU_PANEL_HEIGHT' => 150
 );
 

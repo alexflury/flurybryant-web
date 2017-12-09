@@ -24,6 +24,7 @@
           <li class="about-link"><a href="/about">About Us</a></li>
           <li class="portfolio-link"><a href="/portfolio">Portfolio</a></li>
           <li class="documents-link"><a href="/documents">Our Documents</a></li>
+          <li class="resources-link"><a href="/resources">Resources</a></li>
           <li class="contact-link"><a href="/contact">Contact Us</a></li>
         </ul>
       </div>
@@ -48,6 +49,14 @@
           <ul>
             <li><a href="/documents/new-homes/">New Homes</a></li>
             <li><a href="/documents/remodels/">Remodels</a></li>
+          </ul>
+        </div>
+        <div class="sublink-menu-panel resources-menu-panel">
+          <ul>
+            <li><a href="/resources/builders/">Builders</a></li>
+            <li><a href="/documents/landscape-architects/">Landscape Architects</a></li>
+            <li><a href="/documents/interior-designers/">Interior Designers</a></li>
+            <li><a href="/documents/consultants/">Other Consultants</a></li>
           </ul>
         </div>
         <div class="sublink-menu-panel contact-menu-panel">

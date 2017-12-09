@@ -22,10 +22,12 @@ FB.Modules.Header.prototype = {
 		this.linksHtml.about = FB.util.Dom.getElementsByClassName('about-link', this.html)[0];
 		this.linksHtml.portfolio = FB.util.Dom.getElementsByClassName('portfolio-link', this.html)[0];
 		this.linksHtml.documents = FB.util.Dom.getElementsByClassName('documents-link', this.html)[0];
+		this.linksHtml.resources = FB.util.Dom.getElementsByClassName('resources-link', this.html)[0];
 		this.linksHtml.contact = FB.util.Dom.getElementsByClassName('contact-link', this.html)[0];
 		this.sublinkPanelsHtml.about = FB.util.Dom.getElementsByClassName('about-menu-panel', this.menuPanelHtml)[0];
 		this.sublinkPanelsHtml.portfolio = FB.util.Dom.getElementsByClassName('portfolio-menu-panel', this.menuPanelHtml)[0];
 		this.sublinkPanelsHtml.documents = FB.util.Dom.getElementsByClassName('documents-menu-panel', this.menuPanelHtml)[0];
+		this.sublinkPanelsHtml.resources = FB.util.Dom.getElementsByClassName('resources-menu-panel', this.menuPanelHtml)[0];
 		this.sublinkPanelsHtml.contact = FB.util.Dom.getElementsByClassName('contact-menu-panel', this.menuPanelHtml)[0];
 	},
 
@@ -58,6 +60,7 @@ FB.Modules.Header.prototype = {
 		FB.util.Event.addListener(this.linksHtml.about, 'mouseover', function() { hd.showMenuPanel('about'); });
 		FB.util.Event.addListener(this.linksHtml.portfolio, 'mouseover', function() { hd.showMenuPanel('portfolio'); });
 		FB.util.Event.addListener(this.linksHtml.documents, 'mouseover', function() { hd.showMenuPanel('documents'); });
+		FB.util.Event.addListener(this.linksHtml.resources, 'mouseover', function() { hd.showMenuPanel('resources'); });
 		FB.util.Event.addListener(this.linksHtml.contact, 'mouseover', function() { hd.showMenuPanel('contact'); });
 		FB.util.Event.addListener(this.linksHtml.contact, 'click', function() { hd.contactClick(); });
 		FB.util.Event.addListener(window, 'resize', function() { hd.renderContactMenu(); });
