@@ -39,14 +39,9 @@ $next_style = $slideshow_photo < count($slideshow_photos) ? '' : ' style="visibi
       include('photo-sequence.php');
       ?>
     </div>
+    <div class="left-arrow"></div>
+    <div class="right-arrow"></div>
   </div>
-  <?php if (!$slideshow_auto) { ?>
-    <div class="pager">
-      <div class="prev"><a id="prev-link"<?php echo $prev_style; ?> href="?photo=<?php echo ($slideshow_photo - 1); ?>">Previous</a></div>
-      <div class="next"><a id="next-link"<?php echo $next_style; ?> href="?photo=<?php echo ($slideshow_photo + 1); ?>">Next</a></div>
-      <div style="clear: both;"></div>
-    </div>
-  <?php } ?>
 </div>
 
 <?php

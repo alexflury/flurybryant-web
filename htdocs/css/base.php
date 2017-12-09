@@ -720,3 +720,23 @@ table#towns td {
 #slideshow .photo img {
   border: 0;
 }
+
+#slideshow .left-arrow {
+  width: 64px;
+  height: 64px;
+  background: url(/images/left-arrow.png);
+  position: absolute;
+  left: 20px;
+  top: 200px;
+  z-index: 1000;
+}
+
+#slideshow .right-arrow {
+  width: 64px;
+  height: 64px;
+  background: url(/images/right-arrow.png);
+  position: absolute;
+  right: 20px;
+  top: 200px;
+  z-index: 1000;
+}
