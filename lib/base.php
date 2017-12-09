@@ -7,7 +7,7 @@ $COLOR = array(
   'LINE' => '#183328',
   'HEADER' => '#2F614C',
   'FRAME' => '#ECF3C5',
-  'BODY' => '#CCC',
+  'BODY' => '#B8B8B8',
 );
 
 $SIZE = array(
