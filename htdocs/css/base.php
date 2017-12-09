@@ -176,6 +176,11 @@ ul {
   z-index: 1000;
 }
 
+#hd .menu-panel ul {
+  display: none;
+  position: absolute;
+}
+
 /* Footer */
 
 #ft {

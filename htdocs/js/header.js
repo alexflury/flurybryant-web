@@ -9,6 +9,7 @@ FB.Modules.Header.prototype = {
 	menuPanelHtml: null,
 	linksContainerHtml: null,
 	linksHtml: {},
+	sublinkPanelsHtml: {},
 	isMouseOverLinks: false,
 	isMouseOverMenuPanel: false,
 
@@ -21,6 +22,9 @@ FB.Modules.Header.prototype = {
 		this.linksHtml.portfolio = FB.util.Dom.getElementsByClassName('portfolio-link', this.html)[0];
 		this.linksHtml.documents = FB.util.Dom.getElementsByClassName('documents-link', this.html)[0];
 		this.linksHtml.contact = FB.util.Dom.getElementsByClassName('contact-link', this.html)[0];
+		this.sublinkPanelsHtml.about = FB.util.Dom.getElementsByClassName('about-menu-panel', this.menuPanelHtml)[0];
+		this.sublinkPanelsHtml.portfolio = FB.util.Dom.getElementsByClassName('portfolio-menu-panel', this.menuPanelHtml)[0];
+		this.sublinkPanelsHtml.documents = FB.util.Dom.getElementsByClassName('documents-menu-panel', this.menuPanelHtml)[0];
 	},
 
 	initHtml: function() {
@@ -33,13 +37,20 @@ FB.Modules.Header.prototype = {
 		FB.util.Event.addListener(this.html, 'mouseout', function() { hd.headerMouseOut(); });
 		FB.util.Event.addListener(this.menuPanelHtml, 'mouseover', function() { hd.menuPanelMouseOver(); });
 		FB.util.Event.addListener(this.menuPanelHtml, 'mouseout', function() { hd.menuPanelMouseOut(); });
-		FB.util.Event.addListener(this.linksHtml.about, 'mouseover', function() { hd.showMenuPanel(); });
-		FB.util.Event.addListener(this.linksHtml.portfolio, 'mouseover', function() { hd.showMenuPanel(); });
-		FB.util.Event.addListener(this.linksHtml.documents, 'mouseover', function() { hd.showMenuPanel(); });
-		FB.util.Event.addListener(this.linksHtml.contact, 'mouseover', function() { hd.showMenuPanel(); });
+		FB.util.Event.addListener(this.linksHtml.about, 'mouseover', function() { hd.showMenuPanel('about'); });
+		FB.util.Event.addListener(this.linksHtml.portfolio, 'mouseover', function() { hd.showMenuPanel('portfolio'); });
+		FB.util.Event.addListener(this.linksHtml.documents, 'mouseover', function() { hd.showMenuPanel('documents'); });
+		//FB.util.Event.addListener(this.linksHtml.contact, 'mouseover', function() { hd.showMenuPanel(); });
 	},
 
-	showMenuPanel: function() {
+	showMenuPanel: function(activeLinkName) {
+		for (linkName in this.sublinkPanelsHtml) {
+			if (linkName == activeLinkName) {
+				this.sublinkPanelsHtml[linkName].style.display = 'block';
+			} else {
+				this.sublinkPanelsHtml[linkName].style.display = 'none';
+			}
+		}
 		this.menuPanelHtml.style.display = 'block';
 	},
 
