@@ -170,8 +170,8 @@ ul {
   left: 0;
   top: <?php echo $SIZE['HD_HEIGHT'] ?>px;
   width: 100%;
-  height: 150px;
-  background: <?php echo $COLOR['BODY']; ?>;
+  height: <?php echo $SIZE['MENU_PANEL_HEIGHT'] ?>px;
+  background: <?php echo $COLOR['MENU_PANEL']; ?>;
   display: none;
   z-index: 1000;
 }
@@ -182,6 +182,13 @@ ul {
   top: 0;
   list-style: none;
   text-align: left;
+  width: 300px;
+  height: <?php echo $SIZE['MENU_PANEL_HEIGHT'] ?>px;
+  background: <?php echo $COLOR['MENU_PANEL']; ?>; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left, <?php echo $COLOR['MENU_PANEL_GRAD']; ?>, <?php echo $COLOR['MENU_PANEL'] ?>); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, <?php echo $COLOR['MENU_PANEL_GRAD']; ?>, <?php echo $COLOR['MENU_PANEL'] ?>); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, <?php echo $COLOR['MENU_PANEL_GRAD']; ?>, <?php echo $COLOR['MENU_PANEL'] ?>); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, <?php echo $COLOR['MENU_PANEL_GRAD']; ?>, <?php echo $COLOR['MENU_PANEL'] ?>); /* Standard syntax */
 }
 
 #hd .menu-panel li {

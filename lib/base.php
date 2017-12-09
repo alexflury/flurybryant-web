@@ -8,6 +8,8 @@ $COLOR = array(
   'HEADER' => '#2F614C',
   'FRAME' => '#ECF3C5',
   'BODY' => '#B8B8B8',
+  'MENU_PANEL' => '#A9A9A9',
+  'MENU_PANEL_GRAD' => '#E0E0E0'
 );
 
 $SIZE = array(
@@ -27,7 +29,8 @@ $SIZE = array(
   'HD_HEIGHT' => 110,
   'FT_HEIGHT' => 70,
   'MIN_PAGE_HEIGHT' => 500,
-  'MIN_PAGE_WIDTH' => 780
+  'MIN_PAGE_WIDTH' => 780,
+  'MENU_PANEL_HEIGHT' => 150
 );
 
 $JS = js('fb.js');
