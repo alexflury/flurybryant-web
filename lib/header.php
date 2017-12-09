@@ -56,10 +56,10 @@
               <h1>Address</h1>
               <table cellpadding="0" cellspacing="0">
                 <tr>
-                  <td>761 University Avenue, Suite A</td>
+                  <td class="left">761 University Avenue, Suite A</td>
                 </tr>
                 <tr>
-                  <td>Los Gatos, CA 95032</td>
+                  <td class="left">Los Gatos, CA 95032</td>
                 </tr>
               </table>
             </li>
@@ -67,11 +67,11 @@
               <h1>Phone</h1>
               <table cellpadding="0" cellspacing="0">
                 <tr>
-                  <td class="label">Phone</td>
+                  <td class="left label">Phone</td>
                   <td>(408) 356-5550</td>
                 </tr>
                 <tr>
-                  <td class="label">Fax</td>
+                  <td class="left label">Fax</td>
                   <td>(408) 356-5115</td>
                 </tr>
               </table>
@@ -80,11 +80,11 @@
               <h1>Email</h1>
               <table cellpadding="0" cellspacing="0">
                 <tr>
-                  <td class="label">Bob Flury</td>
+                  <td class="left label">Bob Flury</td>
                   <td><a href="mailto:bobflury@flurybryant.com">bobflury@flurybryant.com</a></td>
                 </tr>
                 <tr>
-                  <td class="label">Bob Bryant</td>
+                  <td class="left label">Bob Bryant</td>
                   <td><a href="mailto:bobbryant@flurybryant.com">bobbryant@flurybryant.com</a></td>
                 </tr>
               </table>
@@ -93,11 +93,11 @@
               <h1>Hours</h1>
               <table cellpading="0" cellspacing="0">
                 <tr>
-                  <td class="label">Monday-Thursday</td>
+                  <td class="left label">Monday-Thursday</td>
                   <td>8:00AM-6:00PM</td>
                 </tr>
                 <tr>
-                  <td class="label">Friday</td>
+                  <td class="left label">Friday</td>
                   <td>8:00AM-12:00PM</td>
                 </tr>
               </table>

@@ -214,15 +214,18 @@ ul {
 #hd .contact-menu-panel li {
   float: left;
   display: block;
-  padding-left: 20px;
+  padding-left: 10px;
 }
 
 #hd .contact-menu-panel td {
   padding: 3px 7px;
 }
 
-#hd .contact-menu-panel td.label {
+#hd .contact-menu-panel td.left {
   padding-left: 0;
+}
+
+#hd .contact-menu-panel td.label {
   font-weight: bold;
 }
 
