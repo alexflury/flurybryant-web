@@ -28,22 +28,28 @@
         </ul>
       </div>
       <div class="menu-panel">
-        <ul class="about-menu-panel">
-          <li><a href="/about/who/">Who We Are</a></li>
-          <li><a href="/about/philosophy/">Our Operating Philosophy</a></li>
-          <li><a href="/about/mission/">Our Mission Statement</a></li>
-          <li><a href="/about/staff/">Our Staff</a></li>
-        </ul>
-        <ul class="portfolio-menu-panel">
-          <li><a href="/portfolio/new-home-exteriors/">New Home Exteriors</a></li>
-          <li><a href="/portfolio/remodeled-exteriors/">Remodeled Exteriors</a></li>
-          <li><a href="/portfolio/interiors/">Interiors</a></li>
-          <li><a href="/portfolio/details/">Details</a></li>
-        </ul>
-        <ul class="documents-menu-panel">
-          <li><a href="/documents/new-homes/">New Homes</a></li>
-          <li><a href="/documents/remodels/">Remodels</a></li>
-        </ul>
+        <div class="sublink-menu-panel about-menu-panel">
+          <ul>
+            <li><a href="/about/who/">Who We Are</a></li>
+            <li><a href="/about/philosophy/">Our Operating Philosophy</a></li>
+            <li><a href="/about/mission/">Our Mission Statement</a></li>
+            <li><a href="/about/staff/">Our Staff</a></li>
+          </ul>
+        </div>
+        <div class="sublink-menu-panel portfolio-menu-panel">
+          <ul>
+            <li><a href="/portfolio/new-home-exteriors/">New Home Exteriors</a></li>
+            <li><a href="/portfolio/remodeled-exteriors/">Remodeled Exteriors</a></li>
+            <li><a href="/portfolio/interiors/">Interiors</a></li>
+            <li><a href="/portfolio/details/">Details</a></li>
+          </ul>
+        </div>
+        <div class="sublink-menu-panel documents-menu-panel">
+          <ul>
+            <li><a href="/documents/new-homes/">New Homes</a></li>
+            <li><a href="/documents/remodels/">Remodels</a></li>
+          </ul>
+        </div>
       </div>
     </div>
     <div id="bd">
