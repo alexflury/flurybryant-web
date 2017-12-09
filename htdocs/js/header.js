@@ -29,6 +29,12 @@ FB.Modules.Header.prototype = {
 
 	initHtml: function() {
 		FB.util.Dom.setOpacity(this.menuPanelHtml, 0.9);
+		for (var linkName in this.linksHtml) {
+			var destination = this.linksHtml[linkName].getElementsByTagName('a')[0].href;
+			FB.util.Event.addListener(this.linksHtml[linkName], 'click', function() {
+				document.location.href = destination
+			});
+		}
 		for (var linkName in this.sublinkPanelsHtml) {
 			var linkRect = this.linksHtml[linkName].getBoundingClientRect();
 			this.sublinkPanelsHtml[linkName].style.left = linkRect.left + 'px';
