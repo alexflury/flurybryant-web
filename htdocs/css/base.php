@@ -182,7 +182,7 @@ ul {
   top: 0;
   list-style: none;
   text-align: left;
-  width: 300px;
+  width: 500px;
   height: <?php echo $SIZE['MENU_PANEL_HEIGHT'] ?>px;
   background: <?php echo $COLOR['MENU_PANEL']; ?>; /* For browsers that do not support gradients */
   background: -webkit-linear-gradient(left, <?php echo $COLOR['MENU_PANEL_GRAD']; ?>, <?php echo $COLOR['MENU_PANEL'] ?>); /* For Safari 5.1 to 6.0 */

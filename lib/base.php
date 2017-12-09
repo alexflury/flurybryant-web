@@ -9,7 +9,7 @@ $COLOR = array(
   'FRAME' => '#ECF3C5',
   'BODY' => '#B8B8B8',
   'MENU_PANEL' => '#A9A9A9',
-  'MENU_PANEL_GRAD' => '#E0E0E0'
+  'MENU_PANEL_GRAD' => '#DCDCDC'
 );
 
 $SIZE = array(
