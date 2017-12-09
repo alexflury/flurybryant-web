@@ -12,6 +12,7 @@ FB.Modules.Header.prototype = {
 	sublinkPanelsHtml: {},
 	isMouseOverLinks: false,
 	isMouseOverMenuPanel: false,
+	isContactClicked: false,
 
 	getHtml: function() {
 		this.html = FB.util.Dom.get('hd');
@@ -31,10 +32,15 @@ FB.Modules.Header.prototype = {
 	initHtml: function() {
 		FB.util.Dom.setOpacity(this.menuPanelHtml, 0.9);
 		for (var linkName in this.linksHtml) {
-			var destination = this.linksHtml[linkName].getElementsByTagName('a')[0].href;
-			FB.util.Event.addListener(this.linksHtml[linkName], 'click', function() {
-				document.location.href = destination
-			});
+			var linkElement = this.linksHtml[linkName].getElementsByTagName('a')[0]
+			if (linkName == 'contact') {
+				linkElement.href = 'javascript:void(0);';
+			} else {
+				var destination = linkElement.href;
+				FB.util.Event.addListener(this.linksHtml[linkName], 'click', function() {
+					document.location.href = destination
+				});
+			}
 		}
 		for (var linkName in this.sublinkPanelsHtml) {
 			var linkRect = this.linksHtml[linkName].getBoundingClientRect();
@@ -53,9 +59,13 @@ FB.Modules.Header.prototype = {
 		FB.util.Event.addListener(this.linksHtml.portfolio, 'mouseover', function() { hd.showMenuPanel('portfolio'); });
 		FB.util.Event.addListener(this.linksHtml.documents, 'mouseover', function() { hd.showMenuPanel('documents'); });
 		FB.util.Event.addListener(this.linksHtml.contact, 'mouseover', function() { hd.showMenuPanel('contact'); });
+		FB.util.Event.addListener(this.linksHtml.contact, 'click', function() { hd.contactClick(); });
 	},
 
 	showMenuPanel: function(activeLinkName) {
+		if (activeLinkName != 'contact') {
+			this.isContactClicked = false;
+		}
 		for (linkName in this.sublinkPanelsHtml) {
 			if (linkName == activeLinkName) {
 				this.sublinkPanelsHtml[linkName].style.display = 'block';
@@ -94,8 +104,12 @@ FB.Modules.Header.prototype = {
 	},
 
 	checkMouseOut: function() {
-		if (!this.isMouseOverHeader && !this.isMouseOverMenuPanel) {
+		if (!this.isMouseOverHeader && !this.isMouseOverMenuPanel && !this.isContactClicked) {
 			this.hideMenuPanel();
 		}
+	},
+
+	contactClick: function() {
+		this.isContactClicked = true;
 	}
 };
