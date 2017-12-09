@@ -60,6 +60,7 @@ FB.Modules.Header.prototype = {
 		FB.util.Event.addListener(this.linksHtml.documents, 'mouseover', function() { hd.showMenuPanel('documents'); });
 		FB.util.Event.addListener(this.linksHtml.contact, 'mouseover', function() { hd.showMenuPanel('contact'); });
 		FB.util.Event.addListener(this.linksHtml.contact, 'click', function() { hd.contactClick(); });
+		FB.util.Event.addListener(window, 'resize', function() { hd.renderContactMenu(); });
 	},
 
 	showMenuPanel: function(activeLinkName) {
@@ -74,6 +75,9 @@ FB.Modules.Header.prototype = {
 			}
 		}
 		this.menuPanelHtml.style.display = 'block';
+		if (activeLinkName == 'contact') {
+			this.renderContactMenu();
+		}
 	},
 
 	hideMenuPanel: function() {
@@ -111,5 +115,21 @@ FB.Modules.Header.prototype = {
 
 	contactClick: function() {
 		this.isContactClicked = true;
+	},
+
+	renderContactMenu: function() {
+		this.sublinkPanelsHtml.contact.style.display = 'block';
+		panelWidth = this.sublinkPanelsHtml.contact.getBoundingClientRect().width;
+		var contactListItems = this.sublinkPanelsHtml.contact.getElementsByTagName("li");
+		var contactListItemsTotalWidth = 0;
+		for (var i = 0; i < contactListItems.length; i++) {
+			contactListItems[i].style.display = 'block';
+			contactListItemsTotalWidth += contactListItems[i].getBoundingClientRect().width;
+			var rect = contactListItems[i].getBoundingClientRect();
+		}
+		var padding = Math.max(10, Math.floor((panelWidth - contactListItemsTotalWidth) / (1 + contactListItems.length)));
+		for (var i = 0; i < contactListItems.length; i++) {
+			contactListItems[i].style.marginLeft = padding + 'px';
+		}
 	}
 };

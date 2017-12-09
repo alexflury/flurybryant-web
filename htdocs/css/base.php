@@ -205,6 +205,7 @@ ul {
 
 #hd .sublink-menu-panel.contact-menu-panel {
   width: 100%;
+  min-width: 950px;
 }
 
 #hd .contact-menu-panel ul {
@@ -214,7 +215,8 @@ ul {
 #hd .contact-menu-panel li {
   float: left;
   display: block;
-  padding-left: 10px;
+  padding: 0;
+  margin-left 10px;
 }
 
 #hd .contact-menu-panel td {
