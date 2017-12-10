@@ -727,8 +727,7 @@ table#towns td {
   background-image: url(/images/arrows.png);
   background-position: 0px 64px;
   position: absolute;
-  left: 20px;
-  top: 200px;
+  left: 10px;
   z-index: 1000;
 }
 
@@ -742,8 +741,7 @@ table#towns td {
   background-image: url(/images/arrows.png);
   background-position: 64px 64px;
   position: absolute;
-  right: 20px;
-  top: 200px;
+  right: 10px;
   z-index: 1000;
 }
 
