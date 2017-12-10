@@ -724,19 +724,29 @@ table#towns td {
 #slideshow .left-arrow {
   width: 64px;
   height: 64px;
-  background: url(/images/left-arrow.png);
+  background-image: url(/images/arrows.png);
+  background-position: 0px 64px;
   position: absolute;
   left: 20px;
   top: 200px;
   z-index: 1000;
 }
 
+#slideshow .left-arrow.hover {
+  background-position: 0px 0px;
+}
+
 #slideshow .right-arrow {
   width: 64px;
   height: 64px;
-  background: url(/images/right-arrow.png);
+  background-image: url(/images/arrows.png);
+  background-position: 64px 64px;
   position: absolute;
   right: 20px;
   top: 200px;
   z-index: 1000;
+}
+
+#slideshow .right-arrow.hover {
+  background-position: 64px 0px;
 }
