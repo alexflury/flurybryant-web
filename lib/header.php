@@ -115,12 +115,16 @@
         </div>
       </div>
     </div>
-    <div id="banner"></div>
+    <div id="banner">
+      <div class="banner-title-container">
+        <div class="banner-title"></div>
+      </div>
+    </div>
     <div id="bd">
 
 <?php
 
 global $JS;
-$JS .= js('header.js') . raw_js("var header = new FB.Modules.Header({'bannerPhoto': '$banner_photo'});");
+$JS .= js('header.js') . raw_js("var header = new FB.Modules.Header({'bannerPhoto': '$banner_photo', 'bannerTitle': '$banner_title'});");
 
 ?>

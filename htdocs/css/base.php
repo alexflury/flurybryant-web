@@ -242,6 +242,24 @@ ul {
   display: none;
 }
 
+#banner .banner-title-container {
+  display: none;
+  width: 100%;
+  height: <?php echo $SIZE['BANNER_HEIGHT'] ?>px;
+  background: <?php echo $COLOR['MENU_PANEL']; ?>; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left, <?php echo $COLOR['MENU_PANEL_GRAD']; ?>, <?php echo $COLOR['MENU_PANEL'] ?>); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, <?php echo $COLOR['MENU_PANEL_GRAD']; ?>, <?php echo $COLOR['MENU_PANEL'] ?>); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, <?php echo $COLOR['MENU_PANEL_GRAD']; ?>, <?php echo $COLOR['MENU_PANEL'] ?>); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, <?php echo $COLOR['MENU_PANEL_GRAD']; ?>, <?php echo $COLOR['MENU_PANEL'] ?>); /* Standard syntax */
+}
+
+#banner .banner-title {
+  padding: <?php echo $SIZE['BANNER_HEIGHT'] - 60 ?>px 15px 0 15px;
+  font-size: 48px;
+  font-weight: bold;
+  color: <?php echo $COLOR['MENU_PANEL']; ?>;
+}
+
 /* Footer */
 
 #ft {

@@ -1,5 +1,6 @@
 FB.Modules.Header = function(params) {
 	this.bannerPhoto = params.bannerPhoto;
+	this.bannerTitleText = params.bannerTitle;
 	this.getHtml();
 	this.initHtml();
 	this.addListeners();
@@ -12,10 +13,12 @@ FB.Modules.Header.prototype = {
 	linksHtml: {},
 	sublinkPanelsHtml: {},
 	bannerHtml: null,
+	bannerTitleContainerHtml: null,
 	isMouseOverLinks: false,
 	isMouseOverMenuPanel: false,
 	isContactClicked: false,
 	bannerPhoto: null,
+	bannerTitleText: null,
 
 	getHtml: function() {
 		this.html = FB.util.Dom.get('hd');
@@ -33,6 +36,9 @@ FB.Modules.Header.prototype = {
 		this.sublinkPanelsHtml.resources = FB.util.Dom.getElementsByClassName('resources-menu-panel', this.menuPanelHtml)[0];
 		this.sublinkPanelsHtml.contact = FB.util.Dom.getElementsByClassName('contact-menu-panel', this.menuPanelHtml)[0];
 		this.bannerHtml = FB.util.Dom.get('banner');
+		this.bannerTitleContainerHtml = FB.util.Dom.getElementsByClassName("banner-title-container", this.bannerHtml)[0];
+		this.bannerTitleHtml = FB.util.Dom.getElementsByClassName("banner-title", this.bannerHtml)[0];
+		console.log("bannerTitleHtml = " + this.bannerTitleHtml);
 	},
 
 	initHtml: function() {
@@ -56,6 +62,11 @@ FB.Modules.Header.prototype = {
 		if (this.bannerPhoto !== null && this.bannerPhoto.length > 0) {
 			this.bannerHtml.style.backgroundImage = 'url(/images/photos/' + this.bannerPhoto + ')';
 			this.bannerHtml.style.display = 'block';
+		}
+		if (this.bannerTitleText !== null && this.bannerTitleText.length > 0) {
+			FB.util.Dom.setOpacity(this.bannerTitleContainerHtml, 0.9);
+			this.bannerTitleHtml.innerHTML = this.bannerTitleText;
+			this.bannerTitleContainerHtml.style.display = 'block';
 		}
 	},
 
