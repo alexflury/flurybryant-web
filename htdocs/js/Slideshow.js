@@ -18,6 +18,7 @@ FB.Modules.Slideshow.prototype = {
   isAuto: true,
   period: null,
   autoResizeDelta: null,
+  currentTimeout: null,
 
   getHtml: function() {
     this.html = FB.util.Dom.get('slideshow');
@@ -27,8 +28,6 @@ FB.Modules.Slideshow.prototype = {
   },
 
   addListeners: function() {
-    FB.util.Event.addListener(this.prevLinkHtml, 'click', this.getPrever());
-    FB.util.Event.addListener(this.nextLinkHtml, 'click', this.getNexter());
     if (this.autoResizeDelta !== null) {
       FB.util.Dom.registerAutoResizeHeight(this.photoSequenceHtml, this.autoResizeDelta, this.autoResizeMin);
       var framesHtml = this.photoSequence.getFramesHtml();
@@ -45,42 +44,37 @@ FB.Modules.Slideshow.prototype = {
     FB.util.Event.addListener(this.nextLinkHtml, 'mouseout', function() { slideshow.lightenNextLink(); });
     FB.util.Event.addListener(this.prevLinkHtml, 'mouseover', function() { slideshow.darkenPrevLink(); });
     FB.util.Event.addListener(this.prevLinkHtml, 'mouseout', function() { slideshow.lightenPrevLink(); });
+    FB.util.Event.addListener(this.nextLinkHtml, 'click', function() { slideshow.clickNext(); });
+    FB.util.Event.addListener(this.prevLinkHtml, 'click', function() { slideshow.clickPrev(); });
   },
 
   prev: function() {
     this.photoSequence.prev();
-    if (!this.isAuto) {
-      if (this.photoSequence.getPhotoNum() <= 1) {
-	this.prevLinkHtml.style.visibility = 'hidden';
-      }
-      this.nextLinkHtml.style.visibility = 'visible';
-    }
   },
 
   next: function() {
     this.photoSequence.next();
-    if (!this.isAuto) {
-      if (this.photoSequence.getPhotoNum() >= this.photoSequence.getLength()) {
-        this.nextLinkHtml.style.visibility = 'hidden';
-      }
-      this.prevLinkHtml.style.visibility = 'visible';
+    if (this.isAuto) {
+      this.scheduleNext();
     }
-    this.scheduleNext();
   },
 
-  getPrever: function() {
-    var ss = this;
-    return function() { ss.prev(); };
+  clickNext: function() {
+    this.isAuto = false;
+    clearTimeout(this.currentTimeout);
+    this.next();
   },
 
-  getNexter: function() {
-    var ss = this;
-    return function() { ss.next(); };
+  clickPrev: function() {
+    this.isAuto = false;
+    clearTimeout(this.currentTimeout);
+    this.prev();
   },
 
   scheduleNext: function() {
-    if (!this.isAuto) { return; }
-    setTimeout('slideshow.next();', this.period);
+    var slideshow = this;
+    clearTimeout(this.currentTimeout);
+    this.currentTimeout = setTimeout(function() { slideshow.next(); }, this.period);
   },
 
   render: function() {
