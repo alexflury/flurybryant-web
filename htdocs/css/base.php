@@ -26,8 +26,8 @@ a:hover {
 }
 
 p {
-  margin-top: 0;
-  margin-bottom: 10px;
+  margin: 0;
+  padding-bottom: 10px;
 }
 
 em {
@@ -38,6 +38,11 @@ em {
 ul {
   padding: 0;
   margin: 0;
+}
+
+h1 {
+  margin: 0;
+  padding: 15px 0;
 }
 
 /* Shared */
