@@ -79,14 +79,6 @@ ul {
   clear: both;
 }
 
-.section-title {
-  font-size: 54px;
-  font-weight: bold;
-  color: <?php echo $COLOR['MENU_PANEL']; ?>;
-  padding: 30px 15px 15px 15px;
-  display: block;
-}
-
 /* Header */
 
 #hd {
@@ -378,6 +370,22 @@ table#towns {
 
 table#towns td {
   padding: 0 75px;
+}
+
+.about-page h1 {
+  font-size: 54px;
+  font-weight: bold;
+  color: <?php echo $COLOR['MENU_PANEL']; ?>;
+  padding: 30px 15px 15px 15px;
+  display: block;
+}
+
+.about-page h2 {
+  font-size: 24px;
+  font-weight: bold;
+  padding: 10px;
+  display: block;
+  margin: 0;
 }
 
 /* Portfolio */
