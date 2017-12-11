@@ -292,7 +292,11 @@ ul {
 
 #bd p {
   margin: 0;
-  padding: 0 10px 10px 10px;
+  padding: 0px 10px 10px 10px;
+}
+
+#bd p:first-child {
+  padding-top: 15px;
 }
 
 #bd h1 {
