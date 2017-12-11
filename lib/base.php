@@ -7,7 +7,7 @@ $COLOR = array(
   'LINE' => '#183328',
   'HEADER' => '#2F614C',
   'FRAME' => '#ECF3C5',
-  'BODY' => '#B8B8B8',
+  'BODY' => '#DCDCDC',
   'MENU_PANEL' => '#A9A9A9',
   'MENU_PANEL_GRAD' => '#DCDCDC'
 );
