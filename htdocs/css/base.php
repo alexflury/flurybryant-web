@@ -248,6 +248,12 @@ ul {
   display: block;
 }
 
+.philosophy-page #banner {
+  background-image: url(/images/photos/interiors/0013.jpg);
+  background-position: center 55%;
+  display: block;
+}
+
 #banner .banner-title-container {
   display: none;
   width: 100%;
@@ -262,7 +268,7 @@ ul {
 
 #banner .banner-title {
   padding: <?php echo $SIZE['BANNER_HEIGHT'] - 70 ?>px 15px 0 15px;
-  font-size: 64px;
+  font-size: 54px;
   font-weight: bold;
   color: <?php echo $COLOR['MENU_PANEL']; ?>;
   width: <?php echo $SIZE['MIN_PAGE_WIDTH'] - 30; ?>px;
