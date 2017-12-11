@@ -30,8 +30,8 @@ p {
 }
 
 em {
-  font-weight: bold;
-  font-style: italic;
+  font-weight: normal;
+  font-style: normal;
 }
 
 ul {
