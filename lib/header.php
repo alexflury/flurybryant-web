@@ -10,7 +10,7 @@
     <noscript><style> .script-only { display: none; } </style></noscript>
   </head>
 
-  <body>
+  <body class="<?php echo $page_classname ?>">
     <div id="hd">
       <div class="house-logo-container">
         <a href="/">
@@ -125,6 +125,6 @@
 <?php
 
 global $JS;
-$JS .= js('header.js') . raw_js("var header = new FB.Modules.Header({'bannerClassName': '$banner_classname', 'bannerTitle': '$banner_title'});");
+$JS .= js('header.js') . raw_js("var header = new FB.Modules.Header({'bannerTitle': '$banner_title'});");
 
 ?>
