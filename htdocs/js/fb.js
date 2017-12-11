@@ -17,6 +17,23 @@ var FB = {
       return '/images/thumbs/' + photo;
     },
 
+    getScrollPosition: function() {
+            var xScroll, yScroll;
+
+      if (window.innerHeight && window.scrollMaxY) {
+  xScroll = document.body.scrollWidth;
+  yScroll = window.innerHeight + window.scrollMaxY;
+      } else if (document.body.scrollHeight > document.body.offsetHeight){ // all but Explorer Mac
+  xScroll = document.body.scrollWidth;
+  yScroll = document.body.scrollHeight;
+      } else { // Explorer Mac...would also work in Explorer 6 Strict, Mozilla and Safari
+  xScroll = document.body.offsetWidth;
+  yScroll = document.body.offsetHeight;
+      }
+
+      return {'x': xScroll, 'y': yScroll};
+    },
+
     //
     // getPageSize()
     // Returns array with page width, height and window width, height

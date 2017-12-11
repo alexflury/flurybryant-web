@@ -17,6 +17,7 @@ FB.Modules.Header.prototype = {
 	isMouseOverMenuPanel: false,
 	isContactClicked: false,
 	bannerTitleText: null,
+	sectionTitlesHtml: [],
 
 	getHtml: function() {
 		this.html = FB.util.Dom.get('hd');
@@ -36,6 +37,7 @@ FB.Modules.Header.prototype = {
 		this.bannerHtml = FB.util.Dom.get('banner');
 		this.bannerTitleContainerHtml = FB.util.Dom.getElementsByClassName("banner-title-container", this.bannerHtml)[0];
 		this.bannerTitleHtml = FB.util.Dom.getElementsByClassName("banner-title", this.bannerHtml)[0];
+		this.sectionTitlesHtml = FB.util.Dom.get('bd').getElementsByTagName('h1');
 	},
 
 	initHtml: function() {
@@ -76,6 +78,7 @@ FB.Modules.Header.prototype = {
 		FB.util.Event.addListener(this.linksHtml.contact, 'mouseover', function() { hd.showMenuPanel('contact'); });
 		FB.util.Event.addListener(this.linksHtml.contact, 'click', function() { hd.contactClick(); });
 		FB.util.Event.addListener(window, 'resize', function() { hd.renderContactMenu(); });
+		FB.util.Event.addListener(window, 'scroll', function() { hd.renderBanner(); });
 	},
 
 	showMenuPanel: function(activeLinkName) {
@@ -150,5 +153,18 @@ FB.Modules.Header.prototype = {
 		for (var i = 0; i < contactListItems.length; i++) {
 			contactListItems[i].style.marginLeft = padding + 'px';
 		}
+	},
+
+	renderBanner: function() {
+		var title = this.bannerTitleText;
+		var bannerRect = this.bannerHtml.getBoundingClientRect();
+		for (var t = 0; t < this.sectionTitlesHtml.length; t++) {
+			var titleRect = this.sectionTitlesHtml[t].getBoundingClientRect();
+			if (titleRect.bottom - 30 < bannerRect.bottom) {
+				title = this.sectionTitlesHtml[t].innerHTML;
+			}
+		}
+		this.bannerTitleHtml.innerHTML = title;
 	}
+
 };
