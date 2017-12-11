@@ -372,7 +372,7 @@ table#towns td {
   padding: 0 75px;
 }
 
-.about-page h1 {
+.about-page #bd h1 {
   font-size: 54px;
   font-weight: bold;
   color: <?php echo $COLOR['MENU_PANEL']; ?>;
@@ -380,7 +380,7 @@ table#towns td {
   display: block;
 }
 
-.about-page h2 {
+.about-page #bd h2 {
   font-size: 24px;
   font-weight: bold;
   padding: 10px;
