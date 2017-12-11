@@ -60,7 +60,7 @@ FB.Modules.Header.prototype = {
 		this.sublinkPanelsHtml.contact.style.left = '0';
 		if (this.bannerTitleText !== null && this.bannerTitleText.length > 0) {
 			FB.util.Dom.setOpacity(this.bannerTitleContainerHtml, 0.9);
-			this.bannerTitleHtml.innerHTML = this.bannerTitleText;
+			this.renderBanner();
 			this.bannerTitleContainerHtml.style.display = 'block';
 		}
 	},
@@ -78,7 +78,9 @@ FB.Modules.Header.prototype = {
 		FB.util.Event.addListener(this.linksHtml.contact, 'mouseover', function() { hd.showMenuPanel('contact'); });
 		FB.util.Event.addListener(this.linksHtml.contact, 'click', function() { hd.contactClick(); });
 		FB.util.Event.addListener(window, 'resize', function() { hd.renderContactMenu(); });
-		FB.util.Event.addListener(window, 'scroll', function() { hd.renderBanner(); });
+		if (this.bannerTitleText !== null && this.bannerTitleText.length > 0) {
+			FB.util.Event.addListener(window, 'scroll', function() { hd.renderBanner(); });
+		}
 	},
 
 	showMenuPanel: function(activeLinkName) {
