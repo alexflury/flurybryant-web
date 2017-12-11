@@ -45,6 +45,13 @@ print_header(array('page_classname' => 'about-page', 'banner_title' => 'WHO WE A
 <p>To achieve these goals, our design solutions tend to continuously evolve from initial conceptualization, through completed construction documents and often through the construction process. There is rarely a point in the process where we "complete" the design and move on to detailing.</p>
 <p>Through the years, this approach has resulted in a level of design and client satisfaction far above industry standards. Our clients, many of whom are extremely gifted designers and innovators in their own fields, tend to be very proactive throughout the design process. We encourage our clients to participate with us at this level in the hope that they will achieve the same level of affinity for their project that we strive for.</p>
 
+
+<span class="section-title">MISSION STATEMENT</span>
+
+<p><em>Flury Bryant Design Group</em> is a residential design firm aimed at providing homeowners throughout Santa Clara, San Mateo, and Santa Cruz Counties, and beyond, with integrated, comprehensive, and creative architectural design services for both remodel projects and new homes. By partnering with consultants and builders that share our passion for excellence, our goal is to consistently deliver finished projects that far exceed client expectations, as well industry and local standards.</p>
+<p>We strive to train our staff members in the artistic tradition of the design professions, as well as the latest state-of-the-art technology, with the ambition of providing our clients with sophisticated and innovative design solutions presented in artistic, easy to understand formats. We endeavor to form partnerships with our clients, our employees, consultants, and the communities we help to shape, resulting in beautiful homes that exude pride and add value.</p>
+<p>Our goal is to become the regionally recognized industry leader, experiencing moderate growth and annual profitability, while bringing excitement, fun, and integrity to the home-building and remodeling experience.</p>
+
 <?php
 
 print_footer();
