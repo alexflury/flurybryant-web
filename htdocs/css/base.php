@@ -26,7 +26,7 @@ a:hover {
 
 p {
   margin: 0;
-  padding-bottom: 10px;
+  padding: 0 10px 10px 10px;
 }
 
 em {
@@ -41,7 +41,7 @@ ul {
 
 h1 {
   margin: 0;
-  padding: 15px 0;
+  padding: 15px;
 }
 
 /* Shared */
@@ -268,6 +268,21 @@ h1 {
   background: <?php echo $COLOR['BODY'] ?>;
   padding: <?php echo $SIZE['BD_PADDING_TOP']; ?>px 0 <?php echo $SIZE['BD_PADDING_BOTTOM']; ?>px 0;
   width: 100%;
+}
+
+#bd p {
+  margin: 0;
+  padding: 0 10px 10px 10px;
+}
+
+#bd h1 {
+  margin: 0;
+  padding: 15px;
+}
+
+#bd ul {
+  padding: 0 15px 15px 15px;
+  list-style: none;
 }
 
 /* Home */
