@@ -88,6 +88,7 @@ ul {
   text-align: center;
   border-bottom: 1px solid #214536;
   overflow: hidden;
+  position: fixed;
 }
 
 #hd .house-logo-container {
