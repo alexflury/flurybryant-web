@@ -254,8 +254,8 @@ ul {
 }
 
 #banner .banner-title {
-  padding: <?php echo $SIZE['BANNER_HEIGHT'] - 60 ?>px 15px 0 15px;
-  font-size: 48px;
+  padding: <?php echo $SIZE['BANNER_HEIGHT'] - 70 ?>px 15px 0 15px;
+  font-size: 64px;
   font-weight: bold;
   color: <?php echo $COLOR['MENU_PANEL']; ?>;
 }
