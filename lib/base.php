@@ -37,7 +37,8 @@ $SIZE = array(
 $JS = js('fb.js');
 $CSS = css('base.php');
 
-function print_header() {
+function print_header($params) {
+  extract($params);
   require('header.php');
 }
 

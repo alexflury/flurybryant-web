@@ -3,11 +3,9 @@
 include('../../lib/base.php');
 include('../../lib/about.php');
 
-print_header();
+print_header(array('banner_photo' => 'new-homes/0001.jpg', 'banner_title' => 'WHO WE ARE'));
 
 ?>
-
-<div class="banner" style="background-image:url(/images/photos/new-homes/0001.jpg"></div>
 
 <h1>WHO WE ARE</h1>
 

@@ -115,6 +115,9 @@
         </div>
       </div>
     </div>
+    <?php if (isset($banner_photo)) { ?>
+      <div class="banner" style="background-image:url(/images/photos/<?php echo $banner_photo ?>)"></div>
+    <?php } ?>
     <div id="bd">
 
 <?php
