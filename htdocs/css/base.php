@@ -373,6 +373,10 @@ table#towns td {
   padding: 0 75px;
 }
 
+.home-page #bd {
+  padding-top: <?php echo ($SIZE['HD_HEIGHT'] + 1); ?>px;
+}
+
 .about-page #bd h1 {
   font-size: 54px;
   font-weight: bold;

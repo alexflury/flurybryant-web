@@ -2,7 +2,7 @@
 
 require('../lib/base.php');
 
-print_header();
+print_header(array('page_classname' => 'home-page'));
 
 ?>
 
