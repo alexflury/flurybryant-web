@@ -41,6 +41,10 @@ FB.Modules.Slideshow.prototype = {
     FB.util.Event.addListener(window, 'load', function() { slideshow.render(); });
     FB.util.Event.addListener(this.html, 'mouseover', function() { slideshow.showButtons(); });
     FB.util.Event.addListener(this.html, 'mouseout', function() { slideshow.hideButtons(); });
+    FB.util.Event.addListener(this.nextLinkHtml, 'mouseover', function() { slideshow.darkenNextLink(); });
+    FB.util.Event.addListener(this.nextLinkHtml, 'mouseout', function() { slideshow.lightenNextLink(); });
+    FB.util.Event.addListener(this.prevLinkHtml, 'mouseover', function() { slideshow.darkenPrevLink(); });
+    FB.util.Event.addListener(this.prevLinkHtml, 'mouseout', function() { slideshow.lightenPrevLink(); });
   },
 
   prev: function() {
@@ -96,6 +100,22 @@ FB.Modules.Slideshow.prototype = {
   hideButtons: function() {
     this.prevLinkHtml.style.display = 'none';
     this.nextLinkHtml.style.display = 'none';
+  },
+
+  darkenNextLink: function() {
+    FB.util.Dom.addClassName(this.nextLinkHtml, 'hover');
+  },
+
+  lightenNextLink: function() {
+    FB.util.Dom.removeClassName(this.nextLinkHtml, 'hover');
+  },
+
+  darkenPrevLink: function() {
+    FB.util.Dom.addClassName(this.prevLinkHtml, 'hover');
+  },
+
+  lightenPrevLink: function() {
+    FB.util.Dom.removeClassName(this.prevLinkHtml, 'hover');
   }
 
 };
