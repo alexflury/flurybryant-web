@@ -725,7 +725,7 @@ table#towns td {
   width: 64px;
   height: 64px;
   background-image: url(/images/arrows.png);
-  background-position: 0px 64px;
+  background-position: 0px 0px;
   position: absolute;
   left: 10px;
   z-index: 1000;
@@ -733,22 +733,14 @@ table#towns td {
   cursor: pointer;
 }
 
-#slideshow .left-arrow.hover {
-  background-position: 0px 0px;
-}
-
 #slideshow .right-arrow {
   width: 64px;
   height: 64px;
   background-image: url(/images/arrows.png);
-  background-position: 64px 64px;
+  background-position: 64px 0px;
   position: absolute;
   right: 10px;
   z-index: 1000;
   display: none;
   cursor: pointer;
-}
-
-#slideshow .right-arrow.hover {
-  background-position: 64px 0px;
 }

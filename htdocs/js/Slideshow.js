@@ -5,6 +5,7 @@ FB.Modules.Slideshow = function(photoSequence, isAuto, period, autoResizeDelta, 
   this.autoResizeDelta = autoResizeDelta;
   this.autoResizeMin = autoResizeMin
   this.getHtml();
+  this.initHtml();
   this.addListeners();
   this.scheduleNext();
 };
@@ -25,6 +26,11 @@ FB.Modules.Slideshow.prototype = {
     this.photoSequenceHtml = FB.util.Dom.getElementsByClassName('photo-sequence', this.html)[0];
     this.prevLinkHtml = FB.util.Dom.getElementsByClassName('left-arrow', this.html)[0];
     this.nextLinkHtml = FB.util.Dom.getElementsByClassName('right-arrow', this.html)[0];
+  },
+
+  initHtml: function() {
+    this.lightenNextLink();
+    this.lightenPrevLink();
   },
 
   addListeners: function() {
@@ -98,18 +104,22 @@ FB.Modules.Slideshow.prototype = {
 
   darkenNextLink: function() {
     FB.util.Dom.addClassName(this.nextLinkHtml, 'hover');
+    FB.util.Dom.setOpacity(this.nextLinkHtml, 0.7);
   },
 
   lightenNextLink: function() {
     FB.util.Dom.removeClassName(this.nextLinkHtml, 'hover');
+    FB.util.Dom.setOpacity(this.nextLinkHtml, 0.4);
   },
 
   darkenPrevLink: function() {
     FB.util.Dom.addClassName(this.prevLinkHtml, 'hover');
+    FB.util.Dom.setOpacity(this.prevLinkHtml, 0.7);
   },
 
   lightenPrevLink: function() {
     FB.util.Dom.removeClassName(this.prevLinkHtml, 'hover');
+    FB.util.Dom.setOpacity(this.prevLinkHtml, 0.4);
   }
 
 };
