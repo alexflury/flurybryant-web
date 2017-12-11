@@ -11,7 +11,6 @@ body {
   font-family: garamond;
   font-size: 16px;
   color: <?php echo $COLOR['TEXT']; ?>;
-  text-align: center;
   margin: 0;
   background: <?php echo $COLOR['HEADER']; ?>;
 }
@@ -268,7 +267,6 @@ h1 {
 #bd {
   background: <?php echo $COLOR['BODY'] ?>;
   padding: <?php echo $SIZE['BD_PADDING_TOP']; ?>px 0 <?php echo $SIZE['BD_PADDING_BOTTOM']; ?>px 0;
-  text-align: center;
   width: 100%;
 }
 
