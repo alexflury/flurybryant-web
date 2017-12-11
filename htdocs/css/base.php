@@ -241,6 +241,8 @@ ul {
   width: 100%;
   height: <?php echo $SIZE['BANNER_HEIGHT'] ?>px;
   display: none;
+  position: fixed;
+  top: <?php echo ($SIZE['HD_HEIGHT'] + 1); ?>px;
 }
 
 .about-page #banner {
@@ -301,7 +303,7 @@ ul {
 
 #bd {
   background: <?php echo $COLOR['BODY'] ?>;
-  padding: <?php echo $SIZE['BD_PADDING_TOP']; ?>px 0 <?php echo $SIZE['BD_PADDING_BOTTOM']; ?>px 0;
+  padding: <?php echo ($SIZE['BD_PADDING_TOP'] + $SIZE['HD_HEIGHT'] + 1 + $SIZE['BANNER_HEIGHT']); ?>px 0 <?php echo $SIZE['BD_PADDING_BOTTOM']; ?>px 0;
   width: 100%;
 }
 
