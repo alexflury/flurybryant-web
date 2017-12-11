@@ -242,7 +242,7 @@ ul {
   display: none;
 }
 
-.who-we-are-page #banner {
+.about-page #banner {
   background-image: url(/images/photos/interiors/0013.jpg);
   background-position: center 55%;
   display: block;

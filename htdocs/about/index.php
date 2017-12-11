@@ -3,7 +3,7 @@
 include('../../lib/base.php');
 include('../../lib/about.php');
 
-print_header(array('page_classname' => 'who-we-are-page', 'banner_title' => 'WHO WE ARE'));
+print_header(array('page_classname' => 'about-page', 'banner_title' => 'WHO WE ARE'));
 
 ?>
 
