@@ -24,11 +24,6 @@ a:hover {
   text-decoration: underline;
 }
 
-p {
-  margin: 0;
-  padding: 0 10px 10px 10px;
-}
-
 em {
   font-weight: normal;
   font-style: normal;
@@ -37,11 +32,6 @@ em {
 ul {
   padding: 0;
   margin: 0;
-}
-
-h1 {
-  margin: 0;
-  padding: 15px;
 }
 
 /* Shared */
