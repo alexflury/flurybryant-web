@@ -162,12 +162,12 @@ FB.Modules.PhotoSequence.prototype = {
     }
   },
 
-  next: function() {
-    return this.loadPhoto(this.nextPhotoNum(this.photoNum));
+  next: function(speed) {
+    return this.loadPhoto(this.nextPhotoNum(this.photoNum), speed);
   },
 
-  prev: function() {
-    return this.loadPhoto(this.prevPhotoNum(this.photoNum));
+  prev: function(speed) {
+    return this.loadPhoto(this.prevPhotoNum(this.photoNum), speed);
   },
 
   fireFinishLoading: function() {

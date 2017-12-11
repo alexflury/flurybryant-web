@@ -20,6 +20,8 @@ FB.Modules.Slideshow.prototype = {
   period: null,
   autoResizeDelta: null,
   currentTimeout: null,
+  autoSpeed: 0.025,
+  manualSpeed: 0.2,
 
   getHtml: function() {
     this.html = FB.util.Dom.get('slideshow');
@@ -54,12 +56,12 @@ FB.Modules.Slideshow.prototype = {
     FB.util.Event.addListener(this.prevLinkHtml, 'click', function() { slideshow.clickPrev(); });
   },
 
-  prev: function() {
-    this.photoSequence.prev();
+  prev: function(speed) {
+    this.photoSequence.prev(speed);
   },
 
-  next: function() {
-    this.photoSequence.next();
+  next: function(speed) {
+    this.photoSequence.next(speed);
     if (this.isAuto) {
       this.scheduleNext();
     }
@@ -68,19 +70,20 @@ FB.Modules.Slideshow.prototype = {
   clickNext: function() {
     this.isAuto = false;
     clearTimeout(this.currentTimeout);
-    this.next();
+    this.next(this.manualSpeed);
   },
 
   clickPrev: function() {
     this.isAuto = false;
     clearTimeout(this.currentTimeout);
-    this.prev();
+    this.prev(this.manualSpeed);
   },
 
   scheduleNext: function() {
     var slideshow = this;
+    var speed = this.autoSpeed;
     clearTimeout(this.currentTimeout);
-    this.currentTimeout = setTimeout(function() { slideshow.next(); }, this.period);
+    this.currentTimeout = setTimeout(function() { slideshow.next(speed); }, this.period);
   },
 
   render: function() {
