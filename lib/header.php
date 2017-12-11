@@ -32,9 +32,9 @@
         <div class="sublink-menu-panel about-menu-panel">
           <ul>
             <li><a href="/about/">Who We Are</a></li>
-            <li><a href="/about/philosophy/">Our Operating Philosophy</a></li>
-            <li><a href="/about/mission/">Our Mission Statement</a></li>
-            <li><a href="/about/staff/">Our Staff</a></li>
+            <li><a href="/about#philosophy">Our Operating Philosophy</a></li>
+            <li><a href="/about#mission">Our Mission Statement</a></li>
+            <li><a href="/about#staff">Our Staff</a></li>
           </ul>
         </div>
         <div class="sublink-menu-panel portfolio-menu-panel">

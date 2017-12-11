@@ -20,10 +20,6 @@ a {
   text-decoration: none;
 }
 
-a:hover {
-  text-decoration: underline;
-}
-
 em {
   font-weight: normal;
   font-style: normal;
@@ -394,6 +390,13 @@ table#towns td {
   padding: 10px;
   display: block;
   margin: 0;
+}
+
+.about-page a.anchor {
+    display: block;
+    position: relative;
+    top: -<?php echo $SIZE['HD_HEIGHT'] + 1 + $SIZE['BANNER_HEIGHT'] - 100 ?>px;
+    visibility: hidden;
 }
 
 /* Portfolio */
