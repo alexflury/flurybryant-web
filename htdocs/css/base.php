@@ -242,6 +242,11 @@ ul {
   display: none;
 }
 
+#banner.who-we-are-banner {
+  background-image: url(/images/photos/interiors/0013.jpg);
+  background-position: center -500px;
+}
+
 #banner .banner-title-container {
   display: none;
   width: 100%;

@@ -3,7 +3,7 @@
 include('../../lib/base.php');
 include('../../lib/about.php');
 
-print_header(array('banner_photo' => 'new-homes/0001.jpg', 'banner_title' => 'WHO WE ARE'));
+print_header(array('banner_classname' => 'who-we-are-banner', 'banner_title' => 'WHO WE ARE'));
 
 ?>
 

@@ -125,6 +125,6 @@
 <?php
 
 global $JS;
-$JS .= js('header.js') . raw_js("var header = new FB.Modules.Header({'bannerPhoto': '$banner_photo', 'bannerTitle': '$banner_title'});");
+$JS .= js('header.js') . raw_js("var header = new FB.Modules.Header({'bannerClassName': '$banner_classname', 'bannerTitle': '$banner_title'});");
 
 ?>

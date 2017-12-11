@@ -1,5 +1,5 @@
 FB.Modules.Header = function(params) {
-	this.bannerPhoto = params.bannerPhoto;
+	this.bannerClassName = params.bannerClassName
 	this.bannerTitleText = params.bannerTitle;
 	this.getHtml();
 	this.initHtml();
@@ -17,7 +17,7 @@ FB.Modules.Header.prototype = {
 	isMouseOverLinks: false,
 	isMouseOverMenuPanel: false,
 	isContactClicked: false,
-	bannerPhoto: null,
+	bannerClassName: null,
 	bannerTitleText: null,
 
 	getHtml: function() {
@@ -58,8 +58,8 @@ FB.Modules.Header.prototype = {
 			this.sublinkPanelsHtml[linkName].style.left = linkRect.left + 'px';
 		}
 		this.sublinkPanelsHtml.contact.style.left = '0';
-		if (this.bannerPhoto !== null && this.bannerPhoto.length > 0) {
-			this.bannerHtml.style.backgroundImage = 'url(/images/photos/' + this.bannerPhoto + ')';
+		if (this.bannerClassName !== null && this.bannerClassName.length > 0) {
+			FB.util.Dom.addClassName(this.bannerHtml, this.bannerClassName);
 			this.bannerHtml.style.display = 'block';
 		}
 		if (this.bannerTitleText !== null && this.bannerTitleText.length > 0) {
