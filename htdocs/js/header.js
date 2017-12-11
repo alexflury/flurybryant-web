@@ -38,7 +38,6 @@ FB.Modules.Header.prototype = {
 		this.bannerHtml = FB.util.Dom.get('banner');
 		this.bannerTitleContainerHtml = FB.util.Dom.getElementsByClassName("banner-title-container", this.bannerHtml)[0];
 		this.bannerTitleHtml = FB.util.Dom.getElementsByClassName("banner-title", this.bannerHtml)[0];
-		console.log("bannerTitleHtml = " + this.bannerTitleHtml);
 	},
 
 	initHtml: function() {
