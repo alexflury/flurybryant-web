@@ -1,4 +1,5 @@
-FB.Modules.Header = function() {
+FB.Modules.Header = function(params) {
+	this.bannerPhoto = params.bannerPhoto;
 	this.getHtml();
 	this.initHtml();
 	this.addListeners();
@@ -10,9 +11,11 @@ FB.Modules.Header.prototype = {
 	linksContainerHtml: null,
 	linksHtml: {},
 	sublinkPanelsHtml: {},
+	bannerHtml: null,
 	isMouseOverLinks: false,
 	isMouseOverMenuPanel: false,
 	isContactClicked: false,
+	bannerPhoto: null,
 
 	getHtml: function() {
 		this.html = FB.util.Dom.get('hd');
@@ -29,6 +32,7 @@ FB.Modules.Header.prototype = {
 		this.sublinkPanelsHtml.documents = FB.util.Dom.getElementsByClassName('documents-menu-panel', this.menuPanelHtml)[0];
 		this.sublinkPanelsHtml.resources = FB.util.Dom.getElementsByClassName('resources-menu-panel', this.menuPanelHtml)[0];
 		this.sublinkPanelsHtml.contact = FB.util.Dom.getElementsByClassName('contact-menu-panel', this.menuPanelHtml)[0];
+		this.bannerHtml = FB.util.Dom.get('banner');
 	},
 
 	initHtml: function() {
@@ -49,6 +53,10 @@ FB.Modules.Header.prototype = {
 			this.sublinkPanelsHtml[linkName].style.left = linkRect.left + 'px';
 		}
 		this.sublinkPanelsHtml.contact.style.left = '0';
+		if (this.bannerPhoto !== null) {
+			this.bannerHtml.style.backgroundImage = 'url(/images/photos/' + this.bannerPhoto + ')';
+			this.bannerHtml.style.display = 'block';
+		}
 	},
 
 	addListeners: function() {

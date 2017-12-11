@@ -232,13 +232,14 @@ ul {
 
 /* Banner */
 
-.banner {
+#banner {
   background-color: <?php echo $COLOR['BODY'] ?>;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   width: 100%;
   height: <?php echo $SIZE['BANNER_HEIGHT'] ?>px;
+  display: none;
 }
 
 /* Footer */

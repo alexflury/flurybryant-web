@@ -115,14 +115,12 @@
         </div>
       </div>
     </div>
-    <?php if (isset($banner_photo)) { ?>
-      <div class="banner" style="background-image:url(/images/photos/<?php echo $banner_photo ?>)"></div>
-    <?php } ?>
+    <div id="banner"></div>
     <div id="bd">
 
 <?php
 
 global $JS;
-$JS .= js('header.js') . raw_js('var header = new FB.Modules.Header();');
+$JS .= js('header.js') . raw_js("var header = new FB.Modules.Header({'bannerPhoto': '$banner_photo'});");
 
 ?>
