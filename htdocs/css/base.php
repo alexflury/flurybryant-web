@@ -89,6 +89,7 @@ ul {
   border-bottom: 1px solid #214536;
   overflow: hidden;
   position: fixed;
+  z-index: 1001;
 }
 
 #hd .house-logo-container {
@@ -160,7 +161,7 @@ ul {
 }
 
 #hd .menu-panel {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: <?php echo $SIZE['HD_HEIGHT'] + 1 ?>px;
   width: 100%;
