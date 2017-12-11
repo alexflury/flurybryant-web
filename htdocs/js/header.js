@@ -100,10 +100,14 @@ FB.Modules.Header.prototype = {
 		if (activeLinkName == 'contact') {
 			this.renderContactMenu();
 		}
+		this.bannerTitleContainerHtml.style.display = 'none';
 	},
 
 	hideMenuPanel: function() {
 		this.menuPanelHtml.style.display = 'none';
+		if (this.bannerTitleText !== null && this.bannerTitleText.length > 0) {
+			this.bannerTitleContainerHtml.style.display = 'block';
+		}
 	},
 
 	headerMouseOver: function() {
