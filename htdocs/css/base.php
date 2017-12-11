@@ -257,6 +257,7 @@ ul {
   background: -o-linear-gradient(right, <?php echo $COLOR['MENU_PANEL_GRAD']; ?>, <?php echo $COLOR['MENU_PANEL'] ?>); /* For Opera 11.1 to 12.0 */
   background: -moz-linear-gradient(right, <?php echo $COLOR['MENU_PANEL_GRAD']; ?>, <?php echo $COLOR['MENU_PANEL'] ?>); /* For Firefox 3.6 to 15 */
   background: linear-gradient(to right, <?php echo $COLOR['MENU_PANEL_GRAD']; ?>, <?php echo $COLOR['MENU_PANEL'] ?>); /* Standard syntax */
+  min-width: <?php echo $SIZE['MIN_PAGE_WIDTH']; ?>px;
 }
 
 #banner .banner-title {
@@ -264,6 +265,7 @@ ul {
   font-size: 64px;
   font-weight: bold;
   color: <?php echo $COLOR['MENU_PANEL']; ?>;
+  width: <?php echo $SIZE['MIN_PAGE_WIDTH'] - 30; ?>px;
 }
 
 /* Footer */
