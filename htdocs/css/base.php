@@ -730,6 +730,7 @@ table#towns td {
   left: 10px;
   z-index: 1000;
   display: none;
+  cursor: pointer;
 }
 
 #slideshow .left-arrow.hover {
@@ -745,6 +746,7 @@ table#towns td {
   right: 10px;
   z-index: 1000;
   display: none;
+  cursor: pointer;
 }
 
 #slideshow .right-arrow.hover {
