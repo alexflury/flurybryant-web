@@ -53,7 +53,7 @@ FB.Modules.Header.prototype = {
 			this.sublinkPanelsHtml[linkName].style.left = linkRect.left + 'px';
 		}
 		this.sublinkPanelsHtml.contact.style.left = '0';
-		if (this.bannerPhoto !== null) {
+		if (this.bannerPhoto !== null && this.bannerPhoto.length > 0) {
 			this.bannerHtml.style.backgroundImage = 'url(/images/photos/' + this.bannerPhoto + ')';
 			this.bannerHtml.style.display = 'block';
 		}
