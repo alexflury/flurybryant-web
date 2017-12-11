@@ -161,7 +161,7 @@ ul {
 #hd .menu-panel {
   position: absolute;
   left: 0;
-  top: <?php echo $SIZE['HD_HEIGHT'] ?>px;
+  top: <?php echo $SIZE['HD_HEIGHT'] + 1 ?>px;
   width: 100%;
   height: <?php echo $SIZE['MENU_PANEL_HEIGHT'] ?>px;
   background: <?php echo $COLOR['MENU_PANEL']; ?>;
@@ -228,6 +228,17 @@ ul {
 #hd .contact-menu-panel h1 {
   margin: 15px 0;
   font-size: 30px;
+}
+
+/* Banner */
+
+.banner {
+  background-color: <?php echo $COLOR['BODY'] ?>;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: <?php echo $SIZE['BANNER_HEIGHT'] ?>px;
 }
 
 /* Footer */

@@ -7,6 +7,8 @@ print_header();
 
 ?>
 
+<div class="banner" style="background-image:url(/images/photos/new-homes/0001.jpg"></div>
+
 <h1>WHO WE ARE</h1>
 
 <p>Over the past thirty-five years, <em>Flury Bryant Design Group</em>, originally doing business as <em>The Bob Flury Design Group</em>, has been commissioned to design and detail over one thousand two hundred fifty residential projects, ranging in size from small remodels and additions to large estate properties with multiple buildings. We work with a large group of consultants and builders, giving us the capability of handling all aspects of a project, from conception and budget-building, through site development, architectural and structural detail development, interior architecture and detailing, and ultimately, completed construction.</p>
