@@ -729,6 +729,7 @@ table#towns td {
   position: absolute;
   left: 10px;
   z-index: 1000;
+  display: none;
 }
 
 #slideshow .left-arrow.hover {
@@ -743,6 +744,7 @@ table#towns td {
   position: absolute;
   right: 10px;
   z-index: 1000;
+  display: none;
 }
 
 #slideshow .right-arrow.hover {

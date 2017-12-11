@@ -39,6 +39,8 @@ FB.Modules.Slideshow.prototype = {
     var slideshow = this;
     FB.util.Event.addListener(window, 'resize', function() { slideshow.render(); });
     FB.util.Event.addListener(window, 'load', function() { slideshow.render(); });
+    FB.util.Event.addListener(this.html, 'mouseover', function() { slideshow.showButtons(); });
+    FB.util.Event.addListener(this.html, 'mouseout', function() { slideshow.hideButtons(); });
   },
 
   prev: function() {
@@ -83,6 +85,17 @@ FB.Modules.Slideshow.prototype = {
     var rightArrowRect = this.nextLinkHtml.getBoundingClientRect();
     this.prevLinkHtml.style.top = Math.floor((photoSequenceRect.height - leftArrowRect.height) / 2) + 'px';
     this.nextLinkHtml.style.top = Math.floor((photoSequenceRect.height - rightArrowRect.height) / 2) + 'px';
+  },
+
+  showButtons: function() {
+    this.prevLinkHtml.style.display = 'block';
+    this.nextLinkHtml.style.display = 'block';
+    this.render();
+  },
+
+  hideButtons: function() {
+    this.prevLinkHtml.style.display = 'none';
+    this.nextLinkHtml.style.display = 'none';
   }
 
 };
