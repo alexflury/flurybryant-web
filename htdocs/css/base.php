@@ -270,7 +270,7 @@ ul {
   padding: <?php echo $SIZE['BANNER_HEIGHT'] - 70 ?>px 15px 0 15px;
   font-size: 54px;
   font-weight: bold;
-  color: <?php echo $COLOR['MENU_PANEL']; ?>;
+  color: <?php echo $COLOR['BANNER_TITLE']; ?>;
   width: <?php echo $SIZE['MIN_PAGE_WIDTH'] - 30; ?>px;
 }
 
@@ -379,7 +379,7 @@ table#towns td {
 .about-page #bd h1 {
   font-size: 54px;
   font-weight: bold;
-  color: <?php echo $COLOR['MENU_PANEL']; ?>;
+  color: <?php echo $COLOR['BANNER_TITLE']; ?>;
   padding: 30px 15px 15px 15px;
   display: block;
 }
