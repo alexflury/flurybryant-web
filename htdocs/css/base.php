@@ -224,7 +224,7 @@ ul {
 }
 
 #hd .contact-menu-panel h1 {
-  margin: 15px 0;
+  margin: 20px 0;
   font-size: 30px;
 }
 
