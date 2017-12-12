@@ -34,6 +34,7 @@
             <li><a href="/about/">Who We Are</a></li>
             <li><a href="/about#philosophy">Our Operating Philosophy</a></li>
             <li><a href="/about#mission">Our Mission Statement</a></li>
+            <li><a href="/about#process">Out Process</a></li>
             <li><a href="/about#staff">Our Staff</a></li>
           </ul>
         </div>
