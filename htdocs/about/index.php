@@ -95,7 +95,7 @@ print_header(array('page_classname' => 'about-page', 'banner_title' => 'WHO WE A
 
 <span>
 
-<p>Over the past thirty-five years, <em>Flury Bryant Design Group</em>, originally doing business as <em>The Bob Flury Design Group</em>, has been commissioned to design and detail over one thousand two hundred fifty residential projects, ranging in size from small remodels and additions to large estate properties with multiple buildings. We work with a large group of consultants and builders, giving us the capability of handling all aspects of a project, from conception and budget-building, through site development, architectural and structural detail development, interior architecture and detailing, and ultimately, completed construction.</p>
+<p>Over the past thirty-five years, <em>Flury Bryant Design Group</em>, originally doing business as <em>The Bob Flury Design Group</em>, has been commissioned to design and detail over 1,250 residential projects, ranging in size from small remodels and additions to large estate properties with multiple buildings. We work with a large group of consultants and builders, giving us the capability of handling all aspects of a project, from conception and budget-building, through site development, architectural and structural detail development, interior architecture and detailing, and ultimately, completed construction.</p>
 <p>Our preferred approach to preparation of our construction documents is unusual, in that we prefer to prepare all of the structural drawings ourselves, creating a set of documents that integrates the structural detailing with the architectural in a seamless, user-friendly fashion.</p>
 <p>Our design work is always sensitive to the specific needs and wishes of our clients. We listen to their goals, making the accomplishment of these goals our top priority.</p>
 <p>Our staff has had extensive experience working with the Planning and Building Departments of literally every municipality in the area. We know what it takes to get projects approved. If we don't have the answers to your zoning and building questions, we know who to contact at City Hall to get the answers.</p>
@@ -108,7 +108,7 @@ print_header(array('page_classname' => 'about-page', 'banner_title' => 'WHO WE A
 <h1>OUR OPERATING PHILOSOPHY</h1>
 
 <p><em>Flury Bryant Design Group</em> aspires to be the local industry leader, providing architectural services to the local custom residential market. Our goal is to provide our clients with the highest level of service-oriented project management, the finest personalized design in the industry, and undisputed value for every dollar spent.</p>
-<p>To achieve these goals, our design solutions tend to continuously evolve from initial conceptualization, through completed construction documents and often through the construction process. There is rarely a point in the process where we "complete" the design and move on to detailing.</p>
+<p>To achieve these goals, our design solutions tend to continuously evolve from initial conceptualization, through completed construction documents and often through the construction process. There is rarely a point in the process where we &ldquo;complete&rdquo; the design and move on to detailing.</p>
 <p>Through the years, this approach has resulted in a level of design and client satisfaction far above industry standards. Our clients, many of whom are extremely gifted designers and innovators in their own fields, tend to be very proactive throughout the design process. We encourage our clients to participate with us at this level in the hope that they will achieve the same level of affinity for their project that we strive for.</p>
 
 <a class="anchor" name="mission"></a>
@@ -131,7 +131,7 @@ print_header(array('page_classname' => 'about-page', 'banner_title' => 'WHO WE A
 <h2>Documentation of Existing Conditions</h2>
 <p>Whether remodeling or building a new home, the existing conditions at the project site must be carefully documented in order to approach the design process intelligently.</p>
 <p>In the case of a new home, this documentation consists of a topography map and property line survey, showing the physical characteristics, recorded property lines and any easements. This work is contracted to a qualified surveyor or civil engineering consultant.</p>
-<p>In the case of a remodel, "as-built" plans, based on carefully collected measurements, must be drafted before design work can begin. This work is done by the staff of <em>Flury Bryant Design Group</em>.</p>
+<p>In the case of a remodel, &ldquo;as-built&rdquo; plans, based on carefully collected measurements, must be drafted before design work can begin. This work is done by the staff of <em>Flury Bryant Design Group</em>.</p>
 
 <h2>Schematic Design</h2>
 <p>Once the design program has been established and the regulations governing the development of the project are established, the design process begins. During the Schematic Design Phase, broad-brush planning and design directions are explored in a very preliminary fashion. Potential solutions are presented for further discussion and critique by the client.</p>
