@@ -10,7 +10,9 @@ $COLOR = array(
   'BODY' => '#DCDCDC',
   'MENU_PANEL' => '#A9A9A9',
   'MENU_PANEL_GRAD' => '#DCDCDC',
-  'BANNER_TITLE' => '#808080'
+  'BANNER_TITLE' => '#808080',
+  'ODD_ROW' => '#C0C0C0',
+  'EVEN_ROW' => '#D3D3D3'
 );
 
 $SIZE = array(

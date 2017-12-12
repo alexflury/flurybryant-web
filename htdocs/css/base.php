@@ -399,6 +399,34 @@ table#towns td {
     visibility: hidden;
 }
 
+.about-page #bd .residential-projects {
+  float: right;
+  padding: 15px 10px 10px 10px;
+}
+
+.about-page #bd .residential-projects h2 {
+  padding: 0 0 10px 0;
+  color: <?php echo $COLOR['BANNER_TITLE']; ?>;
+}
+
+.about-page #bd .residential-projects table {
+  border: 1px solid <?php echo $COLOR['ODD_ROW']; ?>;
+  width: 100%;
+}
+
+.about-page #bd .residential-projects td {
+  padding: 2px 7px;
+  width: 50%;
+}
+
+.about-page #bd .residential-projects tr:nth-child(even) {
+  background: <?php echo $COLOR['EVEN_ROW']; ?>;
+}
+
+.about-page #bd .residential-projects tr:nth-child(odd) {
+  background: <?php echo $COLOR['ODD_ROW']; ?>;
+}
+
 /* Portfolio */
 
 #photo-menu {
