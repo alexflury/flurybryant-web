@@ -45,6 +45,9 @@ $next_style = $slideshow_photo < count($slideshow_photos) ? '' : ' style="visibi
 <div id="slideshow">
   <?php if (isset($slideshow_has_photo_picker) && $slideshow_has_photo_picker) { ?>
     <div class="photo-picker">
+      <?php for ($p = 0; $p < count($slideshow_photos); $p++) { ?>
+        <img src="<?php echo get_thumb_url($slideshow_photos, $p); ?>" />
+      <?php } ?>
     </div>
   <?php } ?>
   <div class="photo">

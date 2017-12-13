@@ -875,4 +875,5 @@ table#towns td {
 #slideshow .photo-picker {
   height: <?php echo $SIZE['PHOTO_PICKER_HEIGHT']; ?>px;
   width: 100%;
+  overflow: hidden;
 }
