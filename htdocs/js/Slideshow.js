@@ -90,12 +90,14 @@ FB.Modules.Slideshow.prototype = {
     this.isAuto = false;
     clearTimeout(this.currentTimeout);
     this.next(this.manualSpeed);
+    this.clickThumb(this.photoSequence.getPhotoNum() - 1);
   },
 
   clickPrev: function() {
     this.isAuto = false;
     clearTimeout(this.currentTimeout);
     this.prev(this.manualSpeed);
+    this.clickThumb(this.photoSequence.getPhotoNum() - 1);
   },
 
   clickThumbHandler: function(photoNum) {
