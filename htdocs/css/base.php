@@ -901,7 +901,7 @@ table#towns td {
 }
 
 #slideshow .photo-picker .thumb.selected {
-  border: 5px solid <?php echo $COLOR['MENU_PANEL']; ?>;
+  border: 5px solid <?php echo $COLOR['SELECTED_THUMB_BORDER']; ?>;
   margin: 5px 0;
 }
 
