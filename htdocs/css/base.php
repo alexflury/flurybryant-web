@@ -867,3 +867,8 @@ table#towns td {
   display: none;
   cursor: pointer;
 }
+
+#slideshow .photo-picker {
+  height: <?php echo $SIZE['PHOTO_PICKER_HEIGHT']; ?>px;
+  width: 100%;
+}

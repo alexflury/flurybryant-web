@@ -17,12 +17,24 @@ if (!isset($slideshow_period)) {
   $slideshow_period = 20000;
 }
 
+if (!isset($slideshow_has_photo_picker)) {
+  $slideshow_has_photo_picker = false;
+}
+
 if (!isset($slideshow_auto_resize_delta)) {
-  $slideshow_auto_resize_delta = $SIZE['HD_HEIGHT'] + $SIZE['FT_HEIGHT'];
+  if ($slideshow_has_photo_picker) {
+    $slideshow_auto_resize_delta = $SIZE['HD_HEIGHT'] + $SIZE['FT_HEIGHT'] + $SIZE['PHOTO_PICKER_HEIGHT'];
+  } else {
+    $slideshow_auto_resize_delta = $SIZE['HD_HEIGHT'] + $SIZE['FT_HEIGHT'];
+  }
 }
 
 if (!isset($slideshow_auto_resize_min)) {
-  $slideshow_auto_resize_min = $SIZE['MIN_PAGE_HEIGHT'] - $SIZE['HD_HEIGHT'] - $SIZE['FT_HEIGHT'];
+  if ($slideshow_has_photo_picker) {
+    $slideshow_auto_resize_min = $SIZE['MIN_PAGE_HEIGHT'] - $SIZE['HD_HEIGHT'] - $SIZE['FT_HEIGHT'] - $SIZE['PHOTO_PICKER_HEIGHT'];
+  } else {
+    $slideshow_auto_resize_min = $SIZE['MIN_PAGE_HEIGHT'] - $SIZE['HD_HEIGHT'] - $SIZE['FT_HEIGHT'];
+  }
 }
 
 $prev_style = $slideshow_photo > 1 ? '' : ' style="visibility: hidden;"';
@@ -31,6 +43,10 @@ $next_style = $slideshow_photo < count($slideshow_photos) ? '' : ' style="visibi
 ?>
 
 <div id="slideshow">
+  <?php if (isset($slideshow_has_photo_picker) && $slideshow_has_photo_picker) { ?>
+    <div class="photo-picker">
+    </div>
+  <?php } ?>
   <div class="photo">
     <div class="matte">
       <?php

@@ -34,7 +34,8 @@ $SIZE = array(
   'MIN_PAGE_HEIGHT' => 500,
   'MIN_PAGE_WIDTH' => 880,
   'MENU_PANEL_HEIGHT' => 150,
-  'BANNER_HEIGHT' => 150
+  'BANNER_HEIGHT' => 150,
+  'PHOTO_PICKER_HEIGHT' => 150
 );
 
 $JS = js('fb.js');
