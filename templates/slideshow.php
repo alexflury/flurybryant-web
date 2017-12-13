@@ -18,11 +18,11 @@ if (!isset($slideshow_period)) {
 }
 
 if (!isset($slideshow_auto_resize_delta)) {
-  $slideshow_auto_resize_delta = 'null';
+  $slideshow_auto_resize_delta = $SIZE['HD_HEIGHT'] + $SIZE['FT_HEIGHT'];
 }
 
 if (!isset($slideshow_auto_resize_min)) {
-  $slideshow_auto_resize_min = 'null';
+  $slideshow_auto_resize_min = $SIZE['MIN_PAGE_HEIGHT'] - $SIZE['HD_HEIGHT'] - $SIZE['FT_HEIGHT'];
 }
 
 $prev_style = $slideshow_photo > 1 ? '' : ' style="visibility: hidden;"';

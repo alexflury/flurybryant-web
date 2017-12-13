@@ -8,8 +8,6 @@ print_header(array('page_classname' => 'home-page'));
 
 <div id="home">
 	<?php 
-	$slideshow_auto_resize_delta = $SIZE['HD_HEIGHT'] + $SIZE['FT_HEIGHT'];
-	$slideshow_auto_resize_min = $SIZE['MIN_PAGE_HEIGHT'] - $SIZE['HD_HEIGHT'] - $SIZE['FT_HEIGHT'];
 	$slideshow_photos = array(
 		'new-homes/0001.jpg',
 		'new-homes/0002.jpg',
