@@ -887,6 +887,7 @@ table#towns td {
   background-size: contain;
   margin: 10px 0 10px 10px;
   float: left;
+  cursor: pointer;
 }
 
 #slideshow .photo-picker .thumb:first-child {
