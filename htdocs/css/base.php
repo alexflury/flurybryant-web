@@ -885,7 +885,7 @@ table#towns td {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  margin: 10px 0 10px 10px;
+  margin: 10px 5px;
   float: left;
   cursor: pointer;
 }
@@ -895,5 +895,10 @@ table#towns td {
 }
 
 #slideshow .photo-picker .thumb.selected {
-  border: 3px solid <?php echo $COLOR['BANNER_TITLE']; ?>;
+  border: 5px solid <?php echo $COLOR['MENU_PANEL']; ?>;
+  margin: 5px 0;
+}
+
+#slideshow .photo-picker .thumb.selected:first-child {
+  margin-left: 5px;
 }
