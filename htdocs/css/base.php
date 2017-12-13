@@ -878,6 +878,10 @@ table#towns td {
   overflow: hidden;
 }
 
+#slideshow .photo-picker .thumb-container {
+  width: 5000px;
+}
+
 #slideshow .photo-picker .thumb {
   width: <?php echo ($SIZE['BANNER_HEIGHT'] - 20) * 4/3; ?>px;
   height: <?php echo ($SIZE['BANNER_HEIGHT'] - 20); ?>px;
