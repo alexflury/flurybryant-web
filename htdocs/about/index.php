@@ -95,6 +95,10 @@ print_header(array('page_classname' => 'about-page', 'banner_title' => 'WHO WE A
 
 <span>
 
+<p>At Flury Bryant Design Group we are committed to making the construction experience a positive one for our clients. We have successfully completed multiple projects in virtually every community on the Peninsula and in the South Bay, and we have a working knowledge of the rules, regulations, and procedures that govern the residential construction process in each.</p>
+
+<p>We are committed to creating beautiful living environments for our clients, reflecting their unique needs and desires, while enhancing the overall character of their community and enriching the environment.</p>
+
 <p>Over the past thirty-five years, <em>Flury Bryant Design Group</em>, originally doing business as <em>The Bob Flury Design Group</em>, has been commissioned to design and detail over 1,250 residential projects, ranging in size from small remodels and additions to large estate properties with multiple buildings. We work with a large group of consultants and builders, giving us the capability of handling all aspects of a project, from conception and budget-building, through site development, architectural and structural detail development, interior architecture and detailing, and ultimately, completed construction.</p>
 <p>Our preferred approach to preparation of our construction documents is unusual, in that we prefer to prepare all of the structural drawings ourselves, creating a set of documents that integrates the structural detailing with the architectural in a seamless, user-friendly fashion.</p>
 <p>Our design work is always sensitive to the specific needs and wishes of our clients. We listen to their goals, making the accomplishment of these goals our top priority.</p>
