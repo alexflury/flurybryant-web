@@ -481,6 +481,10 @@ table#towns td {
   padding-top: <?php echo ($SIZE['HD_HEIGHT'] + 1); ?>px;
 }
 
+.portfolio-page .photo-sequence .photo-frame {
+  background-size: contain;
+}
+
 /* Contact */
 
 #contact #page-left {
