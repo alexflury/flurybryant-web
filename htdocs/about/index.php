@@ -95,7 +95,7 @@ print_header(array('page_classname' => 'about-page', 'banner_title' => 'WHO WE A
 
 <span>
 
-<p>At Flury Bryant Design Group we are committed to making the construction experience a positive one for our clients. We have successfully completed multiple projects in virtually every community on the Peninsula and in the South Bay, and we have a working knowledge of the rules, regulations, and procedures that govern the residential construction process in each.</p>
+<p>At Flury Bryant Design Group we are committed to making the construction experience a positive one for our clients. We have successfully completed multiple projects in virtually every community on the Peninsula and in the South Bay, and we have a working knowledge of the rules, regulations, and procedures that govern the residential construction process in each.  To the right is a partial list of the jurisdictions in which we have worked, followed by the number of projects in each.</p>
 
 <p>We are committed to creating beautiful living environments for our clients, reflecting their unique needs and desires, while enhancing the overall character of their community and enriching the environment.</p>
 
@@ -103,8 +103,6 @@ print_header(array('page_classname' => 'about-page', 'banner_title' => 'WHO WE A
 <p>Our preferred approach to preparation of our construction documents is unusual, in that we prefer to prepare all of the structural drawings ourselves, creating a set of documents that integrates the structural detailing with the architectural in a seamless, user-friendly fashion.</p>
 <p>Our design work is always sensitive to the specific needs and wishes of our clients. We listen to their goals, making the accomplishment of these goals our top priority.</p>
 <p>Our staff has had extensive experience working with the Planning and Building Departments of literally every municipality in the area. We know what it takes to get projects approved. If we don't have the answers to your zoning and building questions, we know who to contact at City Hall to get the answers.</p>
-
-<p>On the right is a partial list of the jurisdictions in which we have worked, followed by the number of projects in each.</p>
 
 <p>Whether your preference is timeless, traditional design, state-of-the-art contemporary architecture, or seamless blending of new construction to existing, our staff of dedicated professionals has the resources and the passion to create an environment designed around your tastes, personality, and dreams, with the specific purpose of enhancing your lifestyle.</p>
 
