@@ -18,6 +18,7 @@ FB.Modules.Slideshow.prototype = {
   prevLinkHtml: null,
   nextLinkHtml: null,
   thumbsHtml: [],
+  photoHtml: null,
   photoSequence: null,
   isAuto: true,
   period: null,
@@ -30,6 +31,7 @@ FB.Modules.Slideshow.prototype = {
 
   getHtml: function() {
     this.html = FB.util.Dom.get('slideshow');
+    this.photoHtml = FB.util.Dom.getElementsByClassName('photo', this.html)[0];
     this.photoSequenceHtml = FB.util.Dom.getElementsByClassName('photo-sequence', this.html)[0];
     this.prevLinkHtml = FB.util.Dom.getElementsByClassName('left-arrow', this.html)[0];
     this.nextLinkHtml = FB.util.Dom.getElementsByClassName('right-arrow', this.html)[0];
@@ -58,8 +60,8 @@ FB.Modules.Slideshow.prototype = {
     var slideshow = this;
     FB.util.Event.addListener(window, 'resize', function() { slideshow.render(); });
     FB.util.Event.addListener(window, 'load', function() { slideshow.render(); });
-    FB.util.Event.addListener(this.html, 'mouseover', function() { slideshow.showButtons(); });
-    FB.util.Event.addListener(this.html, 'mouseout', function() { slideshow.hideButtons(); });
+    FB.util.Event.addListener(this.photoHtml, 'mouseover', function() { slideshow.showButtons(); });
+    FB.util.Event.addListener(this.photoHtml, 'mouseout', function() { slideshow.hideButtons(); });
     FB.util.Event.addListener(this.nextLinkHtml, 'mouseover', function() { slideshow.darkenNextLink(); });
     FB.util.Event.addListener(this.nextLinkHtml, 'mouseout', function() { slideshow.lightenNextLink(); });
     FB.util.Event.addListener(this.prevLinkHtml, 'mouseover', function() { slideshow.darkenPrevLink(); });
