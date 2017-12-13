@@ -477,6 +477,10 @@ table#towns td {
   display: block;
 }
 
+.portfolio-page #bd {
+  padding-top: <?php echo ($SIZE['HD_HEIGHT'] + 1); ?>px;
+}
+
 /* Contact */
 
 #contact #page-left {
