@@ -877,3 +877,18 @@ table#towns td {
   width: 100%;
   overflow: hidden;
 }
+
+#slideshow .photo-picker .thumb {
+  width: <?php echo ($SIZE['BANNER_HEIGHT'] - 20) * 4/3; ?>px;
+  height: <?php echo ($SIZE['BANNER_HEIGHT'] - 20); ?>px;
+  background-color: <?php echo $COLOR['BODY'] ?>;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  margin: 10px 0 10px 10px;
+  float: left;
+}
+
+#slideshow .photo-picker .thumb:first-child {
+  margin-left: 10px;
+}
