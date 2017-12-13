@@ -15,6 +15,7 @@ FB.Modules.Slideshow.prototype = {
   photoSequenceHtml: null,
   prevLinkHtml: null,
   nextLinkHtml: null,
+  thumbsHtml: [],
   photoSequence: null,
   isAuto: true,
   period: null,
@@ -57,9 +58,9 @@ FB.Modules.Slideshow.prototype = {
     FB.util.Event.addListener(this.nextLinkHtml, 'click', function() { slideshow.clickNext(); });
     FB.util.Event.addListener(this.prevLinkHtml, 'click', function() { slideshow.clickPrev(); });
     if (this.photoPickerHtml !== null) {
-      var thumbs = FB.util.Dom.getElementsByClassName('thumb', this.photoPickerHtml);
-      for (var t = 0; t < thumbs.length; t++) {
-        FB.util.Event.addListener(thumbs[t], 'click', this.clickThumbHandler(thumbs[t].dataset.photoNum));
+      this.thumbsHtml = FB.util.Dom.getElementsByClassName('thumb', this.photoPickerHtml);
+      for (var t = 0; t < this.thumbsHtml.length; t++) {
+        FB.util.Event.addListener(this.thumbsHtml[t], 'click', this.clickThumbHandler(this.thumbsHtml[t].dataset.photoNum));
       }
     }
   },
@@ -96,6 +97,7 @@ FB.Modules.Slideshow.prototype = {
     this.isAuto = false;
     clearTimeout(this.currentTimeout);
     this.photoSequence.loadPhoto(photoNum, this.manualSpeed);
+    FB.util.Dom.addClassName(this.thumbsHtml[photoNum], 'selected');
   },
 
   scheduleNext: function() {

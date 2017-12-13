@@ -884,7 +884,7 @@ table#towns td {
   background-color: <?php echo $COLOR['BODY'] ?>;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: contain;
+  background-size: cover;
   margin: 10px 0 10px 10px;
   float: left;
   cursor: pointer;
@@ -892,4 +892,8 @@ table#towns td {
 
 #slideshow .photo-picker .thumb:first-child {
   margin-left: 10px;
+}
+
+#slideshow .photo-picker .thumb.selected {
+  border: 3px solid <?php echo $COLOR['BANNER_TITLE']; ?>;
 }
