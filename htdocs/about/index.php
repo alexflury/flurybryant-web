@@ -100,7 +100,7 @@ print_header(array('page_classname' => 'about-page', 'banner_title' => 'WHO WE A
 <p>Our design work is always sensitive to the specific needs and wishes of our clients. We listen to their goals, making the accomplishment of these goals our top priority.</p>
 <p>Our staff has had extensive experience working with the Planning and Building Departments of literally every municipality in the area. We know what it takes to get projects approved. If we don't have the answers to your zoning and building questions, we know who to contact at City Hall to get the answers.</p>
 
-<p>The following is a partial list of the jurisdictions in which we have worked, followed by the number of projects in each:</p>
+<p>On the right is a partial list of the jurisdictions in which we have worked, followed by the number of projects in each.</p>
 
 <p>Whether your preference is timeless, traditional design, state-of-the-art contemporary architecture, or seamless blending of new construction to existing, our staff of dedicated professionals has the resources and the passion to create an environment designed around your tastes, personality, and dreams, with the specific purpose of enhancing your lifestyle.</p>
 
