@@ -22,12 +22,14 @@ FB.Modules.Slideshow.prototype = {
   currentTimeout: null,
   autoSpeed: 0.025,
   manualSpeed: 0.2,
+  photoPickerHtml: null,
 
   getHtml: function() {
     this.html = FB.util.Dom.get('slideshow');
     this.photoSequenceHtml = FB.util.Dom.getElementsByClassName('photo-sequence', this.html)[0];
     this.prevLinkHtml = FB.util.Dom.getElementsByClassName('left-arrow', this.html)[0];
     this.nextLinkHtml = FB.util.Dom.getElementsByClassName('right-arrow', this.html)[0];
+    this.photoPickerHtml = FB.util.Dom.getElementsByClassName('photo-picker', this.html)[0];
   },
 
   initHtml: function() {
@@ -54,6 +56,12 @@ FB.Modules.Slideshow.prototype = {
     FB.util.Event.addListener(this.prevLinkHtml, 'mouseout', function() { slideshow.lightenPrevLink(); });
     FB.util.Event.addListener(this.nextLinkHtml, 'click', function() { slideshow.clickNext(); });
     FB.util.Event.addListener(this.prevLinkHtml, 'click', function() { slideshow.clickPrev(); });
+    if (this.photoPickerHtml !== null) {
+      var thumbs = FB.util.Dom.getElementsByClassName('thumb', this.photoPickerHtml);
+      for (var t = 0; t < thumbs.length; t++) {
+        FB.util.Event.addListener(thumbs[t], 'click', this.clickThumbHandler(thumbs[t].dataset.photoNum));
+      }
+    }
   },
 
   prev: function(speed) {
@@ -77,6 +85,17 @@ FB.Modules.Slideshow.prototype = {
     this.isAuto = false;
     clearTimeout(this.currentTimeout);
     this.prev(this.manualSpeed);
+  },
+
+  clickThumbHandler: function(photoNum) {
+    var slideshow = this;
+    return function () { slideshow.clickThumb(photoNum); };
+  },
+
+  clickThumb: function(photoNum) {
+    this.isAuto = false;
+    clearTimeout(this.currentTimeout);
+    this.photoSequence.loadPhoto(photoNum, this.manualSpeed);
   },
 
   scheduleNext: function() {
