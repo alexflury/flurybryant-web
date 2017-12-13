@@ -24,6 +24,7 @@ FB.Modules.Slideshow.prototype = {
   autoSpeed: 0.025,
   manualSpeed: 0.2,
   photoPickerHtml: null,
+  selectedThumb: null,
 
   getHtml: function() {
     this.html = FB.util.Dom.get('slideshow');
@@ -31,11 +32,17 @@ FB.Modules.Slideshow.prototype = {
     this.prevLinkHtml = FB.util.Dom.getElementsByClassName('left-arrow', this.html)[0];
     this.nextLinkHtml = FB.util.Dom.getElementsByClassName('right-arrow', this.html)[0];
     this.photoPickerHtml = FB.util.Dom.getElementsByClassName('photo-picker', this.html)[0];
+    if (this.photoPickerHtml !== null) {
+      this.thumbsHtml = FB.util.Dom.getElementsByClassName('thumb', this.photoPickerHtml);
+    }
   },
 
   initHtml: function() {
     this.lightenNextLink();
     this.lightenPrevLink();
+    if (this.photoPickerHtml !== null) {
+      this.clickThumb(0);
+    }
   },
 
   addListeners: function() {
@@ -58,7 +65,6 @@ FB.Modules.Slideshow.prototype = {
     FB.util.Event.addListener(this.nextLinkHtml, 'click', function() { slideshow.clickNext(); });
     FB.util.Event.addListener(this.prevLinkHtml, 'click', function() { slideshow.clickPrev(); });
     if (this.photoPickerHtml !== null) {
-      this.thumbsHtml = FB.util.Dom.getElementsByClassName('thumb', this.photoPickerHtml);
       for (var t = 0; t < this.thumbsHtml.length; t++) {
         FB.util.Event.addListener(this.thumbsHtml[t], 'click', this.clickThumbHandler(this.thumbsHtml[t].dataset.photoNum));
       }
@@ -97,7 +103,11 @@ FB.Modules.Slideshow.prototype = {
     this.isAuto = false;
     clearTimeout(this.currentTimeout);
     this.photoSequence.loadPhoto(photoNum, this.manualSpeed);
+    if (this.selectedThumb !== null) {
+      FB.util.Dom.removeClassName(this.thumbsHtml[this.selectedThumb], 'selected');
+    }
     FB.util.Dom.addClassName(this.thumbsHtml[photoNum], 'selected');
+    this.selectedThumb = photoNum;
   },
 
   scheduleNext: function() {
