@@ -416,7 +416,14 @@ table#towns td {
 
 .about-page #bd .residential-projects td {
   padding: 2px 7px;
-  width: 50%;
+}
+
+.about-page #bd .residential-projects td:nth-child(1) {
+  width: 150px;
+}
+
+.about-page #bd .residential-projects td:nth-child(2) {
+  text-align: center;
 }
 
 .about-page #bd .residential-projects tr:nth-child(even) {
