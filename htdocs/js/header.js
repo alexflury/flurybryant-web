@@ -48,9 +48,7 @@ FB.Modules.Header.prototype = {
 				linkElement.href = 'javascript:void(0);';
 			} else {
 				var destination = linkElement.href;
-				FB.util.Event.addListener(this.linksHtml[linkName], 'click', function() {
-					document.location.href = destination
-				});
+				FB.util.Event.addListener(this.linksHtml[linkName], 'click', this.linkAction(destination));
 			}
 		}
 		for (var linkName in this.sublinkPanelsHtml) {
@@ -63,6 +61,12 @@ FB.Modules.Header.prototype = {
 			this.renderBanner();
 			this.bannerTitleContainerHtml.style.display = 'block';
 		}
+	},
+
+	linkAction: function(destination) {
+		return function() {
+			document.location.href = destination;
+		};
 	},
 
 	addListeners: function() {
