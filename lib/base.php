@@ -12,7 +12,8 @@ $COLOR = array(
   'MENU_PANEL_GRAD' => '#DCDCDC',
   'BANNER_TITLE' => '#808080',
   'ODD_ROW' => '#C0C0C0',
-  'EVEN_ROW' => '#D3D3D3'
+  'EVEN_ROW' => '#D3D3D3',
+  'PORTFOLIO_BACKGROUND' => '#282828'
 );
 
 $SIZE = array(
