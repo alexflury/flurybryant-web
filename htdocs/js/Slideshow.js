@@ -69,6 +69,8 @@ FB.Modules.Slideshow.prototype = {
     if (this.photoPickerHtml !== undefined) {
       for (var t = 0; t < this.thumbsHtml.length; t++) {
         FB.util.Event.addListener(this.thumbsHtml[t], 'click', this.clickThumbHandler(this.thumbsHtml[t].dataset.photoNum));
+        FB.util.Event.addListener(this.thumbsHtml[t], 'mouseover', this.mouseOverThumbHandler(this.thumbsHtml[t].dataset.photoNum));
+        FB.util.Event.addListener(this.thumbsHtml[t], 'mouseout', this.mouseOutThumbHandler(this.thumbsHtml[t].dataset.photoNum));
       }
     }
   },
@@ -101,6 +103,16 @@ FB.Modules.Slideshow.prototype = {
     return function () { slideshow.clickThumb(photoNum); };
   },
 
+  mouseOverThumbHandler: function(photoNum) {
+    var slideshow = this;
+    return function() { slideshow.mouseOverThumb(photoNum); };
+  },
+
+  mouseOutThumbHandler: function(photoNum) {
+    var slideshow = this;
+    return function() { slideshow.mouseOutThumb(photoNum); };
+  },
+
   clickThumb: function(photoNum) {
     this.isAuto = false;
     clearTimeout(this.currentTimeout);
@@ -110,6 +122,20 @@ FB.Modules.Slideshow.prototype = {
     }
     FB.util.Dom.addClassName(this.thumbsHtml[photoNum], 'selected');
     this.selectedThumb = photoNum;
+  },
+
+  mouseOverThumb: function(photoNum) {
+    if (this.selectedThumbs !== null) {
+      FB.util.Dom.removeClassName(this.thumbsHtml[this.selectedThumb], 'selected');
+    }
+    FB.util.Dom.addClassName(this.thumbsHtml[photoNum], 'selected');
+  },
+
+  mouseOutThumb: function(photoNum) {
+    FB.util.Dom.removeClassName(this.thumbsHtml[photoNum], 'selected');
+    if (this.selectedThumb !== null) {
+      FB.util.Dom.addClassName(this.thumbsHtml[this.selectedThumb], 'selected');
+    }
   },
 
   scheduleNext: function() {
