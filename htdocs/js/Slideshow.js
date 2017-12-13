@@ -1,9 +1,10 @@
-FB.Modules.Slideshow = function(photoSequence, isAuto, period, autoResizeDelta, autoResizeMin) {
+FB.Modules.Slideshow = function(photoSequence, isAuto, period, autoResizeDelta, autoResizeMin, photos) {
   this.photoSequence = photoSequence;
   this.isAuto = isAuto;
   this.period = period;
   this.autoResizeDelta = autoResizeDelta;
   this.autoResizeMin = autoResizeMin
+  this.photos = photos;
   this.getHtml();
   this.initHtml();
   this.addListeners();
@@ -28,6 +29,7 @@ FB.Modules.Slideshow.prototype = {
   manualSpeed: 0.2,
   photoPickerHtml: null,
   selectedThumb: null,
+  photos: [],
 
   getHtml: function() {
     this.html = FB.util.Dom.get('slideshow');
