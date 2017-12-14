@@ -67,13 +67,6 @@ FB.Modules.Slideshow.prototype = {
     FB.util.Event.addListener(this.prevLinkHtml, 'mouseout', function() { slideshow.lightenPrevLink(); });
     FB.util.Event.addListener(this.nextLinkHtml, 'click', function() { slideshow.clickNext(); });
     FB.util.Event.addListener(this.prevLinkHtml, 'click', function() { slideshow.clickPrev(); });
-    if (this.thumbContainerHtml !== undefined) {
-      for (var t = 0; t < this.thumbsHtml.length; t++) {
-        FB.util.Event.addListener(this.thumbsHtml[t], 'click', this.clickThumbHandler(this.thumbsHtml[t].dataset.photoNum));
-        FB.util.Event.addListener(this.thumbsHtml[t], 'mouseover', this.mouseOverThumbHandler(this.thumbsHtml[t].dataset.photoNum));
-        FB.util.Event.addListener(this.thumbsHtml[t], 'mouseout', this.mouseOutThumbHandler(this.thumbsHtml[t].dataset.photoNum));
-      }
-    }
   },
 
   prev: function(speed) {
@@ -133,10 +126,13 @@ FB.Modules.Slideshow.prototype = {
     thumbHtml.style.backgroundImage = 'url(' + FB.util.getThumbUrl(this.photos[photoNum]) + ')';
     this.thumbContainerHtml.appendChild(thumbHtml);
     this.thumbsHtml[photoNum] = thumbHtml;
+    FB.util.Event.addListener(thumbHtml, 'click', this.clickThumbHandler(photoNum));
+    FB.util.Event.addListener(thumbHtml, 'mouseover', this.mouseOverThumbHandler(photoNum));
+    FB.util.Event.addListener(thumbHtml, 'mouseout', this.mouseOutThumbHandler(photoNum));
   },
 
   mouseOverThumb: function(photoNum) {
-    if (this.selectedThumbs !== null) {
+    if (this.selectedThumb !== null) {
       FB.util.Dom.removeClassName(this.thumbsHtml[this.selectedThumb], 'selected');
     }
     FB.util.Dom.addClassName(this.thumbsHtml[photoNum], 'selected');
