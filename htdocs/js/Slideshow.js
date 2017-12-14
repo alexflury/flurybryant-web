@@ -112,6 +112,9 @@ FB.Modules.Slideshow.prototype = {
     if (this.isSliding) {
       return false;
     }
+    if (photoNum == this.selectedThumb) {
+      return false;
+    }
     this.isAuto = false;
     clearTimeout(this.currentTimeout);
     this.photoSequence.loadPhoto(photoNum, this.manualSpeed);
