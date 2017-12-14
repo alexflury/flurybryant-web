@@ -121,13 +121,17 @@ FB.Modules.Slideshow.prototype = {
 
   renderPhotoPicker: function() {
     var photoPickerRect = this.photoPickerHtml.getBoundingClientRect();
-    var thumbWidth = Math.floor((photoPickerRect.height - 20) * 4/3) + 10;
-    var numThumbs = Math.ceil((photoPickerRect.width * 3/2) / thumbWidth);
+    var thumbWidth = Math.floor((photoPickerRect.height - 20) * 4/3);
+    var numThumbs = Math.ceil((photoPickerRect.width * 3/2) / (thumbWidth + 10));
     this.thumbContainerHtml.innerHTML = '';
     for (var t = this.selectedThumb - numThumbs; t <= this.selectedThumb + numThumbs; t++) {
       this.createThumb(((t % this.photos.length) + this.photos.length) % this.photos.length);
     }
     FB.util.Dom.addClassName(this.thumbsHtml[this.selectedThumb], 'selected');
+    var thumbContainerWidth = 10 * (numThumbs * 2 + 2) + thumbWidth * (numThumbs * 2 + 1);
+    var thumbContainerLeft = Math.floor((photoPickerRect.width - thumbContainerWidth) / 2);
+    this.thumbContainerHtml.style.width = thumbContainerWidth + 'px';
+    this.thumbContainerHtml.style.left = thumbContainerLeft + 'px';
   },
 
   createThumb: function(photoNum) {
@@ -168,6 +172,9 @@ FB.Modules.Slideshow.prototype = {
     var rightArrowRect = this.nextLinkHtml.getBoundingClientRect();
     this.prevLinkHtml.style.top = Math.floor((photoSequenceRect.height - leftArrowRect.height) / 2) + 'px';
     this.nextLinkHtml.style.top = Math.floor((photoSequenceRect.height - rightArrowRect.height) / 2) + 'px';
+    if (this.photoPickerHtml !== undefined) {
+      this.renderPhotoPicker();
+    }
   },
 
   showButtons: function() {

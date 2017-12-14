@@ -881,11 +881,11 @@ table#towns td {
 }
 
 #slideshow .photo-picker .thumb-container {
-  width: 5000px;
+  position: absolute;
 }
 
 #slideshow .photo-picker .thumb {
-  width: <?php echo ($SIZE['BANNER_HEIGHT'] - 20) * 4/3; ?>px;
+  width: <?php echo floor(($SIZE['BANNER_HEIGHT'] - 20) * 4/3); ?>px;
   height: <?php echo ($SIZE['BANNER_HEIGHT'] - 20); ?>px;
   background-color: <?php echo $COLOR['BODY'] ?>;
   background-repeat: no-repeat;
