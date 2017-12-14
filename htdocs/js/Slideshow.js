@@ -31,6 +31,7 @@ FB.Modules.Slideshow.prototype = {
   thumbContainerHtml: null,
   selectedThumb: null,
   photos: [],
+  isSliding: false,
 
   getHtml: function() {
     this.html = FB.util.Dom.get('slideshow');
@@ -84,16 +85,12 @@ FB.Modules.Slideshow.prototype = {
 
   clickNext: function() {
     this.isAuto = false;
-    clearTimeout(this.currentTimeout);
-    this.next(this.manualSpeed);
-    this.clickThumb(this.photoSequence.getPhotoNum() - 1);
+    this.clickThumb(this.photoSequence.getPhotoNum());
   },
 
   clickPrev: function() {
     this.isAuto = false;
-    clearTimeout(this.currentTimeout);
-    this.prev(this.manualSpeed);
-    this.clickThumb(this.photoSequence.getPhotoNum() - 1);
+    this.clickThumb(this.photoSequence.getPhotoNum() - 2);
   },
 
   clickThumbHandler: function(photoNum) {
@@ -112,6 +109,9 @@ FB.Modules.Slideshow.prototype = {
   },
 
   clickThumb: function(photoNum) {
+    if (this.isSliding) {
+      return false;
+    }
     this.isAuto = false;
     clearTimeout(this.currentTimeout);
     this.photoSequence.loadPhoto(photoNum, this.manualSpeed);
@@ -133,6 +133,7 @@ FB.Modules.Slideshow.prototype = {
   },
 
   slidePhotoPicker: function(start, end, progress) {
+    this.isSliding = true;
     if (progress === undefined) {
       progress = 0.025;
     }
@@ -143,6 +144,7 @@ FB.Modules.Slideshow.prototype = {
       setTimeout(function() { slideshow.slidePhotoPicker(start, end, progress + 0.025) }, 10);
     } else {
       this.thumbContainerHtml.style.left = end + 'px';
+      this.isSliding = false;
       this.renderPhotoPicker();
     }
   },
