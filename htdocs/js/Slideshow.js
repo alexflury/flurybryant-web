@@ -121,13 +121,13 @@ FB.Modules.Slideshow.prototype = {
     if (this.thumbsHtml[photoNum] !== undefined) {
       FB.util.Dom.addClassName(this.thumbsHtml[photoNum], 'selected');
     }
-    var photoPickerRect = this.photoPickerHtml.getBoundingClientRect();
-    var thumbWidth = Math.floor((photoPickerRect.height - 20) * 4/3);
-    if (this.selectedThumb === null) {
+    if (this.selectedThumb === null || this.thumbsHtml[this.selectedThumb] === undefined || this.thumbsHtml[photoNum] === undefined) {
       this.selectedThumb = photoNum;
       this.renderPhotoPicker();
     } else {
-      this.slidePhotoPicker(this.thumbContainerHtml.offsetLeft, this.thumbContainerHtml.offsetLeft + (thumbWidth + 10) * (this.selectedThumb - photoNum));
+      var startThumbLeft = this.thumbsHtml[this.selectedThumb].offsetLeft;
+      var endThumbLeft = this.thumbsHtml[photoNum].offsetLeft;
+      this.slidePhotoPicker(this.thumbContainerHtml.offsetLeft, this.thumbContainerHtml.offsetLeft + startThumbLeft - endThumbLeft - 5);
       this.selectedThumb = photoNum;
     }
   },
