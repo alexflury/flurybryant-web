@@ -27,7 +27,7 @@ FB.Modules.Slideshow.prototype = {
   currentTimeout: null,
   autoSpeed: 0.025,
   manualSpeed: 0.2,
-  photoPickerHtml: null,
+  thumbContainerHtml: null,
   selectedThumb: null,
   photos: [],
 
@@ -37,16 +37,13 @@ FB.Modules.Slideshow.prototype = {
     this.photoSequenceHtml = FB.util.Dom.getElementsByClassName('photo-sequence', this.html)[0];
     this.prevLinkHtml = FB.util.Dom.getElementsByClassName('left-arrow', this.html)[0];
     this.nextLinkHtml = FB.util.Dom.getElementsByClassName('right-arrow', this.html)[0];
-    this.photoPickerHtml = FB.util.Dom.getElementsByClassName('photo-picker', this.html)[0];
-    if (this.photoPickerHtml !== undefined) {
-      this.thumbsHtml = FB.util.Dom.getElementsByClassName('thumb', this.photoPickerHtml);
-    }
+    this.thumbContainerHtml = FB.util.Dom.getElementsByClassName('thumb-container', this.html)[0];
   },
 
   initHtml: function() {
     this.lightenNextLink();
     this.lightenPrevLink();
-    if (this.photoPickerHtml !== undefined) {
+    if (this.thumbContainerHtml !== undefined) {
       this.clickThumb(0);
     }
   },
@@ -70,7 +67,7 @@ FB.Modules.Slideshow.prototype = {
     FB.util.Event.addListener(this.prevLinkHtml, 'mouseout', function() { slideshow.lightenPrevLink(); });
     FB.util.Event.addListener(this.nextLinkHtml, 'click', function() { slideshow.clickNext(); });
     FB.util.Event.addListener(this.prevLinkHtml, 'click', function() { slideshow.clickPrev(); });
-    if (this.photoPickerHtml !== undefined) {
+    if (this.thumbContainerHtml !== undefined) {
       for (var t = 0; t < this.thumbsHtml.length; t++) {
         FB.util.Event.addListener(this.thumbsHtml[t], 'click', this.clickThumbHandler(this.thumbsHtml[t].dataset.photoNum));
         FB.util.Event.addListener(this.thumbsHtml[t], 'mouseover', this.mouseOverThumbHandler(this.thumbsHtml[t].dataset.photoNum));
@@ -123,11 +120,19 @@ FB.Modules.Slideshow.prototype = {
     this.isAuto = false;
     clearTimeout(this.currentTimeout);
     this.photoSequence.loadPhoto(photoNum, this.manualSpeed);
-    if (this.selectedThumb !== null) {
-      FB.util.Dom.removeClassName(this.thumbsHtml[this.selectedThumb], 'selected');
-    }
+    
+    this.thumbContainerHtml.innerHTML = '';
+    this.createThumb(photoNum);
     FB.util.Dom.addClassName(this.thumbsHtml[photoNum], 'selected');
     this.selectedThumb = photoNum;
+  },
+
+  createThumb: function(photoNum) {
+    var thumbHtml = document.createElement("div");
+    FB.util.Dom.addClassName(thumbHtml, 'thumb');
+    thumbHtml.style.backgroundImage = 'url(' + FB.util.getThumbUrl(this.photos[photoNum]) + ')';
+    this.thumbContainerHtml.appendChild(thumbHtml);
+    this.thumbsHtml[photoNum] = thumbHtml;
   },
 
   mouseOverThumb: function(photoNum) {

@@ -45,11 +45,7 @@ $next_style = $slideshow_photo < count($slideshow_photos) ? '' : ' style="visibi
 <div id="slideshow">
   <?php if (isset($slideshow_has_photo_picker) && $slideshow_has_photo_picker) { ?>
     <div class="photo-picker">
-      <div class="thumb-container">
-        <?php for ($p = 1; $p <= count($slideshow_photos); $p++) { ?>
-          <div class="thumb" data-photo-num="<?php echo ($p - 1); ?>" style="background-image:url(<?php echo get_thumb_url($slideshow_photos, $p); ?>);"></div>
-        <?php } ?>
-      </div>
+      <div class="thumb-container"></div>
     </div>
   <?php } ?>
   <div class="photo">
