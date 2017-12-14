@@ -115,8 +115,41 @@ FB.Modules.Slideshow.prototype = {
     this.isAuto = false;
     clearTimeout(this.currentTimeout);
     this.photoSequence.loadPhoto(photoNum, this.manualSpeed);
-    this.selectedThumb = photoNum;
-    this.renderPhotoPicker();
+    if (this.selectedThumb !== null) {
+      FB.util.Dom.removeClassName(this.thumbsHtml[this.selectedThumb], 'selected');
+    }
+    if (this.thumbsHtml[photoNum] !== undefined) {
+      FB.util.Dom.addClassName(this.thumbsHtml[photoNum], 'selected');
+    }
+    var photoPickerRect = this.photoPickerHtml.getBoundingClientRect();
+    var thumbWidth = Math.floor((photoPickerRect.height - 20) * 4/3);
+    if (this.selectedThumb === null) {
+      this.selectedThumb = photoNum;
+      this.renderPhotoPicker();
+    } else {
+      this.slidePhotoPicker(this.thumbContainerHtml.offsetLeft, this.thumbContainerHtml.offsetLeft + (thumbWidth + 10) * (this.selectedThumb - photoNum));
+      this.selectedThumb = photoNum;
+    }
+  },
+
+  slidePhotoPicker: function(start, end, progress) {
+    if (progress === undefined) {
+      progress = this.manualSpeed;
+    }
+    console.log('start = ' + start);
+    console.log('end = ' + end);
+    console.log("progress = " + progress);
+    if (progress < 1) {
+      var newLeft = start + (end - start) * progress;
+      console.log('new left = ' + newLeft);
+      this.thumbContainerHtml.style.left = (start + (end - start) * progress) + 'px';
+      var slideshow = this;
+      var manualSpeed = this.manualSpeed;
+      setTimeout(function() { slideshow.slidePhotoPicker(start, end, progress + manualSpeed) }, 50);
+    } else {
+      this.thumbContainerHtml.style.left = end + 'px';
+      this.renderPhotoPicker();
+    }
   },
 
   renderPhotoPicker: function() {
@@ -124,6 +157,7 @@ FB.Modules.Slideshow.prototype = {
     var thumbWidth = Math.floor((photoPickerRect.height - 20) * 4/3);
     var numThumbs = Math.ceil((photoPickerRect.width * 3/2) / (thumbWidth + 10));
     this.thumbContainerHtml.innerHTML = '';
+    this.thumbsHtml = [];
     for (var t = this.selectedThumb - numThumbs; t <= this.selectedThumb + numThumbs; t++) {
       this.createThumb(((t % this.photos.length) + this.photos.length) % this.photos.length);
     }
