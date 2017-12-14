@@ -134,18 +134,13 @@ FB.Modules.Slideshow.prototype = {
 
   slidePhotoPicker: function(start, end, progress) {
     if (progress === undefined) {
-      progress = this.manualSpeed;
+      progress = 0.025;
     }
-    console.log('start = ' + start);
-    console.log('end = ' + end);
-    console.log("progress = " + progress);
     if (progress < 1) {
-      var newLeft = start + (end - start) * progress;
-      console.log('new left = ' + newLeft);
-      this.thumbContainerHtml.style.left = (start + (end - start) * progress) + 'px';
+      var newLeft = start + (end - start) * (0.5 - 0.5 * Math.cos(progress * Math.PI));
+      this.thumbContainerHtml.style.left = start + (end - start) * (0.5 - 0.5 * Math.cos(progress * Math.PI)) + 'px';
       var slideshow = this;
-      var manualSpeed = this.manualSpeed;
-      setTimeout(function() { slideshow.slidePhotoPicker(start, end, progress + manualSpeed) }, 50);
+      setTimeout(function() { slideshow.slidePhotoPicker(start, end, progress + 0.025) }, 10);
     } else {
       this.thumbContainerHtml.style.left = end + 'px';
       this.renderPhotoPicker();
