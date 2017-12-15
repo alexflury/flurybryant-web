@@ -302,6 +302,7 @@ ul {
   background: <?php echo $COLOR['BODY'] ?>;
   padding: <?php echo ($SIZE['BD_PADDING_TOP'] + $SIZE['HD_HEIGHT'] + 1 + $SIZE['BANNER_HEIGHT']); ?>px 0 <?php echo $SIZE['BD_PADDING_BOTTOM']; ?>px 0;
   width: 100%;
+  min-width: <?php echo $SIZE['MIN_PAGE_WIDTH']; ?>px;
 }
 
 #bd p {
