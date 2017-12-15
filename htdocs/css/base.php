@@ -874,11 +874,18 @@ table#towns td {
   cursor: pointer;
 }
 
+#slideshow .photo-picker-container {
+  position: relative;
+  height: <?php echo $SIZE['PHOTO_PICKER_HEIGHT']; ?>px;
+  width: 100%;
+}
+
 #slideshow .photo-picker {
   height: <?php echo $SIZE['PHOTO_PICKER_HEIGHT']; ?>px;
   width: 100%;
   overflow: hidden;
   min-width: <?php echo $SIZE['MIN_PAGE_WIDTH']; ?>px;
+  position: absolute;
 }
 
 #slideshow .photo-picker .thumb-container {
