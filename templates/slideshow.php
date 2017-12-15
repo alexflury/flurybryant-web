@@ -47,6 +47,8 @@ $next_style = $slideshow_photo < count($slideshow_photos) ? '' : ' style="visibi
     <div class="photo-picker-container">
       <div class="photo-picker">
         <div class="thumb-container"></div>
+        <div class="left-arrow"></div>
+        <div class="right-arrow"></div>
       </div>
     </div>
   <?php } ?>

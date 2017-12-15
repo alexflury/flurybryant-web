@@ -32,15 +32,21 @@ FB.Modules.Slideshow.prototype = {
   selectedThumb: null,
   photos: [],
   isSliding: false,
+  photoPickerPrevLinkHtml: null,
+  photoPickerNextLinkHtml: null,
 
   getHtml: function() {
     this.html = FB.util.Dom.get('slideshow');
     this.photoHtml = FB.util.Dom.getElementsByClassName('photo', this.html)[0];
     this.photoSequenceHtml = FB.util.Dom.getElementsByClassName('photo-sequence', this.html)[0];
-    this.prevLinkHtml = FB.util.Dom.getElementsByClassName('left-arrow', this.html)[0];
-    this.nextLinkHtml = FB.util.Dom.getElementsByClassName('right-arrow', this.html)[0];
+    this.prevLinkHtml = FB.util.Dom.getElementsByClassName('left-arrow', this.photoHtml)[0];
+    this.nextLinkHtml = FB.util.Dom.getElementsByClassName('right-arrow', this.photoHtml)[0];
     this.photoPickerHtml = FB.util.Dom.getElementsByClassName('photo-picker', this.html)[0];
     this.thumbContainerHtml = FB.util.Dom.getElementsByClassName('thumb-container', this.html)[0];
+    if (this.photoPickerHtml !== undefined) {
+      this.photoPickerPrevLinkHtml = FB.util.Dom.getElementsByClassName('left-arrow', this.photoPickerHtml)[0];
+      this.photoPickerNextLinkHtml = FB.util.Dom.getElementsByClassName('right-arrow', this.photoPickerHtml)[0];
+    }
   },
 
   initHtml: function() {
@@ -70,6 +76,10 @@ FB.Modules.Slideshow.prototype = {
     FB.util.Event.addListener(this.prevLinkHtml, 'mouseout', function() { slideshow.lightenPrevLink(); });
     FB.util.Event.addListener(this.nextLinkHtml, 'click', function() { slideshow.clickNext(); });
     FB.util.Event.addListener(this.prevLinkHtml, 'click', function() { slideshow.clickPrev(); });
+    if (this.photoPickerHtml !== undefined) {
+      FB.util.Event.addListener(this.photoPickerHtml, 'mouseover', function() { slideshow.showPhotoPickerButtons() });
+      FB.util.Event.addListener(this.photoPickerHtml, 'mouseout', function() { slideshow.hidePhotoPickerButtons() });
+    }
   },
 
   prev: function(speed) {
@@ -247,6 +257,16 @@ FB.Modules.Slideshow.prototype = {
   lightenPrevLink: function() {
     FB.util.Dom.removeClassName(this.prevLinkHtml, 'hover');
     FB.util.Dom.setOpacity(this.prevLinkHtml, 0.4);
+  },
+
+  showPhotoPickerButtons: function() {
+    this.photoPickerPrevLinkHtml.style.display = 'block';
+    this.photoPickerNextLinkHtml.style.display = 'block';
+  },
+
+  hidePhotoPickerButtons: function() {
+    this.photoPickerPrevLinkHtml.style.display = 'none';
+    this.photoPickerNextLinkHtml.style.display = 'none';
   }
 
 };

@@ -874,6 +874,14 @@ table#towns td {
   cursor: pointer;
 }
 
+#slideshow .photo-picker .left-arrow {
+  top: <?php echo floor(($SIZE['PHOTO_PICKER_HEIGHT'] - 64) / 2) ?>px;
+}
+
+#slideshow .photo-picker .right-arrow {
+  top: <?php echo floor(($SIZE['PHOTO_PICKER_HEIGHT'] - 64) / 2) ?>px;
+}
+
 #slideshow .photo-picker-container {
   position: relative;
   height: <?php echo $SIZE['PHOTO_PICKER_HEIGHT']; ?>px;
