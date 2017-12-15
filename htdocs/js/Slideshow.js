@@ -55,6 +55,8 @@ FB.Modules.Slideshow.prototype = {
     this.lightenNextLink();
     this.lightenPrevLink();
     if (this.thumbContainerHtml !== undefined) {
+      this.lightenPhotoPickerNextLink();
+      this.lightenPhotoPickerPrevLink();
       this.clickThumb(0);
     }
   },
@@ -81,6 +83,10 @@ FB.Modules.Slideshow.prototype = {
     if (this.photoPickerHtml !== undefined) {
       FB.util.Event.addListener(this.photoPickerHtml, 'mouseover', function() { slideshow.showPhotoPickerButtons() });
       FB.util.Event.addListener(this.photoPickerHtml, 'mouseout', function() { slideshow.hidePhotoPickerButtons() });
+      FB.util.Event.addListener(this.photoPickerNextLinkHtml, 'mouseover', function() { slideshow.darkenPhotoPickerNextLink(); });
+      FB.util.Event.addListener(this.photoPickerNextLinkHtml, 'mouseout', function() { slideshow.lightenPhotoPickerNextLink(); });
+      FB.util.Event.addListener(this.photoPickerPrevLinkHtml, 'mouseover', function() { slideshow.darkenPhotoPickerPrevLink(); });
+      FB.util.Event.addListener(this.photoPickerPrevLinkHtml, 'mouseout', function() { slideshow.lightenPhotoPickerPrevLink(); });
     }
   },
 
@@ -265,6 +271,22 @@ FB.Modules.Slideshow.prototype = {
   hidePhotoPickerButtons: function() {
     this.photoPickerPrevLinkHtml.style.display = 'none';
     this.photoPickerNextLinkHtml.style.display = 'none';
+  },
+
+  darkenPhotoPickerNextLink: function() {
+    FB.util.Dom.setOpacity(this.photoPickerNextLinkHtml, this.hoverArrowOpacity);
+  },
+
+  lightenPhotoPickerNextLink: function() {
+    FB.util.Dom.setOpacity(this.photoPickerNextLinkHtml, this.defaultArrowOpacity);
+  },
+
+  darkenPhotoPickerPrevLink: function() {
+    FB.util.Dom.setOpacity(this.photoPickerPrevLinkHtml, this.hoverArrowOpacity);
+  },
+
+  lightenPhotoPickerPrevLink: function() {
+    FB.util.Dom.setOpacity(this.photoPickerPrevLinkHtml, this.defaultArrowOpacity);
   }
 
 };
