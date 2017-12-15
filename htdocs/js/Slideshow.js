@@ -103,11 +103,11 @@ FB.Modules.Slideshow.prototype = {
   },
 
   clickNext: function() {
-    this.clickThumb(this.photoSequence.getPhotoNum() % this.photos.length);
+    this.clickThumb(this.photoSequence.getPhotoNum());
   },
 
   clickPrev: function() {
-    this.clickThumb(((this.photoSequence.getPhotoNum() - 2) % this.photos.length + this.photos.length) % this.photos.length);
+    this.clickThumb(this.photoSequence.getPhotoNum() - 2);
   },
 
   clickThumbHandler: function(photoNum) {
@@ -132,6 +132,7 @@ FB.Modules.Slideshow.prototype = {
     if (photoNum == this.selectedThumb) {
       return false;
     }
+    photoNum = (photoNum % this.photos.length + this.photos.length) % this.photos.length;
     this.isAuto = false;
     clearTimeout(this.currentTimeout);
     this.photoSequence.loadPhoto(photoNum, this.manualSpeed);
