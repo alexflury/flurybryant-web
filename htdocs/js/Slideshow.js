@@ -130,13 +130,16 @@ FB.Modules.Slideshow.prototype = {
     } else {
       var startThumbLeft = this.thumbsHtml[this.selectedThumb].offsetLeft;
       var endThumbLeft = this.thumbsHtml[photoNum].offsetLeft;
+      this.isSliding = true;
       this.slidePhotoPicker(this.thumbContainerHtml.offsetLeft, this.thumbContainerHtml.offsetLeft + startThumbLeft - endThumbLeft - 5);
       this.selectedThumb = photoNum;
     }
   },
 
   slidePhotoPicker: function(start, end, progress) {
-    this.isSliding = true;
+    if (!this.isSliding) { 
+      return;
+    }
     if (progress === undefined) {
       progress = 0.025;
     }
@@ -147,12 +150,12 @@ FB.Modules.Slideshow.prototype = {
       setTimeout(function() { slideshow.slidePhotoPicker(start, end, progress + 0.025) }, 10);
     } else {
       this.thumbContainerHtml.style.left = end + 'px';
-      this.isSliding = false;
       this.renderPhotoPicker();
     }
   },
 
   renderPhotoPicker: function() {
+    this.isSliding = false;
     var photoPickerRect = this.photoPickerHtml.getBoundingClientRect();
     var thumbWidth = Math.floor((photoPickerRect.height - 20) * 4/3);
     var numThumbs = Math.ceil((photoPickerRect.width * 3/2) / (thumbWidth + 10));
