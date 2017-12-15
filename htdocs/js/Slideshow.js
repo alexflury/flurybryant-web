@@ -136,21 +136,23 @@ FB.Modules.Slideshow.prototype = {
     this.isAuto = false;
     clearTimeout(this.currentTimeout);
     this.photoSequence.loadPhoto(photoNum, this.manualSpeed);
-    if (this.selectedThumb !== null) {
-      FB.util.Dom.removeClassName(this.thumbsHtml[this.selectedThumb], 'selected');
-    }
-    if (this.thumbsHtml[photoNum] !== undefined) {
-      FB.util.Dom.addClassName(this.thumbsHtml[photoNum], 'selected');
-    }
-    if (this.selectedThumb === null || this.thumbsHtml[this.selectedThumb] === undefined || this.thumbsHtml[photoNum] === undefined) {
-      this.selectedThumb = photoNum;
-      this.renderPhotoPicker();
-    } else {
-      var startThumbLeft = this.thumbsHtml[this.selectedThumb].offsetLeft;
-      var endThumbLeft = this.thumbsHtml[photoNum].offsetLeft;
-      this.isSliding = true;
-      this.slidePhotoPicker(this.thumbContainerHtml.offsetLeft, this.thumbContainerHtml.offsetLeft + startThumbLeft - endThumbLeft - 5);
-      this.selectedThumb = photoNum;
+    if (this.photoPickerHtml !== undefined) {
+      if (this.selectedThumb !== null) {
+        FB.util.Dom.removeClassName(this.thumbsHtml[this.selectedThumb], 'selected');
+      }
+      if (this.thumbsHtml[photoNum] !== undefined) {
+        FB.util.Dom.addClassName(this.thumbsHtml[photoNum], 'selected');
+      }
+      if (this.selectedThumb === null || this.thumbsHtml[this.selectedThumb] === undefined || this.thumbsHtml[photoNum] === undefined) {
+        this.selectedThumb = photoNum;
+        this.renderPhotoPicker();
+      } else {
+        var startThumbLeft = this.thumbsHtml[this.selectedThumb].offsetLeft;
+        var endThumbLeft = this.thumbsHtml[photoNum].offsetLeft;
+        this.isSliding = true;
+        this.slidePhotoPicker(this.thumbContainerHtml.offsetLeft, this.thumbContainerHtml.offsetLeft + startThumbLeft - endThumbLeft - 5);
+        this.selectedThumb = photoNum;
+      }
     }
   },
 
