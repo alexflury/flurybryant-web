@@ -80,6 +80,7 @@ FB.Modules.Slideshow.prototype = {
     FB.util.Event.addListener(this.prevLinkHtml, 'mouseout', function() { slideshow.lightenPrevLink(); });
     FB.util.Event.addListener(this.nextLinkHtml, 'click', function() { slideshow.clickNext(); });
     FB.util.Event.addListener(this.prevLinkHtml, 'click', function() { slideshow.clickPrev(); });
+    FB.util.Event.addListener(this.html, 'click', function() { header.hideMenuPanel(); });
     if (this.photoPickerHtml !== undefined) {
       FB.util.Event.addListener(this.photoPickerHtml, 'mouseover', function() { slideshow.showPhotoPickerButtons() });
       FB.util.Event.addListener(this.photoPickerHtml, 'mouseout', function() { slideshow.hidePhotoPickerButtons() });
