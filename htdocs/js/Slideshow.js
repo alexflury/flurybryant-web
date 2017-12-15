@@ -34,6 +34,8 @@ FB.Modules.Slideshow.prototype = {
   isSliding: false,
   photoPickerPrevLinkHtml: null,
   photoPickerNextLinkHtml: null,
+  defaultArrowOpacity: 0.4,
+  hoverArrowOpacity: 0.7,
 
   getHtml: function() {
     this.html = FB.util.Dom.get('slideshow');
@@ -240,23 +242,19 @@ FB.Modules.Slideshow.prototype = {
   },
 
   darkenNextLink: function() {
-    FB.util.Dom.addClassName(this.nextLinkHtml, 'hover');
-    FB.util.Dom.setOpacity(this.nextLinkHtml, 0.7);
+    FB.util.Dom.setOpacity(this.nextLinkHtml, this.hoverArrowOpacity);
   },
 
   lightenNextLink: function() {
-    FB.util.Dom.removeClassName(this.nextLinkHtml, 'hover');
-    FB.util.Dom.setOpacity(this.nextLinkHtml, 0.4);
+    FB.util.Dom.setOpacity(this.nextLinkHtml, this.defaultArrowOpacity);
   },
 
   darkenPrevLink: function() {
-    FB.util.Dom.addClassName(this.prevLinkHtml, 'hover');
-    FB.util.Dom.setOpacity(this.prevLinkHtml, 0.7);
+    FB.util.Dom.setOpacity(this.prevLinkHtml, this.hoverArrowOpacity);
   },
 
   lightenPrevLink: function() {
-    FB.util.Dom.removeClassName(this.prevLinkHtml, 'hover');
-    FB.util.Dom.setOpacity(this.prevLinkHtml, 0.4);
+    FB.util.Dom.setOpacity(this.prevLinkHtml, this.defaultArrowOpacity);
   },
 
   showPhotoPickerButtons: function() {
