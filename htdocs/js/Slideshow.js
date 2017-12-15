@@ -139,6 +139,7 @@ FB.Modules.Slideshow.prototype = {
     this.isAuto = false;
     clearTimeout(this.currentTimeout);
     this.photoSequence.loadPhoto(photoNum, this.manualSpeed);
+    photoNum = this.photoSequence.getPhotoNum() - 1;
     if (this.photoPickerHtml !== undefined) {
       if (this.selectedThumb !== null && this.thumbsHtml[this.selectedThumb] !== undefined) {
         FB.util.Dom.removeClassName(this.thumbsHtml[this.selectedThumb], 'selected');
