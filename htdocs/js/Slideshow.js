@@ -167,9 +167,15 @@ FB.Modules.Slideshow.prototype = {
       this.renderPhotoPicker();
     } else {
       var startThumbLeft = this.thumbsHtml[this.centeredThumb].offsetLeft;
+      if (this.centeredThumb == this.selectedThumb) {
+        startThumbLeft += 5;
+      }
       var endThumbLeft = this.thumbsHtml[photoNum].offsetLeft;
+      if (photoNum == this.selectedThumb) {
+        endThumbLeft += 5;
+      }
       this.isSliding = true;
-      this.slidePhotoPicker(this.thumbContainerHtml.offsetLeft, this.thumbContainerHtml.offsetLeft + startThumbLeft - endThumbLeft - 5);
+      this.slidePhotoPicker(this.thumbContainerHtml.offsetLeft, this.thumbContainerHtml.offsetLeft + startThumbLeft - endThumbLeft);
       this.centeredThumb = photoNum;
     }
   },
