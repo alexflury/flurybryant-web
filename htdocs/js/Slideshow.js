@@ -36,6 +36,7 @@ FB.Modules.Slideshow.prototype = {
   photoPickerNextLinkHtml: null,
   defaultArrowOpacity: 0.4,
   hoverArrowOpacity: 0.7,
+  centeredThumb: null,
 
   getHtml: function() {
     this.html = FB.util.Dom.get('slideshow');
@@ -143,16 +144,21 @@ FB.Modules.Slideshow.prototype = {
       if (this.thumbsHtml[photoNum] !== undefined) {
         FB.util.Dom.addClassName(this.thumbsHtml[photoNum], 'selected');
       }
-      if (this.selectedThumb === null || this.thumbsHtml[this.selectedThumb] === undefined || this.thumbsHtml[photoNum] === undefined) {
-        this.selectedThumb = photoNum;
-        this.renderPhotoPicker();
-      } else {
-        var startThumbLeft = this.thumbsHtml[this.selectedThumb].offsetLeft;
-        var endThumbLeft = this.thumbsHtml[photoNum].offsetLeft;
-        this.isSliding = true;
-        this.slidePhotoPicker(this.thumbContainerHtml.offsetLeft, this.thumbContainerHtml.offsetLeft + startThumbLeft - endThumbLeft - 5);
-        this.selectedThumb = photoNum;
-      }
+    }
+    this.selectedThumb = photoNum;
+    this.slidePhotoPickerTo(photoNum);
+  },
+
+  slidePhotoPickerTo: function(photoNum) {
+    if (this.centeredThumb === null || this.thumbsHtml[this.centeredThumb] === undefined || this.thumbsHtml[photoNum] === undefined) {
+      this.centeredThumb = photoNum;
+      this.renderPhotoPicker();
+    } else {
+      var startThumbLeft = this.thumbsHtml[this.centeredThumb].offsetLeft;
+      var endThumbLeft = this.thumbsHtml[photoNum].offsetLeft;
+      this.isSliding = true;
+      this.slidePhotoPicker(this.thumbContainerHtml.offsetLeft, this.thumbContainerHtml.offsetLeft + startThumbLeft - endThumbLeft - 5);
+      this.centeredThumb = photoNum;
     }
   },
 
@@ -181,7 +187,7 @@ FB.Modules.Slideshow.prototype = {
     var numThumbs = Math.ceil((photoPickerRect.width * 3/2) / (thumbWidth + 10));
     this.thumbContainerHtml.innerHTML = '';
     this.thumbsHtml = [];
-    for (var t = this.selectedThumb - numThumbs; t <= this.selectedThumb + numThumbs; t++) {
+    for (var t = this.centeredThumb - numThumbs; t <= this.centeredThumb + numThumbs; t++) {
       this.createThumb(((t % this.photos.length) + this.photos.length) % this.photos.length);
     }
     FB.util.Dom.addClassName(this.thumbsHtml[this.selectedThumb], 'selected');
