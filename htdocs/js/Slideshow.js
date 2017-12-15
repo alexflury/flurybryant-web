@@ -204,20 +204,24 @@ FB.Modules.Slideshow.prototype = {
   },
 
   render: function() {
-    var photoSequenceRect = this.photoSequenceHtml.getBoundingClientRect();
-    var leftArrowRect = this.prevLinkHtml.getBoundingClientRect();
-    var rightArrowRect = this.nextLinkHtml.getBoundingClientRect();
-    this.prevLinkHtml.style.top = Math.floor((photoSequenceRect.height - leftArrowRect.height) / 2) + 'px';
-    this.nextLinkHtml.style.top = Math.floor((photoSequenceRect.height - rightArrowRect.height) / 2) + 'px';
+    this.renderArrows();
     if (this.photoPickerHtml !== undefined) {
       this.renderPhotoPicker();
     }
   },
 
+  renderArrows: function() {
+    var photoSequenceRect = this.photoSequenceHtml.getBoundingClientRect();
+    var leftArrowRect = this.prevLinkHtml.getBoundingClientRect();
+    var rightArrowRect = this.nextLinkHtml.getBoundingClientRect();
+    this.prevLinkHtml.style.top = Math.floor((photoSequenceRect.height - leftArrowRect.height) / 2) + 'px';
+    this.nextLinkHtml.style.top = Math.floor((photoSequenceRect.height - rightArrowRect.height) / 2) + 'px';
+  },
+
   showButtons: function() {
     this.prevLinkHtml.style.display = 'block';
     this.nextLinkHtml.style.display = 'block';
-    this.render();
+    this.renderArrows();
   },
 
   hideButtons: function() {
