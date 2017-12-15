@@ -103,12 +103,12 @@ FB.Modules.Slideshow.prototype = {
 
   clickNext: function() {
     this.isAuto = false;
-    this.clickThumb(this.photoSequence.getPhotoNum());
+    this.clickThumb(this.photoSequence.getPhotoNum() % this.photos.length);
   },
 
   clickPrev: function() {
     this.isAuto = false;
-    this.clickThumb(this.photoSequence.getPhotoNum() - 2);
+    this.clickThumb(((this.photoSequence.getPhotoNum() - 2) % this.photos.length + this.photos.length) % this.photos.length);
   },
 
   clickThumbHandler: function(photoNum) {
