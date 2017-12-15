@@ -89,6 +89,8 @@ FB.Modules.Slideshow.prototype = {
       FB.util.Event.addListener(this.photoPickerNextLinkHtml, 'mouseout', function() { slideshow.lightenPhotoPickerNextLink(); });
       FB.util.Event.addListener(this.photoPickerPrevLinkHtml, 'mouseover', function() { slideshow.darkenPhotoPickerPrevLink(); });
       FB.util.Event.addListener(this.photoPickerPrevLinkHtml, 'mouseout', function() { slideshow.lightenPhotoPickerPrevLink(); });
+      FB.util.Event.addListener(this.photoPickerNextLinkHtml, 'click', function() { slideshow.clickPhotoPickerNext(); });
+      FB.util.Event.addListener(this.photoPickerPrevLinkHtml, 'click', function() { slideshow.clickPhotoPickerPrev(); });
     }
   },
 
@@ -130,15 +132,15 @@ FB.Modules.Slideshow.prototype = {
     if (this.isSliding) {
       return false;
     }
+    photoNum = (photoNum % this.photos.length + this.photos.length) % this.photos.length;
     if (photoNum == this.selectedThumb) {
       return false;
     }
-    photoNum = (photoNum % this.photos.length + this.photos.length) % this.photos.length;
     this.isAuto = false;
     clearTimeout(this.currentTimeout);
     this.photoSequence.loadPhoto(photoNum, this.manualSpeed);
     if (this.photoPickerHtml !== undefined) {
-      if (this.selectedThumb !== null) {
+      if (this.selectedThumb !== null && this.thumbsHtml[this.selectedThumb] !== undefined) {
         FB.util.Dom.removeClassName(this.thumbsHtml[this.selectedThumb], 'selected');
       }
       if (this.thumbsHtml[photoNum] !== undefined) {
@@ -146,10 +148,19 @@ FB.Modules.Slideshow.prototype = {
       }
     }
     this.selectedThumb = photoNum;
-    this.slidePhotoPickerTo(photoNum);
+    if (this.photoPickerHtml !== undefined) {
+      this.slidePhotoPickerTo(photoNum);
+    }
   },
 
   slidePhotoPickerTo: function(photoNum) {
+    if (this.isSliding) {
+      return false;
+    }
+    photoNum = (photoNum % this.photos.length + this.photos.length) % this.photos.length;
+    if (photoNum == this.centeredThumb) {
+      return false;
+    }
     if (this.centeredThumb === null || this.thumbsHtml[this.centeredThumb] === undefined || this.thumbsHtml[photoNum] === undefined) {
       this.centeredThumb = photoNum;
       this.renderPhotoPicker();
@@ -163,13 +174,10 @@ FB.Modules.Slideshow.prototype = {
   },
 
   slidePhotoPicker: function(start, end, progress) {
-    if (!this.isSliding) { 
-      return;
-    }
     if (progress === undefined) {
       progress = 0.025;
     }
-    if (progress < 1) {
+    if (progress < 1 && this.isSliding) {
       var newLeft = start + (end - start) * (0.5 - 0.5 * Math.cos(progress * Math.PI));
       this.thumbContainerHtml.style.left = start + (end - start) * (0.5 - 0.5 * Math.cos(progress * Math.PI)) + 'px';
       var slideshow = this;
@@ -190,7 +198,9 @@ FB.Modules.Slideshow.prototype = {
     for (var t = this.centeredThumb - numThumbs; t <= this.centeredThumb + numThumbs; t++) {
       this.createThumb(((t % this.photos.length) + this.photos.length) % this.photos.length);
     }
-    FB.util.Dom.addClassName(this.thumbsHtml[this.selectedThumb], 'selected');
+    if (this.thumbsHtml[this.selectedThumb] !== undefined) {
+      FB.util.Dom.addClassName(this.thumbsHtml[this.selectedThumb], 'selected');
+    }
     var thumbContainerWidth = 10 * (numThumbs * 2 + 2) + thumbWidth * (numThumbs * 2 + 1);
     var thumbContainerLeft = Math.floor((photoPickerRect.width - thumbContainerWidth) / 2);
     this.thumbContainerHtml.style.width = thumbContainerWidth + 'px';
@@ -209,7 +219,7 @@ FB.Modules.Slideshow.prototype = {
   },
 
   mouseOverThumb: function(photoNum) {
-    if (this.selectedThumb !== null) {
+    if (this.selectedThumb !== null && this.thumbsHtml[this.selectedThumb] !== undefined) {
       FB.util.Dom.removeClassName(this.thumbsHtml[this.selectedThumb], 'selected');
     }
     FB.util.Dom.addClassName(this.thumbsHtml[photoNum], 'selected');
@@ -217,7 +227,7 @@ FB.Modules.Slideshow.prototype = {
 
   mouseOutThumb: function(photoNum) {
     FB.util.Dom.removeClassName(this.thumbsHtml[photoNum], 'selected');
-    if (this.selectedThumb !== null) {
+    if (this.selectedThumb !== null && this.thumbsHtml[this.selectedThumb] !== undefined) {
       FB.util.Dom.addClassName(this.thumbsHtml[this.selectedThumb], 'selected');
     }
   },
@@ -295,6 +305,20 @@ FB.Modules.Slideshow.prototype = {
 
   lightenPhotoPickerPrevLink: function() {
     FB.util.Dom.setOpacity(this.photoPickerPrevLinkHtml, this.defaultArrowOpacity);
+  },
+
+  clickPhotoPickerNext: function() {
+    var photoPickerRect = this.photoPickerHtml.getBoundingClientRect();
+    var thumbWidth = Math.floor((photoPickerRect.height - 20) * 4/3);
+    var numThumbs = Math.floor(photoPickerRect.width / (thumbWidth + 10));
+    this.slidePhotoPickerTo(this.centeredThumb + numThumbs);
+  },
+
+  clickPhotoPickerPrev: function() {
+    var photoPickerRect = this.photoPickerHtml.getBoundingClientRect();
+    var thumbWidth = Math.floor((photoPickerRect.height - 20) * 4/3);
+    var numThumbs = Math.floor(photoPickerRect.width / (thumbWidth + 10));
+    this.slidePhotoPickerTo(this.centeredThumb - numThumbs);
   }
 
 };
