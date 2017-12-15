@@ -83,7 +83,7 @@ ul {
   width: 100%;
   text-align: center;
   border-bottom: 1px solid #214536;
-  overflow: hidden;
+
   position: fixed;
   z-index: 1001;
 }
