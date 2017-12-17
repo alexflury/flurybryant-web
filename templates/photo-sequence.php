@@ -13,14 +13,9 @@ if (isset($photo_sequence_use_thumbs) and $photo_sequence_use_thumbs) {
 ?>
 
 <div id="<?php echo $photo_sequence_id; ?>" class="photo-sequence">
-  <noscript>
-    <img src="<?php echo $img_src ?>">
-  </noscript>
-  <div class="script-only">
-    <div id="photo-frame-A" class="photo-frame"></div>
-    <div class="photo-frame"></div>
-    <div class="photo-frame"></div>
-  </div>
+  <div id="photo-frame-A" class="photo-frame"></div>
+  <div class="photo-frame"></div>
+  <div class="photo-frame"></div>
 </div>
 
 <?php

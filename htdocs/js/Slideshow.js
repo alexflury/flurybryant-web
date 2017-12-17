@@ -339,21 +339,20 @@ FB.Modules.Slideshow.prototype = {
   },
 
   enterFullScreen: function() {
-    var pageSize = FB.util.getPageSize();
-    this.photoContainerHtml.style.position = 'absolute';
-    this.photoContainerHtml.style.width = pageSize[2] + 'px';
-    this.photoContainerHtml.style.height = pageSize[3] + 'px';
-    this.photoContainerHtml.style.left = '0';
-    this.photoContainerHtml.style.top = '0';
+    this.photoHtml.style.position = 'absolute';
+    this.photoHtml.style.width = '100%';
+    this.photoHtml.style.height = '100%';
+    this.photoHtml.style.left = '0';
+    this.photoHtml.style.top = '0';
+    this.photoHtml.style.zIndex = '1002';
     this.photoSequenceHtml.style.position = 'absolute';
     this.photoSequenceHtml.style.top = '0';
     this.photoSequenceHtml.style.left = '0';
-    this.photoSequenceHtml.style.width = pageSize[2] + 'px';
-    this.photoSequenceHtml.style.height = pageSize[3] + 'px';
+    this.photoSequenceHtml.style.width = '100%';
+    this.photoSequenceHtml.style.height = '100%';
     var framesHtml = this.photoSequence.getFramesHtml();
     for (var e = 0; e < framesHtml.length; e++) {
-      framesHtml[e].style.width = pageSize[2] + 'px';
-      framesHtml[e].style.height = pageSize[3] + 'px';
+      framesHtml[e].style.height = '100%';
     }
   }
 
