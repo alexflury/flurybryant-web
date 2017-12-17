@@ -37,6 +37,7 @@ FB.Modules.Slideshow.prototype = {
   defaultArrowOpacity: 0.4,
   hoverArrowOpacity: 0.7,
   centeredThumb: null,
+  fullScreenClickAreaHtml: null,
 
   getHtml: function() {
     this.html = FB.util.Dom.get('slideshow');
@@ -50,6 +51,7 @@ FB.Modules.Slideshow.prototype = {
       this.photoPickerPrevLinkHtml = FB.util.Dom.getElementsByClassName('left-arrow', this.photoPickerHtml)[0];
       this.photoPickerNextLinkHtml = FB.util.Dom.getElementsByClassName('right-arrow', this.photoPickerHtml)[0];
     }
+    this.fullScreenClickAreaHtml = FB.util.Dom.getElementsByClassName('full-screen-click-area', this.html)[0];
   },
 
   initHtml: function() {
@@ -68,6 +70,9 @@ FB.Modules.Slideshow.prototype = {
       var framesHtml = this.photoSequence.getFramesHtml();
       for (var e = 0; e < framesHtml.length; e++) {
         FB.util.Dom.registerAutoResizeHeight(framesHtml[e], this.autoResizeDelta, this.autoResizeMin);
+      }
+      if (this.fullScreenClickAreaHtml !== undefined) {
+        FB.util.Dom.registerAutoResizeHeight(this.fullScreenClickAreaHtml, this.autoResizeDelta, this.autoResizeMin);
       }
     }
     var slideshow = this;

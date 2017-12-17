@@ -21,6 +21,10 @@ if (!isset($slideshow_has_photo_picker)) {
   $slideshow_has_photo_picker = false;
 }
 
+if (!isset($slideshow_has_full_screen)) {
+  $slideshow_has_full_screen = false;
+}
+
 if (!isset($slideshow_auto_resize_delta)) {
   if ($slideshow_has_photo_picker) {
     $slideshow_auto_resize_delta = $SIZE['HD_HEIGHT'] + $SIZE['FT_HEIGHT'] + $SIZE['PHOTO_PICKER_HEIGHT'];
@@ -62,6 +66,9 @@ $next_style = $slideshow_photo < count($slideshow_photos) ? '' : ' style="visibi
     </div>
     <div class="left-arrow"></div>
     <div class="right-arrow"></div>
+    <?php if ($slideshow_has_full_screen) { ?>
+      <div class="full-screen-click-area"></div>
+    <?php } ?>
   </div>
 </div>
 

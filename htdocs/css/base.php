@@ -925,3 +925,11 @@ table#towns td {
 #slideshow .photo-picker .thumb.selected:first-child {
   margin-left: 5px;
 }
+
+#slideshow .full-screen-click-area {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  cursor: pointer;
+  z-index: 999;
+}
