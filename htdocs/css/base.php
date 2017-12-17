@@ -933,3 +933,7 @@ table#towns td {
   cursor: pointer;
   z-index: 999;
 }
+
+#slideshow .photo-container {
+  z-index: 1002;
+}

@@ -56,19 +56,21 @@ $next_style = $slideshow_photo < count($slideshow_photos) ? '' : ' style="visibi
       </div>
     </div>
   <?php } ?>
-  <div class="photo">
-    <div class="matte">
-      <?php
-      $photo_sequence_photos = $slideshow_photos;
-      $photo_sequence_photo = $slideshow_photo;
-      include('photo-sequence.php');
-      ?>
+  <div class="photo-container">
+    <div class="photo">
+      <div class="matte">
+        <?php
+        $photo_sequence_photos = $slideshow_photos;
+        $photo_sequence_photo = $slideshow_photo;
+        include('photo-sequence.php');
+        ?>
+      </div>
+      <div class="left-arrow"></div>
+      <div class="right-arrow"></div>
+      <?php if ($slideshow_has_full_screen) { ?>
+        <div class="full-screen-click-area"></div>
+      <?php } ?>
     </div>
-    <div class="left-arrow"></div>
-    <div class="right-arrow"></div>
-    <?php if ($slideshow_has_full_screen) { ?>
-      <div class="full-screen-click-area"></div>
-    <?php } ?>
   </div>
 </div>
 

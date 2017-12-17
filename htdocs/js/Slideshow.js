@@ -38,6 +38,7 @@ FB.Modules.Slideshow.prototype = {
   hoverArrowOpacity: 0.7,
   centeredThumb: null,
   fullScreenClickAreaHtml: null,
+  photoContainerHtml: null,
 
   getHtml: function() {
     this.html = FB.util.Dom.get('slideshow');
@@ -52,6 +53,7 @@ FB.Modules.Slideshow.prototype = {
       this.photoPickerNextLinkHtml = FB.util.Dom.getElementsByClassName('right-arrow', this.photoPickerHtml)[0];
     }
     this.fullScreenClickAreaHtml = FB.util.Dom.getElementsByClassName('full-screen-click-area', this.html)[0];
+    this.photoContainerHtml = FB.util.Dom.getElementsByClassName('photo-container', this.html)[0];
   },
 
   initHtml: function() {
@@ -96,6 +98,9 @@ FB.Modules.Slideshow.prototype = {
       FB.util.Event.addListener(this.photoPickerPrevLinkHtml, 'mouseout', function() { slideshow.lightenPhotoPickerPrevLink(); });
       FB.util.Event.addListener(this.photoPickerNextLinkHtml, 'click', function() { slideshow.clickPhotoPickerNext(); });
       FB.util.Event.addListener(this.photoPickerPrevLinkHtml, 'click', function() { slideshow.clickPhotoPickerPrev(); });
+    }
+    if (this.fullScreenClickAreaHtml !== undefined) {
+      FB.util.Event.addListener(this.fullScreenClickAreaHtml, 'click', function() { slideshow.enterFullScreen(); });
     }
   },
 
@@ -331,6 +336,25 @@ FB.Modules.Slideshow.prototype = {
     var thumbWidth = Math.floor((photoPickerRect.height - 20) * 4/3);
     var numThumbs = Math.floor(photoPickerRect.width / (thumbWidth + 10));
     this.slidePhotoPickerTo(this.centeredThumb - numThumbs);
+  },
+
+  enterFullScreen: function() {
+    var pageSize = FB.util.getPageSize();
+    this.photoContainerHtml.style.position = 'absolute';
+    this.photoContainerHtml.style.width = pageSize[2] + 'px';
+    this.photoContainerHtml.style.height = pageSize[3] + 'px';
+    this.photoContainerHtml.style.left = '0';
+    this.photoContainerHtml.style.top = '0';
+    this.photoSequenceHtml.style.position = 'absolute';
+    this.photoSequenceHtml.style.top = '0';
+    this.photoSequenceHtml.style.left = '0';
+    this.photoSequenceHtml.style.width = pageSize[2] + 'px';
+    this.photoSequenceHtml.style.height = pageSize[3] + 'px';
+    var framesHtml = this.photoSequence.getFramesHtml();
+    for (var e = 0; e < framesHtml.length; e++) {
+      framesHtml[e].style.width = pageSize[2] + 'px';
+      framesHtml[e].style.height = pageSize[3] + 'px';
+    }
   }
 
 };
