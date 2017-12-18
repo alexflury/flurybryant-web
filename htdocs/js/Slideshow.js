@@ -249,7 +249,6 @@ FB.Modules.Slideshow.prototype = {
 
   render: function() {
     if (this.autoResizeDelta !== null && !this.isFullScreen) {
-      console.log('doing resize');
       FB.util.Dom.resizeHeight(this.photoSequenceHtml, this.autoResizeDelta, this.autoResizeMin);
       var framesHtml = this.photoSequence.getFramesHtml();
       for (var e = 0; e < framesHtml.length; e++) {
