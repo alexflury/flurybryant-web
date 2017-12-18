@@ -41,6 +41,7 @@ FB.Modules.Slideshow.prototype = {
   photoContainerHtml: null,
   isFullScreen: false,
   isMaximizing: false,
+  isMinimizing: false,
 
   getHtml: function() {
     this.html = FB.util.Dom.get('slideshow');
@@ -344,15 +345,15 @@ FB.Modules.Slideshow.prototype = {
     if (this.isMaximizing) {
       return;
     }
+    var photoRect = this.photoHtml.getBoundingClientRect();
+    var photoPickerRect = this.photoPickerHtml.getBoundingClientRect();
+    var pageHeight = FB.util.getPageSize()[3];
     if (this.isFullScreen) {
-      FB.util.Dom.removeClassName(this.html, 'full-screen');
-      this.isFullScreen = false;
-      this.render();
+      this.isMinimizing = true;
+      this.minimizePhoto(photoRect.top, photoRect.height, photoPickerRect.bottom, Math.max(this.autoResizeMin, pageHeight - this.autoResizeDelta));
     } else {
       this.isFullScreen = true;
       this.isMaximizing = true;
-      var photoRect = this.photoHtml.getBoundingClientRect();
-      var pageHeight = FB.util.getPageSize()[3];
       FB.util.Dom.addClassName(this.html, 'full-screen');
       this.maximizePhoto(photoRect.top, photoRect.height, 0, pageHeight);
     }
@@ -374,6 +375,27 @@ FB.Modules.Slideshow.prototype = {
       this.isMaximizing = false;
       this.setPhotoTop('0');
       this.setPhotoHeight('100%');
+      this.render();
+    }
+  },
+
+  minimizePhoto: function(startTop, startHeight, endTop, endHeight, progress) {
+    if (progress === undefined) {
+      progress = 0.025;
+    }
+    if (progress < 1 && this.isMinimizing) {
+      var newTop = startTop + (endTop - startTop) * (0.5 - 0.5 * Math.cos(progress * Math.PI));
+      var newHeight = startHeight + (endHeight - startHeight) * (0.5 - 0.5 * Math.cos(progress * Math.PI));
+      this.setPhotoTop(newTop + 'px');
+      this.setPhotoHeight(newHeight + 'px');
+      this.renderArrows();
+      var slideshow = this;
+      setTimeout(function() { slideshow.minimizePhoto(startTop, startHeight, endTop, endHeight, progress + 0.025) }, 10);
+    } else {
+      this.isMinimizing = false;
+      this.isFullScreen = false;
+      this.setPhotoTop(endTop);
+      this.setPhotoHeight(endHeight);
       this.render();
     }
   },
