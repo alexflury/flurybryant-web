@@ -937,3 +937,14 @@ table#towns td {
 #slideshow .photo-container {
   z-index: 1002;
 }
+
+#slideshow.full-screen .photo,
+#slideshow.full-screen .photo-sequence,
+#slideshow.full-screen .photo-frame {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1002;
+}

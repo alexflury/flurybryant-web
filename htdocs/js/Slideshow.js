@@ -341,16 +341,7 @@ FB.Modules.Slideshow.prototype = {
 
   enterFullScreen: function() {
     this.isFullScreen = true;
-    this.photoHtml.style.position = 'absolute';
-    this.photoHtml.style.width = '100%';
-    this.photoHtml.style.height = '100%';
-    this.photoHtml.style.left = '0';
-    this.photoHtml.style.top = '0';
-    this.photoHtml.style.zIndex = '1002';
-    this.photoSequenceHtml.style.position = 'absolute';
-    this.photoSequenceHtml.style.top = '0';
-    this.photoSequenceHtml.style.left = '0';
-    this.photoSequenceHtml.style.width = '100%';
+    FB.util.Dom.addClassName(this.html, 'full-screen');
     this.photoSequenceHtml.style.height = '100%';
     var framesHtml = this.photoSequence.getFramesHtml();
     for (var e = 0; e < framesHtml.length; e++) {
