@@ -91,7 +91,7 @@ FB.Modules.Slideshow.prototype = {
       FB.util.Event.addListener(this.photoPickerPrevLinkHtml, 'click', function() { slideshow.clickPhotoPickerPrev(); });
     }
     if (this.fullScreenClickAreaHtml !== undefined) {
-      FB.util.Event.addListener(this.fullScreenClickAreaHtml, 'click', function() { slideshow.enterFullScreen(); });
+      FB.util.Event.addListener(this.fullScreenClickAreaHtml, 'click', function() { slideshow.toggleFullScreen(); });
     }
   },
 
@@ -339,16 +339,22 @@ FB.Modules.Slideshow.prototype = {
     this.slidePhotoPickerTo(this.centeredThumb - numThumbs);
   },
 
-  enterFullScreen: function() {
-    this.isFullScreen = true;
-    FB.util.Dom.addClassName(this.html, 'full-screen');
-    this.photoSequenceHtml.style.height = '100%';
-    var framesHtml = this.photoSequence.getFramesHtml();
-    for (var e = 0; e < framesHtml.length; e++) {
-      framesHtml[e].style.height = '100%';
-    }
-    if (this.fullScreenClickAreaHtml !== undefined) {
-      this.fullScreenClickAreaHtml.style.height = '100%';
+  toggleFullScreen: function() {
+    if (this.isFullScreen) {
+      FB.util.Dom.removeClassName(this.html, 'full-screen');
+      this.isFullScreen = false;
+      this.render();
+    } else {
+      this.isFullScreen = true;
+      FB.util.Dom.addClassName(this.html, 'full-screen');
+      this.photoSequenceHtml.style.height = '100%';
+      var framesHtml = this.photoSequence.getFramesHtml();
+      for (var e = 0; e < framesHtml.length; e++) {
+        framesHtml[e].style.height = '100%';
+      }
+      if (this.fullScreenClickAreaHtml !== undefined) {
+        this.fullScreenClickAreaHtml.style.height = '100%';
+      }
     }
   }
 
