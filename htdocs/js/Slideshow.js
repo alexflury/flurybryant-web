@@ -355,6 +355,7 @@ FB.Modules.Slideshow.prototype = {
       if (this.fullScreenClickAreaHtml !== undefined) {
         this.fullScreenClickAreaHtml.style.height = '100%';
       }
+      this.render();
     }
   }
 
