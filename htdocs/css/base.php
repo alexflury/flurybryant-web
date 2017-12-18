@@ -877,10 +877,12 @@ table#towns td {
 
 #slideshow .photo-picker .left-arrow {
   top: <?php echo floor(($SIZE['PHOTO_PICKER_HEIGHT'] - 64) / 2) ?>px;
+  z-index: 1000;
 }
 
 #slideshow .photo-picker .right-arrow {
   top: <?php echo floor(($SIZE['PHOTO_PICKER_HEIGHT'] - 64) / 2) ?>px;
+  z-index: 1000;
 }
 
 #slideshow .photo-picker-container {
