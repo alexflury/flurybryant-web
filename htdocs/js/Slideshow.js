@@ -39,6 +39,7 @@ FB.Modules.Slideshow.prototype = {
   centeredThumb: null,
   fullScreenClickAreaHtml: null,
   photoContainerHtml: null,
+  isFullScreen: false,
 
   getHtml: function() {
     this.html = FB.util.Dom.get('slideshow');
@@ -67,16 +68,6 @@ FB.Modules.Slideshow.prototype = {
   },
 
   addListeners: function() {
-    if (this.autoResizeDelta !== null) {
-      FB.util.Dom.registerAutoResizeHeight(this.photoSequenceHtml, this.autoResizeDelta, this.autoResizeMin);
-      var framesHtml = this.photoSequence.getFramesHtml();
-      for (var e = 0; e < framesHtml.length; e++) {
-        FB.util.Dom.registerAutoResizeHeight(framesHtml[e], this.autoResizeDelta, this.autoResizeMin);
-      }
-      if (this.fullScreenClickAreaHtml !== undefined) {
-        FB.util.Dom.registerAutoResizeHeight(this.fullScreenClickAreaHtml, this.autoResizeDelta, this.autoResizeMin);
-      }
-    }
     var slideshow = this;
     FB.util.Event.addListener(window, 'resize', function() { slideshow.render(); });
     FB.util.Event.addListener(window, 'load', function() { slideshow.render(); });
@@ -257,6 +248,17 @@ FB.Modules.Slideshow.prototype = {
   },
 
   render: function() {
+    if (this.autoResizeDelta !== null && !this.isFullScreen) {
+      console.log('doing resize');
+      FB.util.Dom.resizeHeight(this.photoSequenceHtml, this.autoResizeDelta, this.autoResizeMin);
+      var framesHtml = this.photoSequence.getFramesHtml();
+      for (var e = 0; e < framesHtml.length; e++) {
+        FB.util.Dom.resizeHeight(framesHtml[e], this.autoResizeDelta, this.autoResizeMin);
+      }
+      if (this.fullScreenClickAreaHtml !== undefined) {
+        FB.util.Dom.resizeHeight(this.fullScreenClickAreaHtml, this.autoResizeDelta, this.autoResizeMin);
+      }
+    }
     this.renderArrows();
     if (this.photoPickerHtml !== undefined) {
       this.renderPhotoPicker();
@@ -339,6 +341,7 @@ FB.Modules.Slideshow.prototype = {
   },
 
   enterFullScreen: function() {
+    this.isFullScreen = true;
     this.photoHtml.style.position = 'absolute';
     this.photoHtml.style.width = '100%';
     this.photoHtml.style.height = '100%';

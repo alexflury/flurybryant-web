@@ -169,6 +169,15 @@ var FB = {
             elements[e].element.style.height = Math.max(elements[e].min, (pageHeight - elements[e].delta)) + 'px';
           }
         }
+      },
+
+      resizeHeight: function(element, delta, min) {
+        var pageHeight = FB.util.getPageSize()[3];
+        if (min === undefined || min === null) {
+          element.style.height = (pageHeight - delta) + 'px';
+        } else {
+          element.style.height = Math.max(min, (pageHeight - delta)) + 'px';
+        }
       }
 
     },
