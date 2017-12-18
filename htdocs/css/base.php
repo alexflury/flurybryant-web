@@ -858,7 +858,7 @@ table#towns td {
   background-position: 0px 0px;
   position: absolute;
   left: 10px;
-  z-index: 1000;
+  z-index: 1005;
   display: none;
   cursor: pointer;
 }
@@ -870,7 +870,7 @@ table#towns td {
   background-position: 64px 0px;
   position: absolute;
   right: 10px;
-  z-index: 1000;
+  z-index: 1005;
   display: none;
   cursor: pointer;
 }
