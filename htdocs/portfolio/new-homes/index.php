@@ -3,12 +3,14 @@
 include('../../../lib/base.php');
 include('../../../lib/portfolio.php');
 
-$album_name = 'new-homes';
+print_header(array('page_classname' => 'portfolio-page'));
 
-print_portfolio_header();
+$slideshow_photos = get_photos(array('new-homes'));
+$slideshow_has_photo_picker = true;
+$slideshow_auto = false;
+$slideshow_has_full_screen = true;
+include('../../../templates/slideshow.php');
 
-require('../../../templates/photo-album.php');
-
-print_portfolio_footer();
+print_footer();
 
 ?>

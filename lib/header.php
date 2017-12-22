@@ -40,8 +40,8 @@
         </div>
         <div class="sublink-menu-panel portfolio-menu-panel">
           <ul>
-            <li><a href="/portfolio/new-home-exteriors/">New Home Exteriors</a></li>
-            <li><a href="/portfolio/remodeled-exteriors/">Remodeled Exteriors</a></li>
+            <li><a href="/portfolio/new-homes/">New Home Exteriors</a></li>
+            <li><a href="/portfolio/remodels/">Remodeled Exteriors</a></li>
             <li><a href="/portfolio/interiors/">Interiors</a></li>
             <li><a href="/portfolio/details/">Details</a></li>
           </ul>
