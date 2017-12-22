@@ -14,7 +14,7 @@ $COLOR = array(
   'ODD_ROW' => '#C0C0C0',
   'EVEN_ROW' => '#D3D3D3',
   'PORTFOLIO_BACKGROUND' => '#282828',
-  'SELECTED_THUMB_BORDER' => '#606060'
+  'SELECTED_THUMB_BORDER' => '#2F614C'
 );
 
 $SIZE = array(
