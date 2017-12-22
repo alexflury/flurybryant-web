@@ -95,6 +95,11 @@ FB.Modules.Slideshow.prototype = {
     if (this.fullScreenClickAreaHtml !== undefined) {
       FB.util.Event.addListener(this.fullScreenClickAreaHtml, 'click', function() { slideshow.toggleFullScreen(); });
     }
+    FB.util.Event.addListener(document, 'keyup', function(e) {
+      if (e.keyCode == 27 && slideshow.isFullScreen) {
+        slideshow.toggleFullScreen();
+      }
+    });
   },
 
   prev: function(speed) {
