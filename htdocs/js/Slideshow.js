@@ -229,8 +229,8 @@ FB.Modules.Slideshow.prototype = {
     this.thumbContainerHtml.appendChild(thumbHtml);
     this.thumbsHtml[photoNum] = thumbHtml;
     FB.util.Event.addListener(thumbHtml, 'click', this.clickThumbHandler(photoNum));
-    FB.util.Event.addListener(thumbHtml, 'mouseover', this.mouseOverThumbHandler(photoNum));
-    FB.util.Event.addListener(thumbHtml, 'mouseout', this.mouseOutThumbHandler(photoNum));
+    //FB.util.Event.addListener(thumbHtml, 'mouseover', this.mouseOverThumbHandler(photoNum));
+    //FB.util.Event.addListener(thumbHtml, 'mouseout', this.mouseOutThumbHandler(photoNum));
   },
 
   mouseOverThumb: function(photoNum) {
