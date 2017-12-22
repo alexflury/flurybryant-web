@@ -345,7 +345,7 @@ FB.Modules.Slideshow.prototype = {
     if (this.isMaximizing) {
       return;
     }
-    var photoRect = this.photoHtml.getBoundingClientRect();
+    var photoRect = this.photoSequenceHtml.getBoundingClientRect();
     var photoPickerRect = this.photoPickerHtml.getBoundingClientRect();
     var pageHeight = FB.util.getPageSize()[3];
     if (this.isFullScreen) {
