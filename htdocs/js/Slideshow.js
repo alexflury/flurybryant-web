@@ -266,14 +266,21 @@ FB.Modules.Slideshow.prototype = {
   },
 
   render: function() {
-    if (this.autoResizeDelta !== null && !this.isFullScreen) {
-      FB.util.Dom.resizeHeight(this.photoSequenceHtml, this.autoResizeDelta, this.autoResizeMin);
+    if (!this.isFullScreen) {
+      if (this.photoPickerHtml === undefined) {
+        var top = FB.util.Dom.get('hd').getBoundingClientRect().bottom;
+      } else {
+        var top = this.photoPickerHtml.getBoundingClientRect().bottom;
+      }
+      var bottom = FB.util.Dom.get('ft').getBoundingClientRect().top;
+      var height = bottom - top;
+      this.photoSequenceHtml.style.height = height + 'px';
       var framesHtml = this.photoSequence.getFramesHtml();
       for (var e = 0; e < framesHtml.length; e++) {
-        FB.util.Dom.resizeHeight(framesHtml[e], this.autoResizeDelta, this.autoResizeMin);
+        framesHtml[e].style.height = height + 'px';
       }
       if (this.fullScreenClickAreaHtml !== undefined) {
-        FB.util.Dom.resizeHeight(this.fullScreenClickAreaHtml, this.autoResizeDelta, this.autoResizeMin);
+        this.fullScreenClickAreaHtml.style.height = height + 'px';
       }
     }
     this.renderArrows();
