@@ -282,6 +282,8 @@ ul {
   width: 100%;
   border-top: 1px solid #214536;
   height: <?php echo $SIZE['FT_HEIGHT'] - 20; ?>px;
+  position: fixed;
+  bottom: 0;
 }
 
 #ft .moulding {
