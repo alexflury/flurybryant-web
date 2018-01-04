@@ -281,7 +281,7 @@ ul {
   text-align: center;
   width: 100%;
   border-top: 1px solid #214536;
-  height: <?php echo $SIZE['FT_HEIGHT'] - 20; ?>px;
+  height: <?php echo $SIZE['FT_HEIGHT']; ?>px;
   position: fixed;
   bottom: 0;
 }
