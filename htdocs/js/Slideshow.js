@@ -185,6 +185,9 @@ FB.Modules.Slideshow.prototype = {
   },
 
   slidePhotoPickerToThumb: function(thumbIndex) {
+    if (this.isSliding) {
+      return false;
+    }
     var centeredThumbIndex = this.getThumbIndex(this.centeredThumb);
     var startThumbLeft = this.thumbsHtml[centeredThumbIndex].offsetLeft;
     if (FB.util.Dom.hasClassName(this.thumbsHtml[centeredThumbIndex], 'selected')) {
