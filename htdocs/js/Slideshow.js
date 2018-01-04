@@ -19,6 +19,7 @@ FB.Modules.Slideshow.prototype = {
   prevLinkHtml: null,
   nextLinkHtml: null,
   thumbsHtml: [],
+  thumbPhotoNums: [],
   photoHtml: null,
   photoSequence: null,
   isAuto: true,
@@ -148,44 +149,54 @@ FB.Modules.Slideshow.prototype = {
     clearTimeout(this.currentTimeout);
     this.photoSequence.loadPhoto(photoNum, this.manualSpeed);
     photoNum = this.photoSequence.getPhotoNum() - 1;
-    if (this.photoPickerHtml !== undefined) {
-      if (this.selectedThumb !== null && this.thumbsHtml[this.selectedThumb] !== undefined) {
-        FB.util.Dom.removeClassName(this.thumbsHtml[this.selectedThumb], 'selected');
-      }
-      if (this.thumbsHtml[photoNum] !== undefined) {
-        FB.util.Dom.addClassName(this.thumbsHtml[photoNum], 'selected');
-      }
-    }
+    this.highlightThumb(photoNum);
     this.selectedThumb = photoNum;
     if (this.photoPickerHtml !== undefined) {
-      this.slidePhotoPickerTo(photoNum);
+      this.slidePhotoPickerToPhoto(photoNum);
     }
   },
 
-  slidePhotoPickerTo: function(photoNum) {
+  getThumbIndex: function(photoNum) {
+    var middleThumb = Math.floor(this.thumbsHtml.length / 2);
+    for (var t = 0; t < middleThumb; t++) {
+      if (this.thumbPhotoNums[middleThumb - t] == photoNum) {
+        return middleThumb - t;
+      } else if (this.thumbPhotoNums[middleThumb + t] == photoNum) {
+        return middleThumb + t;
+      }
+    }
+    return null;
+  },
+
+  slidePhotoPickerToPhoto: function(photoNum) {
     if (this.isSliding) {
       return false;
     }
-    photoNum = (photoNum % this.photos.length + this.photos.length) % this.photos.length;
     if (photoNum == this.centeredThumb) {
       return false;
     }
-    if (this.centeredThumb === null || this.thumbsHtml[this.centeredThumb] === undefined || this.thumbsHtml[photoNum] === undefined) {
+    var thumbIndex = this.getThumbIndex(photoNum);
+    if (thumbIndex == null) {
       this.centeredThumb = photoNum;
       this.renderPhotoPicker();
     } else {
-      var startThumbLeft = this.thumbsHtml[this.centeredThumb].offsetLeft;
-      if (this.centeredThumb == this.selectedThumb) {
-        startThumbLeft += 5;
-      }
-      var endThumbLeft = this.thumbsHtml[photoNum].offsetLeft;
-      if (photoNum == this.selectedThumb) {
-        endThumbLeft += 5;
-      }
-      this.isSliding = true;
-      this.slidePhotoPicker(this.thumbContainerHtml.offsetLeft, this.thumbContainerHtml.offsetLeft + startThumbLeft - endThumbLeft);
-      this.centeredThumb = photoNum;
+      this.slidePhotoPickerToThumb(thumbIndex);
     }
+  },
+
+  slidePhotoPickerToThumb: function(thumbIndex) {
+    var centeredThumbIndex = this.getThumbIndex(this.centeredThumb);
+    var startThumbLeft = this.thumbsHtml[centeredThumbIndex].offsetLeft;
+    if (FB.util.Dom.hasClassName(this.thumbsHtml[centeredThumbIndex], 'selected')) {
+      startThumbLeft += 5;
+    }
+    var endThumbLeft = this.thumbsHtml[thumbIndex].offsetLeft;
+    if (FB.util.Dom.hasClassName(this.thumbsHtml[thumbIndex], 'selected')) {
+      endThumbLeft += 5;
+    }
+    this.isSliding = true;
+    this.slidePhotoPicker(this.thumbContainerHtml.offsetLeft, this.thumbContainerHtml.offsetLeft + startThumbLeft - endThumbLeft);
+    this.centeredThumb = this.thumbPhotoNums[thumbIndex];
   },
 
   slidePhotoPicker: function(start, end, progress) {
@@ -211,14 +222,13 @@ FB.Modules.Slideshow.prototype = {
     var numThumbsInScreen = Math.ceil((photoPickerRect.width / 2) / (thumbWidth + 10));
     this.thumbContainerHtml.innerHTML = '';
     this.thumbsHtml = [];
+    this.thumbPhotoNums = [];
     for (var t = this.centeredThumb - numThumbs; t <= this.centeredThumb + numThumbs; t++) {
       var photoNum = ((t % this.photos.length) + this.photos.length) % this.photos.length;
       var isInScreen = (t >= this.centeredThumb - numThumbsInScreen && t <= this.centeredThumb + numThumbsInScreen)
       this.createThumb(photoNum, isInScreen);
     }
-    if (this.thumbsHtml[this.selectedThumb] !== undefined) {
-      FB.util.Dom.addClassName(this.thumbsHtml[this.selectedThumb], 'selected');
-    }
+    this.highlightThumb(this.selectedThumb);
     var thumbContainerWidth = 10 * (numThumbs * 2 + 2) + thumbWidth * (numThumbs * 2 + 1);
     var thumbContainerLeft = Math.floor((photoPickerRect.width - thumbContainerWidth) / 2);
     this.thumbContainerHtml.style.width = thumbContainerWidth + 'px';
@@ -230,25 +240,18 @@ FB.Modules.Slideshow.prototype = {
     FB.util.Dom.addClassName(thumbHtml, 'thumb');
     thumbHtml.style.backgroundImage = 'url(' + FB.util.getThumbUrl(this.photos[photoNum]) + ')';
     this.thumbContainerHtml.appendChild(thumbHtml);
-    if (this.thumbsHtml[photoNum] === undefined || isInScreen) {
-      this.thumbsHtml[photoNum] = thumbHtml;
-    }
+    this.thumbsHtml.push(thumbHtml);
+    this.thumbPhotoNums.push(photoNum);
     FB.util.Event.addListener(thumbHtml, 'click', this.clickThumbHandler(photoNum));
-    //FB.util.Event.addListener(thumbHtml, 'mouseover', this.mouseOverThumbHandler(photoNum));
-    //FB.util.Event.addListener(thumbHtml, 'mouseout', this.mouseOutThumbHandler(photoNum));
   },
 
-  mouseOverThumb: function(photoNum) {
-    if (this.selectedThumb !== null && this.thumbsHtml[this.selectedThumb] !== undefined) {
-      FB.util.Dom.removeClassName(this.thumbsHtml[this.selectedThumb], 'selected');
-    }
-    FB.util.Dom.addClassName(this.thumbsHtml[photoNum], 'selected');
-  },
-
-  mouseOutThumb: function(photoNum) {
-    FB.util.Dom.removeClassName(this.thumbsHtml[photoNum], 'selected');
-    if (this.selectedThumb !== null && this.thumbsHtml[this.selectedThumb] !== undefined) {
-      FB.util.Dom.addClassName(this.thumbsHtml[this.selectedThumb], 'selected');
+  highlightThumb: function(photoNum) {
+    for (var t = 0; t < this.thumbsHtml.length; t++) {
+      if (this.thumbPhotoNums[t] == photoNum) {
+        FB.util.Dom.addClassName(this.thumbsHtml[t], 'selected');
+      } else {
+        FB.util.Dom.removeClassName(this.thumbsHtml[t], 'selected');
+      }
     }
   },
 
@@ -341,14 +344,14 @@ FB.Modules.Slideshow.prototype = {
     var photoPickerRect = this.photoPickerHtml.getBoundingClientRect();
     var thumbWidth = Math.floor((photoPickerRect.height - 20) * 4/3);
     var numThumbs = Math.floor(photoPickerRect.width / (thumbWidth + 10));
-    this.slidePhotoPickerTo(this.centeredThumb + numThumbs);
+    this.slidePhotoPickerToThumb(this.getThumbIndex(this.centeredThumb) + numThumbs);
   },
 
   clickPhotoPickerPrev: function() {
     var photoPickerRect = this.photoPickerHtml.getBoundingClientRect();
     var thumbWidth = Math.floor((photoPickerRect.height - 20) * 4/3);
     var numThumbs = Math.floor(photoPickerRect.width / (thumbWidth + 10));
-    this.slidePhotoPickerTo(this.centeredThumb - numThumbs);
+    this.slidePhotoPickerToThumb(this.getThumbIndex(this.centeredThumb) - numThumbs);
   },
 
   toggleFullScreen: function() {
