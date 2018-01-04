@@ -208,10 +208,13 @@ FB.Modules.Slideshow.prototype = {
     var photoPickerRect = this.photoPickerHtml.getBoundingClientRect();
     var thumbWidth = Math.floor((photoPickerRect.height - 20) * 4/3);
     var numThumbs = Math.ceil((photoPickerRect.width * 3/2) / (thumbWidth + 10));
+    var numThumbsInScreen = Math.ceil((photoPickerRect.width / 2) / (thumbWidth + 10));
     this.thumbContainerHtml.innerHTML = '';
     this.thumbsHtml = [];
     for (var t = this.centeredThumb - numThumbs; t <= this.centeredThumb + numThumbs; t++) {
-      this.createThumb(((t % this.photos.length) + this.photos.length) % this.photos.length);
+      var photoNum = ((t % this.photos.length) + this.photos.length) % this.photos.length;
+      var isInScreen = (t >= this.centeredThumb - numThumbsInScreen && t <= this.centeredThumb + numThumbsInScreen)
+      this.createThumb(photoNum, isInScreen);
     }
     if (this.thumbsHtml[this.selectedThumb] !== undefined) {
       FB.util.Dom.addClassName(this.thumbsHtml[this.selectedThumb], 'selected');
@@ -222,12 +225,14 @@ FB.Modules.Slideshow.prototype = {
     this.thumbContainerHtml.style.left = thumbContainerLeft + 'px';
   },
 
-  createThumb: function(photoNum) {
+  createThumb: function(photoNum, isInScreen) {
     var thumbHtml = document.createElement("div");
     FB.util.Dom.addClassName(thumbHtml, 'thumb');
     thumbHtml.style.backgroundImage = 'url(' + FB.util.getThumbUrl(this.photos[photoNum]) + ')';
     this.thumbContainerHtml.appendChild(thumbHtml);
-    this.thumbsHtml[photoNum] = thumbHtml;
+    if (this.thumbsHtml[photoNum] === undefined || isInScreen) {
+      this.thumbsHtml[photoNum] = thumbHtml;
+    }
     FB.util.Event.addListener(thumbHtml, 'click', this.clickThumbHandler(photoNum));
     //FB.util.Event.addListener(thumbHtml, 'mouseover', this.mouseOverThumbHandler(photoNum));
     //FB.util.Event.addListener(thumbHtml, 'mouseout', this.mouseOutThumbHandler(photoNum));
