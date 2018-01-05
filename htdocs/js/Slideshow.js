@@ -65,6 +65,7 @@ FB.Modules.Slideshow.prototype = {
   initHtml: function() {
     this.lightenNextLink();
     this.lightenPrevLink();
+    this.lightenCloseLink();
     if (this.thumbContainerHtml !== undefined) {
       this.lightenPhotoPickerNextLink();
       this.lightenPhotoPickerPrevLink();
@@ -82,6 +83,8 @@ FB.Modules.Slideshow.prototype = {
     FB.util.Event.addListener(this.nextLinkHtml, 'mouseout', function() { slideshow.lightenNextLink(); });
     FB.util.Event.addListener(this.prevLinkHtml, 'mouseover', function() { slideshow.darkenPrevLink(); });
     FB.util.Event.addListener(this.prevLinkHtml, 'mouseout', function() { slideshow.lightenPrevLink(); });
+    FB.util.Event.addListener(this.closeLinkHtml, 'mouseover', function() { slideshow.darkenCloseLink(); });
+    FB.util.Event.addListener(this.closeLinkHtml, 'mouseout', function() { slideshow.lightenCloseLink(); });
     FB.util.Event.addListener(this.nextLinkHtml, 'click', function() { slideshow.clickNext(); });
     FB.util.Event.addListener(this.prevLinkHtml, 'click', function() { slideshow.clickPrev(); });
     FB.util.Event.addListener(this.html, 'click', function() { header.hideMenuPanel(); });
@@ -326,6 +329,14 @@ FB.Modules.Slideshow.prototype = {
 
   lightenPrevLink: function() {
     FB.util.Dom.setOpacity(this.prevLinkHtml, this.defaultArrowOpacity);
+  },
+
+  darkenCloseLink: function() {
+    FB.util.Dom.setOpacity(this.closeLinkHtml, this.hoverArrowOpacity);
+  },
+
+  lightenCloseLink: function() {
+    FB.util.Dom.setOpacity(this.closeLinkHtml, this.defaultArrowOpacity);
   },
 
   showPhotoPickerButtons: function() {
