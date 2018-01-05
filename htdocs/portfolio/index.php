@@ -8,18 +8,26 @@ print_header(array('page_classname' => 'portfolio-page'));
 ?>
 
 <div class="slideshow-links-container">
-	<div class="slideshow-link">
-		NEW HOME EXTERIORS
-	</div>
-	<div class="slideshow-link">
-		REMODELED EXTERIORS
-	</div>
-	<div class="slideshow-link">
-		INTERIORS
-	</div>
-	<div class="slideshow-link">
-		DETAILS
-	</div>
+	<a href="/portfolio/new-homes/">
+		<div class="slideshow-link">
+			NEW HOME EXTERIORS
+		</div>
+	</a>
+	<a href="/portfolio/remodels/">
+		<div class="slideshow-link">
+			REMODELED EXTERIORS
+		</div>
+	</a>
+	<a href="/portfolio/interiors/">
+		<div class="slideshow-link">
+			INTERIORS
+		</div>
+	</a>
+	<a href="/portfolio/details/">
+		<div class="slideshow-link">
+			DETAILS
+		</div>
+	</a>
 	<div class="clearb"></div>
 </div>
 
