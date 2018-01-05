@@ -19,6 +19,8 @@ FB.Modules.Slideshow.prototype = {
   prevLinkHtml: null,
   nextLinkHtml: null,
   closeLinkHtml: null,
+  plusLinkHtml: null,
+  minusLinkHtml: null,
   thumbsHtml: [],
   thumbPhotoNums: [],
   photoHtml: null,
@@ -52,6 +54,8 @@ FB.Modules.Slideshow.prototype = {
     this.prevLinkHtml = FB.util.Dom.getElementsByClassName('left-arrow', this.photoHtml)[0];
     this.nextLinkHtml = FB.util.Dom.getElementsByClassName('right-arrow', this.photoHtml)[0];
     this.closeLinkHtml = FB.util.Dom.getElementsByClassName('close-icon', this.photoHtml)[0];
+    this.plusLinkHtml = FB.util.Dom.getElementsByClassName('plus-icon', this.photoHtml)[0];
+    this.minusLinkHtml = FB.util.Dom.getElementsByClassName('minus-icon', this.photoHtml)[0];
     this.photoPickerHtml = FB.util.Dom.getElementsByClassName('photo-picker', this.html)[0];
     this.thumbContainerHtml = FB.util.Dom.getElementsByClassName('thumb-container', this.html)[0];
     if (this.photoPickerHtml !== undefined) {
@@ -313,6 +317,10 @@ FB.Modules.Slideshow.prototype = {
     if (this.isFullScreen) {
       this.closeLinkHtml.style.display = 'block';
     }
+    if (this.plusLinkHtml !== undefined && this.minusLinkHtml !== undefined) {
+      this.plusLinkHtml.style.display = 'block';
+      this.minusLinkHtml.style.display = 'block';
+    }
     this.renderArrows();
   },
 
@@ -321,6 +329,10 @@ FB.Modules.Slideshow.prototype = {
     this.nextLinkHtml.style.display = 'none';
     if (this.closeLinkHtml !== undefined) {
       this.closeLinkHtml.style.display = 'none';
+    }
+    if (this.plusLinkHtml !== undefined && this.minusLinkHtml !== undefined) {
+      this.plusLinkHtml.style.display = 'none';
+      this.minusLinkHtml.style.display = 'none';
     }
   },
 

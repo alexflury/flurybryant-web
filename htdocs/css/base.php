@@ -1003,6 +1003,32 @@ table#towns td {
   cursor: pointer;
 }
 
+#slideshow .plus-icon {
+  width: 64px;
+  height: 64px;
+  background-image: url(/images/arrows.png);
+  background-position: 0 -207px;
+  position: absolute;
+  right: 10px;
+  bottom: 84px;
+  z-index: 1005;
+  display: none;
+  cursor: pointer;
+}
+
+#slideshow .minus-icon {
+  width: 64px;
+  height: 64px;
+  background-image: url(/images/arrows.png);
+  background-position: 0 -276px;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  z-index: 1005;
+  display: none;
+  cursor: pointer;
+}
+
 #slideshow .photo-picker .left-arrow {
   top: <?php echo floor(($SIZE['PHOTO_PICKER_HEIGHT'] - 64) / 2) ?>px;
   z-index: 1000;

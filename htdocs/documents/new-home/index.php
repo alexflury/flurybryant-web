@@ -9,6 +9,7 @@ $slideshow_photos = get_photos(array('new-home-docs'));
 $slideshow_has_photo_picker = true;
 $slideshow_auto = false;
 $slideshow_has_full_screen = true;
+$slideshow_has_zoom = true;
 include('../../../templates/slideshow.php');
 
 print_footer();
