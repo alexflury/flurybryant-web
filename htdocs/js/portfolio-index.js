@@ -17,7 +17,7 @@ FB.Modules.PortfolioIndex.prototype = {
 		for (var s = 0; s < this.slideshowLinksHtml.length; s++) {
 			var linkShadeHtml = FB.util.Dom.getElementsByClassName('slideshow-link-shade', this.slideshowLinksHtml[s])[0];
 			var linkTextHtml = FB.util.Dom.getElementsByClassName('slideshow-link-text', this.slideshowLinksHtml[s])[0];
-			FB.util.Dom.setOpacity(linkShadeHtml, 0.5);
+			FB.util.Dom.setOpacity(linkShadeHtml, 0.4);
 			FB.util.Dom.setOpacity(linkTextHtml, 0.8);
 		}
 	},
