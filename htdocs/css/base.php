@@ -788,6 +788,49 @@ table#towns td {
   background-color: <?php echo $COLOR['PORTFOLIO_BACKGROUND']; ?>;
 }
 
+.documents-page .slideshow-link {
+  float: left;
+  margin: 20px 0 0 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  cursor: pointer;
+}
+
+.documents-page .slideshow-link.new-home-slideshow-link {
+  background-image: url(/images/photos/new-homes/0001.jpg);
+}
+
+.documents-page .slideshow-link.remodel-slideshow-link {
+  background-image: url(/images/photos/remodels/0015.jpg);
+}
+
+.documents-page .slideshow-link-shade {
+  background: <?php echo $COLOR['BODY']; ?>;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.documents-page .slideshow-link-text-container {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+}
+
+.documents-page .slideshow-link-text {
+  font-size: 54px;
+  font-weight: bold;
+  text-align: center;
+  padding: 20px;
+}
+
+.documents-page .slideshow-links-container {
+  padding-top: <?php echo $SIZE['BANNER_HEIGHT'] ?>px;
+  padding-bottom: 20px;
+}
+
 /* PhotoSequence */
 
 .photo-sequence {
