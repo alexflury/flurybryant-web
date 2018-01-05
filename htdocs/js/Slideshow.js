@@ -72,6 +72,10 @@ FB.Modules.Slideshow.prototype = {
     if (this.closeLinkHtml !== undefined) {
       this.lightenCloseLink();
     }
+    if (this.plusLinkHtml !== undefined && this.minusLinkHtml !== undefined) {
+      this.lightenPlusLink();
+      this.lightenMinusLink();
+    }
     if (this.thumbContainerHtml !== undefined) {
       this.lightenPhotoPickerNextLink();
       this.lightenPhotoPickerPrevLink();
@@ -95,6 +99,14 @@ FB.Modules.Slideshow.prototype = {
       FB.util.Event.addListener(this.closeLinkHtml, 'mouseover', function() { slideshow.darkenCloseLink(); });
       FB.util.Event.addListener(this.closeLinkHtml, 'mouseout', function() { slideshow.lightenCloseLink(); });
       FB.util.Event.addListener(this.closeLinkHtml, 'click', function() { slideshow.exitFullScreen(); });
+    }
+    if (this.plusLinkHtml !== undefined && this.minusLinkHtml !== undefined) {
+      FB.util.Event.addListener(this.plusLinkHtml, 'mouseover', function() { slideshow.darkenPlusLink(); });
+      FB.util.Event.addListener(this.plusLinkHtml, 'mouseout', function() { slideshow.lightenPlusLink(); });
+      FB.util.Event.addListener(this.plusLinkHtml, 'click', function() { return; });
+      FB.util.Event.addListener(this.minusLinkHtml, 'mouseover', function() { slideshow.darkenMinusLink(); });
+      FB.util.Event.addListener(this.minusLinkHtml, 'mouseout', function() { slideshow.lightenMinusLink(); });
+      FB.util.Event.addListener(this.minusLinkHtml, 'click', function() { return; });
     }
     FB.util.Event.addListener(this.html, 'click', function() { header.hideMenuPanel(); });
     if (this.photoPickerHtml !== undefined) {
@@ -358,6 +370,22 @@ FB.Modules.Slideshow.prototype = {
 
   lightenCloseLink: function() {
     FB.util.Dom.setOpacity(this.closeLinkHtml, this.defaultArrowOpacity);
+  },
+
+  darkenPlusLink: function() {
+    FB.util.Dom.setOpacity(this.plusLinkHtml, this.hoverArrowOpacity);
+  },
+
+  lightenPlusLink: function() {
+    FB.util.Dom.setOpacity(this.plusLinkHtml, this.defaultArrowOpacity);
+  },
+
+  darkenMinusLink: function() {
+    FB.util.Dom.setOpacity(this.minusLinkHtml, this.hoverArrowOpacity);
+  },
+
+  lightenMinusLink: function() {
+    FB.util.Dom.setOpacity(this.minusLinkHtml, this.defaultArrowOpacity);
   },
 
   showPhotoPickerButtons: function() {
