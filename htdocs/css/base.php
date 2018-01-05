@@ -248,7 +248,7 @@ ul {
   display: block;
 }
 
-.philosophy-page #banner {
+.portfolio-index-page #banner {
   background-image: url(/images/photos/interiors/0013.jpg);
   background-position: center 55%;
   display: block;
