@@ -36,6 +36,9 @@ FB.Modules.PortfolioIndex.prototype = {
 			this.html.style.height = height + 'px';
 			this.slideshowLinksHtml[s].style.width = linkWidth + 'px';
 			this.slideshowLinksHtml[s].style.height = linkHeight + 'px';
+			var linkTextHtml = FB.util.Dom.getElementsByClassName('slideshow-link-text', this.slideshowLinksHtml[s])[0];
+			var linkTextHeight = linkTextHtml.getBoundingClientRect().height;
+			linkTextHtml.style.marginTop = Math.floor((linkHeight - linkTextHeight) / 2) + 'px';
 		}
 	}
 

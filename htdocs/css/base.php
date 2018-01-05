@@ -497,7 +497,6 @@ table#towns td {
 }
 
 .portfolio-page .slideshow-link-text {
-  padding-top: 80px;
   font-size: 32px;
   text-align: center;
 }
