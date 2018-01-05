@@ -798,18 +798,19 @@ table#towns td {
   float: left;
   margin: 20px 0 0 20px;
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  background-size: 300%;
   position: relative;
   cursor: pointer;
 }
 
 .documents-page .slideshow-link.new-home-slideshow-link {
   background-image: url(/images/photos/new-home-docs/0001.gif);
+  background-position: center 70%;
 }
 
 .documents-page .slideshow-link.remodel-slideshow-link {
   background-image: url(/images/photos/remodel-docs/0001.gif);
+  background-position: center 43%;
 }
 
 .documents-page .slideshow-link-shade {
