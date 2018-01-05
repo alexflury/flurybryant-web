@@ -15,9 +15,9 @@ FB.Modules.PortfolioIndex.prototype = {
 
 	initHtml: function() {
 		for (var s = 0; s < this.slideshowLinksHtml.length; s++) {
-			var linkTextContainerHtml = FB.util.Dom.getElementsByClassName('slideshow-link-shade', this.slideshowLinksHtml[s])[0];
+			var linkShadeHtml = FB.util.Dom.getElementsByClassName('slideshow-link-shade', this.slideshowLinksHtml[s])[0];
 			var linkTextHtml = FB.util.Dom.getElementsByClassName('slideshow-link-text', this.slideshowLinksHtml[s])[0];
-			FB.util.Dom.setOpacity(linkTextContainerHtml, 0.5);
+			FB.util.Dom.setOpacity(linkShadeHtml, 0.5);
 			FB.util.Dom.setOpacity(linkTextHtml, 0.8);
 		}
 	},
@@ -41,9 +41,9 @@ FB.Modules.PortfolioIndex.prototype = {
 			this.html.style.height = height + 'px';
 			this.slideshowLinksHtml[s].style.width = linkWidth + 'px';
 			this.slideshowLinksHtml[s].style.height = linkHeight + 'px';
-			var linkTextContainerHtml = FB.util.Dom.getElementsByClassName('slideshow-link-shade', this.slideshowLinksHtml[s])[0];
-			linkTextContainerHtml.style.height = linkHeight + 'px';
-			linkTextContainerHtml.style.width = linkWidth + 'px';
+			var linkShadeHtml = FB.util.Dom.getElementsByClassName('slideshow-link-shade', this.slideshowLinksHtml[s])[0];
+			linkShadeHtml.style.height = linkHeight + 'px';
+			linkShadeHtml.style.width = linkWidth + 'px';
 			var linkTextHtml = FB.util.Dom.getElementsByClassName('slideshow-link-text', this.slideshowLinksHtml[s])[0];
 			var linkTextHeight = linkTextHtml.getBoundingClientRect().height;
 			linkTextHtml.style.marginTop = Math.floor((linkHeight - linkTextHeight) / 2) + 'px';
