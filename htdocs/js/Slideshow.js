@@ -87,6 +87,7 @@ FB.Modules.Slideshow.prototype = {
     FB.util.Event.addListener(this.closeLinkHtml, 'mouseout', function() { slideshow.lightenCloseLink(); });
     FB.util.Event.addListener(this.nextLinkHtml, 'click', function() { slideshow.clickNext(); });
     FB.util.Event.addListener(this.prevLinkHtml, 'click', function() { slideshow.clickPrev(); });
+    FB.util.Event.addListener(this.closeLinkHtml, 'click', function() { slideshow.exitFullScreen(); });
     FB.util.Event.addListener(this.html, 'click', function() { header.hideMenuPanel(); });
     if (this.photoPickerHtml !== undefined) {
       FB.util.Event.addListener(this.photoPickerHtml, 'mouseover', function() { slideshow.showPhotoPickerButtons() });
@@ -102,8 +103,8 @@ FB.Modules.Slideshow.prototype = {
       FB.util.Event.addListener(this.fullScreenClickAreaHtml, 'click', function() { slideshow.toggleFullScreen(); });
     }
     FB.util.Event.addListener(document, 'keyup', function(e) {
-      if (e.keyCode == 27 && slideshow.isFullScreen) {
-        slideshow.toggleFullScreen();
+      if (e.keyCode == 27) {
+        slideshow.exitFullScreen();
       }
     });
   },
@@ -379,6 +380,12 @@ FB.Modules.Slideshow.prototype = {
     var thumbWidth = Math.floor((photoPickerRect.height - 20) * 4/3);
     var numThumbs = Math.floor(photoPickerRect.width / (thumbWidth + 10));
     this.slidePhotoPickerToThumb(this.getThumbIndex(this.centeredThumb) - numThumbs);
+  },
+
+  exitFullScreen: function() {
+    if (this.isFullScreen) {
+      this.toggleFullScreen();
+    }
   },
 
   toggleFullScreen: function() {
