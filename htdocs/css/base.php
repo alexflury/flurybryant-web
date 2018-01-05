@@ -255,8 +255,9 @@ ul {
 }
 
 .documents-index-page #banner {
-  background-image: url(/images/photos/new-home-docs/0001.gif);
-  background-position: center 55%;
+  background-image: url(/images/photos/new-home-docs/0003.gif);
+  background-position: 40% 55%;
+  background-size: 200%;
   display: block;
 }
 
