@@ -10,6 +10,7 @@ print_header(array('page_classname' => 'portfolio-page portfolio-index-page', 'b
 <div class="slideshow-links-container">
 	<a href="/portfolio/new-homes/">
 		<div class="slideshow-link new-homes-slideshow-link">
+			<div class="slideshow-link-shade"></div>
 			<div class="slideshow-link-text-container">
 				<div class="slideshow-link-text">
 					NEW HOME EXTERIORS
@@ -19,6 +20,7 @@ print_header(array('page_classname' => 'portfolio-page portfolio-index-page', 'b
 	</a>
 	<a href="/portfolio/remodels/">
 		<div class="slideshow-link remodels-slideshow-link">
+			<div class="slideshow-link-shade"></div>
 			<div class="slideshow-link-text-container">
 				<div class="slideshow-link-text">
 					REMODELED EXTERIORS
@@ -28,6 +30,7 @@ print_header(array('page_classname' => 'portfolio-page portfolio-index-page', 'b
 	</a>
 	<a href="/portfolio/interiors/">
 		<div class="slideshow-link interiors-slideshow-link">
+			<div class="slideshow-link-shade"></div>
 			<div class="slideshow-link-text-container">
 				<div class="slideshow-link-text">
 					INTERIORS
@@ -37,6 +40,7 @@ print_header(array('page_classname' => 'portfolio-page portfolio-index-page', 'b
 	</a>
 	<a href="/portfolio/details/">
 		<div class="slideshow-link details-slideshow-link">
+			<div class="slideshow-link-shade"></div>
 			<div class="slideshow-link-text-container">
 				<div class="slideshow-link-text">
 					DETAILS

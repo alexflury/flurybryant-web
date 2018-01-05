@@ -516,11 +516,17 @@ table#towns td {
   background-image: url(/images/photos/details/0001.jpg);
 }
 
+.portfolio-page .slideshow-link-shade {
+  background: <?php echo $COLOR['BODY']; ?>;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .portfolio-page .slideshow-link-text-container {
-    background: <?php echo $COLOR['BODY']; ?>;
-    position: absolute;
-    top: 0;
-    left: 0;
+  position: absolute;
+  z-index: 10;
+  width: 100%;
 }
 
 .portfolio-page .slideshow-link-text {
