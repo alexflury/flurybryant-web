@@ -496,9 +496,24 @@ table#towns td {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  background-image: url(/images/photos/new-homes/0001.jpg);
   position: relative;
   cursor: pointer;
+}
+
+.portfolio-page .slideshow-link.new-homes-slideshow-link {
+  background-image: url(/images/photos/new-homes/0001.jpg);
+}
+
+.portfolio-page .slideshow-link.remodels-slideshow-link {
+  background-image: url(/images/photos/remodels/0015.jpg);
+}
+
+.portfolio-page .slideshow-link.interiors-slideshow-link {
+  background-image: url(/images/photos/interiors/0007.jpg);
+}
+
+.portfolio-page .slideshow-link.details-slideshow-link {
+  background-image: url(/images/photos/details/0001.jpg);
 }
 
 .portfolio-page .slideshow-link-text-container {
