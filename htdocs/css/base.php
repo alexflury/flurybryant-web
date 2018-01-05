@@ -255,7 +255,7 @@ ul {
 }
 
 .documents-index-page #banner {
-  background-image: url(/images/photos/new-homes/0004.jpg);
+  background-image: url(/images/photos/new-home-docs/0001.gif);
   background-position: center 55%;
   display: block;
 }
@@ -805,11 +805,11 @@ table#towns td {
 }
 
 .documents-page .slideshow-link.new-home-slideshow-link {
-  background-image: url(/images/photos/new-homes/0001.jpg);
+  background-image: url(/images/photos/new-home-docs/0001.gif);
 }
 
 .documents-page .slideshow-link.remodel-slideshow-link {
-  background-image: url(/images/photos/remodels/0015.jpg);
+  background-image: url(/images/photos/remodel-docs/0001.gif);
 }
 
 .documents-page .slideshow-link-shade {
