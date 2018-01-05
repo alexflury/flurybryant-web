@@ -328,10 +328,10 @@ FB.Modules.Slideshow.prototype = {
     this.nextLinkHtml.style.display = 'block';
     if (this.isFullScreen) {
       this.closeLinkHtml.style.display = 'block';
-    }
-    if (this.plusLinkHtml !== undefined && this.minusLinkHtml !== undefined) {
-      this.plusLinkHtml.style.display = 'block';
-      this.minusLinkHtml.style.display = 'block';
+      if (this.plusLinkHtml !== undefined && this.minusLinkHtml !== undefined) {
+        this.plusLinkHtml.style.display = 'block';
+        this.minusLinkHtml.style.display = 'block';
+      }
     }
     this.renderArrows();
   },
