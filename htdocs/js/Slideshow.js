@@ -103,10 +103,10 @@ FB.Modules.Slideshow.prototype = {
     if (this.plusLinkHtml !== undefined && this.minusLinkHtml !== undefined) {
       FB.util.Event.addListener(this.plusLinkHtml, 'mouseover', function() { slideshow.darkenPlusLink(); });
       FB.util.Event.addListener(this.plusLinkHtml, 'mouseout', function() { slideshow.lightenPlusLink(); });
-      FB.util.Event.addListener(this.plusLinkHtml, 'click', function() { return; });
+      FB.util.Event.addListener(this.plusLinkHtml, 'click', function() { slideshow.zoomIn(); });
       FB.util.Event.addListener(this.minusLinkHtml, 'mouseover', function() { slideshow.darkenMinusLink(); });
       FB.util.Event.addListener(this.minusLinkHtml, 'mouseout', function() { slideshow.lightenMinusLink(); });
-      FB.util.Event.addListener(this.minusLinkHtml, 'click', function() { return; });
+      FB.util.Event.addListener(this.minusLinkHtml, 'click', function() { slideshow.zoomOut(); });
     }
     FB.util.Event.addListener(this.html, 'click', function() { header.hideMenuPanel(); });
     if (this.photoPickerHtml !== undefined) {
@@ -510,6 +510,14 @@ FB.Modules.Slideshow.prototype = {
 
   setPhotoTop: function(top) {
     this.photoHtml.style.top = top;
+  },
+
+  zoomIn: function() {
+
+  },
+
+  zoomOut: function() {
+    
   }
 
 };
