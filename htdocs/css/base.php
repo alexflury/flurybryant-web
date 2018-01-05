@@ -491,14 +491,15 @@ table#towns td {
 }
 
 .portfolio-page .slideshow-link {
-  height: 120px;
-  width: 600px;
   float: left;
   margin: 20px 0 0 20px;
   background: <?php echo $COLOR['BODY']; ?>;
-  text-align: center;
+}
+
+.portfolio-page .slideshow-link-text {
   padding-top: 80px;
   font-size: 32px;
+  text-align: center;
 }
 
 .portfolio-page .slideshow-links-container {
