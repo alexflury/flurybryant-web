@@ -5,11 +5,25 @@ include('../../lib/portfolio.php');
 
 print_header(array('page_classname' => 'portfolio-page'));
 
-$slideshow_photos = get_photos(array('new-homes', 'remodels', 'interiors', 'details'));
-$slideshow_has_photo_picker = true;
-$slideshow_auto = false;
-$slideshow_has_full_screen = true;
-include('../../templates/slideshow.php');
+?>
+
+<div class="slideshow-links-container">
+	<div class="slideshow-link">
+		NEW HOME EXTERIORS
+	</div>
+	<div class="slideshow-link">
+		REMODELED EXTERIORS
+	</div>
+	<div class="slideshow-link">
+		INTERIORS
+	</div>
+	<div class="slideshow-link">
+		DETAILS
+	</div>
+	<div class="clearb"></div>
+</div>
+
+<?
 
 print_footer();
 

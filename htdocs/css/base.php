@@ -490,6 +490,21 @@ table#towns td {
   background-color: <?php echo $COLOR['PORTFOLIO_BACKGROUND']; ?>;
 }
 
+.portfolio-page .slideshow-link {
+  height: 120px;
+  width: 600px;
+  float: left;
+  margin: 20px 0 0 20px;
+  background: <?php echo $COLOR['BODY']; ?>;
+  text-align: center;
+  padding-top: 80px;
+  font-size: 32px;
+}
+
+.portfolio-page .slideshow-links-container {
+  padding-bottom: 20px;
+}
+
 /* Contact */
 
 #contact #page-left {
