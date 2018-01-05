@@ -33,6 +33,9 @@ print_header(array('page_classname' => 'portfolio-page portfolio-index-page', 'b
 
 <?
 
+global $JS;
+$JS .= js('portfolio-index.js') . raw_js("var portfolioIndex = new FB.Modules.PortfolioIndex();");
+
 print_footer();
 
 ?>
