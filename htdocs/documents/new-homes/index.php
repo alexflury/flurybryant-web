@@ -1,31 +1,15 @@
 <?php
+
 include('../../../lib/base.php');
+include('../../../lib/portfolio.php');
 
-class DocAlbum {
-  public $name;
-  public $title;
-  public $photos;
+print_header(array('page_classname' => 'documents-page'));
 
-  public function __construct($name, $title) {
-    $this->name = $name;
-    $this->title = $title;
-    $this->photos = get_photos($name);
-  }
-}
-
-$albums = array(
-  new DocAlbum('new-homes-docs', 'New Home'),
-  new DocAlbum('remodels-docs', 'Remodel')
-);
-
-print_header();
-
-?>
-
-<div id="documents">
-</div>
-
-<?php
+$slideshow_photos = get_photos(array('new-home-docs'));
+$slideshow_has_photo_picker = true;
+$slideshow_auto = false;
+$slideshow_has_full_screen = true;
+include('../../../templates/slideshow.php');
 
 print_footer();
 

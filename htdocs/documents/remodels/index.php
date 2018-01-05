@@ -1,14 +1,16 @@
 <?php
 
 include('../../../lib/base.php');
-include('../../../lib/documents.php');
+include('../../../lib/portfolio.php');
 
-$album_name = 'new-homes-docs';
+print_header(array('page_classname' => 'documents-page'));
 
-print_documents_header();
+$slideshow_photos = get_photos(array('remodel-docs'));
+$slideshow_has_photo_picker = true;
+$slideshow_auto = false;
+$slideshow_has_full_screen = true;
+include('../../../templates/slideshow.php');
 
-require('../../../templates/doc-album.php');
-
-print_documents_footer();
+print_footer();
 
 ?>
