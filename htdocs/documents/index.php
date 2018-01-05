@@ -3,7 +3,7 @@
 include('../../lib/base.php');
 include('../../lib/portfolio.php');
 
-print_header(array('page_classname' => 'documents-page documents-index-page', 'banner_title' => 'PORTFOLIO'));
+print_header(array('page_classname' => 'documents-page documents-index-page', 'banner_title' => 'DOCUMENTS'));
 
 ?>
 

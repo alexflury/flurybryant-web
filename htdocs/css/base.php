@@ -254,6 +254,12 @@ ul {
   display: block;
 }
 
+.documents-index-page #banner {
+  background-image: url(/images/photos/new-homes/0004.jpg);
+  background-position: center 55%;
+  display: block;
+}
+
 #banner .banner-title-container {
   display: none;
   width: 100%;
