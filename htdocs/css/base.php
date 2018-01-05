@@ -498,6 +498,7 @@ table#towns td {
   background-size: cover;
   background-image: url(/images/photos/new-homes/0001.jpg);
   position: relative;
+  cursor: pointer;
 }
 
 .portfolio-page .slideshow-link-text-container {
@@ -508,8 +509,10 @@ table#towns td {
 }
 
 .portfolio-page .slideshow-link-text {
-  font-size: 32px;
+  font-size: 54px;
+  font-weight: bold;
   text-align: center;
+  padding: 20px;
 }
 
 .portfolio-page .slideshow-links-container {
