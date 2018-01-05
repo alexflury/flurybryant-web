@@ -493,7 +493,18 @@ table#towns td {
 .portfolio-page .slideshow-link {
   float: left;
   margin: 20px 0 0 20px;
-  background: <?php echo $COLOR['BODY']; ?>;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: url(/images/photos/new-homes/0001.jpg);
+  position: relative;
+}
+
+.portfolio-page .slideshow-link-text-container {
+    background: <?php echo $COLOR['BODY']; ?>;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .portfolio-page .slideshow-link-text {
