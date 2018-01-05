@@ -46,6 +46,7 @@ FB.Modules.Slideshow.prototype = {
   isFullScreen: false,
   isMaximizing: false,
   isMinimizing: false,
+  zoomLevel: 0,
 
   getHtml: function() {
     this.html = FB.util.Dom.get('slideshow');
@@ -513,11 +514,28 @@ FB.Modules.Slideshow.prototype = {
   },
 
   zoomIn: function() {
-
+    if (this.zoomLevel < 3) {
+      this.setZoomLevel(this.zoomLevel + 1);
+    }
   },
 
   zoomOut: function() {
-    
+    if (this.zoomLevel > 0) {
+      this.setZoomLevel(this.zoomLevel - 1);
+    }
+  },
+
+  setZoomLevel: function(zoomLevel) {
+    var pageSize = FB.util.getPageSize();
+    var windowWidth = pageSize[2];
+    var windowHeight = pageSize[3];
+    var newHeight = windowHeight * Math.pow(2, zoomLevel);
+    var newWidth = windowWidth * Math.pow(2, zoomLevel);
+    this.photoSequenceHtml.style.height = newHeight + 'px';
+    this.photoSequenceHtml.style.width = newWidth + 'px';
+    this.photoSequenceHtml.style.left = Math.floor((pageWidth - newWidth) / 2) + 'px';
+    this.photoSequenceHtml.style.top = Math.floor((pageHeight - newHeight) / 2) + 'px';
+    this.zoomLevel = zoomLevel;
   }
 
 };

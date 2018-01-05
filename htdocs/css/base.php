@@ -884,6 +884,7 @@ table#towns td {
 #slideshow .photo {
   text-align: center;
   position: relative;
+  overflow: hidden;
 }
 
 #slideshow .photo .photo-moulding-top {
