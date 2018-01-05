@@ -778,6 +778,16 @@ table#towns td {
   cursor: url(/cursors/closedhand.cur), default;
 }
 
+.documents-page #bd {
+  padding-top: <?php echo ($SIZE['HD_HEIGHT'] + 1); ?>px;
+  background: <?php echo $COLOR['PORTFOLIO_BACKGROUND']; ?>;
+}
+
+.documents-page .photo-sequence .photo-frame {
+  background-size: contain;
+  background-color: <?php echo $COLOR['PORTFOLIO_BACKGROUND']; ?>;
+}
+
 /* PhotoSequence */
 
 .photo-sequence {

@@ -48,8 +48,8 @@
         </div>
         <div class="sublink-menu-panel documents-menu-panel">
           <ul>
-            <li><a href="/documents/new-homes/">New Homes</a></li>
-            <li><a href="/documents/remodels/">Remodels</a></li>
+            <li><a href="/documents/new-homes/">New Home</a></li>
+            <li><a href="/documents/remodels/">Remodel</a></li>
           </ul>
         </div>
         <div class="sublink-menu-panel resources-menu-panel">
