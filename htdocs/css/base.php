@@ -502,6 +502,7 @@ table#towns td {
 }
 
 .portfolio-page .slideshow-links-container {
+  padding-top: <?php echo $SIZE['BANNER_HEIGHT'] ?>px;
   padding-bottom: 20px;
 }
 
