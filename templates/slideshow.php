@@ -67,6 +67,7 @@ $next_style = $slideshow_photo < count($slideshow_photos) ? '' : ' style="visibi
       </div>
       <div class="left-arrow"></div>
       <div class="right-arrow"></div>
+      <div class="close-icon"></div>
       <?php if ($slideshow_has_full_screen) { ?>
         <div class="full-screen-click-area"></div>
       <?php } ?>

@@ -18,6 +18,7 @@ FB.Modules.Slideshow.prototype = {
   photoSequenceHtml: null,
   prevLinkHtml: null,
   nextLinkHtml: null,
+  closeLinkHtml: null,
   thumbsHtml: [],
   thumbPhotoNums: [],
   photoHtml: null,
@@ -50,6 +51,7 @@ FB.Modules.Slideshow.prototype = {
     this.photoSequenceHtml = FB.util.Dom.getElementsByClassName('photo-sequence', this.html)[0];
     this.prevLinkHtml = FB.util.Dom.getElementsByClassName('left-arrow', this.photoHtml)[0];
     this.nextLinkHtml = FB.util.Dom.getElementsByClassName('right-arrow', this.photoHtml)[0];
+    this.closeLinkHtml = FB.util.Dom.getElementsByClassName('close-icon', this.photoHtml)[0];
     this.photoPickerHtml = FB.util.Dom.getElementsByClassName('photo-picker', this.html)[0];
     this.thumbContainerHtml = FB.util.Dom.getElementsByClassName('thumb-container', this.html)[0];
     if (this.photoPickerHtml !== undefined) {
@@ -300,12 +302,14 @@ FB.Modules.Slideshow.prototype = {
   showButtons: function() {
     this.prevLinkHtml.style.display = 'block';
     this.nextLinkHtml.style.display = 'block';
+    this.closeLinkHtml.style.display = 'block';
     this.renderArrows();
   },
 
   hideButtons: function() {
     this.prevLinkHtml.style.display = 'none';
     this.nextLinkHtml.style.display = 'none';
+    this.closeLinkHtml.style.display = 'none';
   },
 
   darkenNextLink: function() {
