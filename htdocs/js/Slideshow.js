@@ -46,7 +46,6 @@ FB.Modules.Slideshow.prototype = {
   isFullScreen: false,
   isMaximizing: false,
   isMinimizing: false,
-  zoomLevel: 0,
 
   getHtml: function() {
     this.html = FB.util.Dom.get('slideshow');
