@@ -178,7 +178,32 @@ FB.Modules.PhotoSequence.prototype = {
 
   setOnFinishLoading: function(finishLoadingCallback) {
     this.finishLoadingCallback = finishLoadingCallback;
+  },
+
+  zoomIn: function() {
+    if (this.frames[this.frameNum].zoomLevel < 3) {
+      this.setZoomLevel(this.frames[this.frameNum].zoomLevel + 1);
+    }
+  },
+
+  zoomOut: function() {
+    if (this.frames[this.frameNum].zoomLevel > 0) {
+      this.setZoomLevel(this.frames[this.frameNum].zoomLevel - 1);
+    }
+  },
+
+  setZoomLevel: function(zoomLevel) {
+    var photoSequenceRect = this.html.getBoundingClientRect();
+    var newHeight = photoSequenceRect.height * Math.pow(2, zoomLevel);
+    var newWidth = photoSequenceRect.width * Math.pow(2, zoomLevel);
+    var frameHtml = this.frames[this.frameNum].html;
+    frameHtml.style.height = newHeight + 'px';
+    frameHtml.style.width = newWidth + 'px';
+    frameHtml.style.left = Math.floor((photoSequenceRect.width - newWidth) / 2) + 'px';
+    frameHtml.style.top = Math.floor((photoSequenceRect.height - newHeight) / 2) + 'px';
+    this.frames[this.frameNum].zoomLevel = zoomLevel;
   }
+
 };
 
 FB.Modules.PhotoSequence.Frame = function(html, speed, width, height, thumbs) {
@@ -203,6 +228,7 @@ FB.Modules.PhotoSequence.Frame.prototype = {
   curPhoto: null,
   opacity: 1,
   thumbs: false,
+  zoomLevel: 0,
 
   hide: function() {
     this.html.style.visibility = 'hidden';
@@ -259,4 +285,5 @@ FB.Modules.PhotoSequence.Frame.prototype = {
     this.setOpacity(this.opacity + speed);
     return true;
   }
+
 };
