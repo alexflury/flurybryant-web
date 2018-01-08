@@ -91,7 +91,7 @@ FB.Modules.PhotoSequence.prototype = {
     }
     frameNum = this.prevFrameNum(newFrameNum);
     photoNum = this.prevPhotoNum(this.photoNum);
-    this.setZoomLevel(this.frames[newFrameNum], 0);
+    this.setZoomLevel(0, this.frames[newFrameNum]);
     for (var f = 0; f < this.frames.length - this.numFutureFrames; f++) {
       if (frameNum == this.frameNum) {
         this.loadLater = this.photos[photoNum];
@@ -183,17 +183,17 @@ FB.Modules.PhotoSequence.prototype = {
 
   zoomIn: function() {
     if (this.frames[this.frameNum].zoomLevel < 3) {
-      this.setZoomLevel(this.frames[this.frameNum], this.frames[this.frameNum].zoomLevel + 1);
+      this.setZoomLevel(this.frames[this.frameNum].zoomLevel + 1, this.frames[this.frameNum]);
     }
   },
 
   zoomOut: function() {
     if (this.frames[this.frameNum].zoomLevel > 0) {
-      this.setZoomLevel(this.frames[this.frameNum], this.frames[this.frameNum].zoomLevel - 1);
+      this.setZoomLevel(this.frames[this.frameNum].zoomLevel - 1, this.frames[this.frameNum]);
     }
   },
 
-  setZoomLevel: function(frame, zoomLevel) {
+  setZoomLevel: function(zoomLevel, frame) {
     var photoSequenceRect = this.html.getBoundingClientRect();
     var newHeight = photoSequenceRect.height * Math.pow(2, zoomLevel);
     var newWidth = photoSequenceRect.width * Math.pow(2, zoomLevel);
