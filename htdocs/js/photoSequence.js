@@ -91,6 +91,7 @@ FB.Modules.PhotoSequence.prototype = {
     }
     frameNum = this.prevFrameNum(newFrameNum);
     photoNum = this.prevPhotoNum(this.photoNum);
+    this.setZoomLevel(this.frames[newFrameNum], 0);
     for (var f = 0; f < this.frames.length - this.numFutureFrames; f++) {
       if (frameNum == this.frameNum) {
         this.loadLater = this.photos[photoNum];
@@ -182,26 +183,26 @@ FB.Modules.PhotoSequence.prototype = {
 
   zoomIn: function() {
     if (this.frames[this.frameNum].zoomLevel < 3) {
-      this.setZoomLevel(this.frames[this.frameNum].zoomLevel + 1);
+      this.setZoomLevel(this.frames[this.frameNum], this.frames[this.frameNum].zoomLevel + 1);
     }
   },
 
   zoomOut: function() {
     if (this.frames[this.frameNum].zoomLevel > 0) {
-      this.setZoomLevel(this.frames[this.frameNum].zoomLevel - 1);
+      this.setZoomLevel(this.frames[this.frameNum], this.frames[this.frameNum].zoomLevel - 1);
     }
   },
 
-  setZoomLevel: function(zoomLevel) {
+  setZoomLevel: function(frame, zoomLevel) {
     var photoSequenceRect = this.html.getBoundingClientRect();
     var newHeight = photoSequenceRect.height * Math.pow(2, zoomLevel);
     var newWidth = photoSequenceRect.width * Math.pow(2, zoomLevel);
-    var frameHtml = this.frames[this.frameNum].html;
+    var frameHtml = frame.html;
     frameHtml.style.height = newHeight + 'px';
     frameHtml.style.width = newWidth + 'px';
     frameHtml.style.left = Math.floor((photoSequenceRect.width - newWidth) / 2) + 'px';
     frameHtml.style.top = Math.floor((photoSequenceRect.height - newHeight) / 2) + 'px';
-    this.frames[this.frameNum].zoomLevel = zoomLevel;
+    frame.zoomLevel = zoomLevel;
   }
 
 };
