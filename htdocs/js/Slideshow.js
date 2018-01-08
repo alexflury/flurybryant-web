@@ -435,7 +435,7 @@ FB.Modules.Slideshow.prototype = {
   },
 
   toggleFullScreen: function() {
-    if (this.isMaximizing) {
+    if (this.isMaximizing || this.isMinimizing) {
       return;
     }
     var photoRect = this.photoSequenceHtml.getBoundingClientRect();
