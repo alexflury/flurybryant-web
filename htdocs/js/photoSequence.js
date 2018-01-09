@@ -203,6 +203,10 @@ FB.Modules.PhotoSequence.prototype = {
     frameHtml.style.left = Math.floor((photoSequenceRect.width - newWidth) / 2) + 'px';
     frameHtml.style.top = Math.floor((photoSequenceRect.height - newHeight) / 2) + 'px';
     frame.zoomLevel = zoomLevel;
+  },
+
+  getCurrentFrame: function() {
+    return this.frames[this.frameNum];
   }
 
 };

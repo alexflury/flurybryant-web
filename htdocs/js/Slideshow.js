@@ -44,8 +44,7 @@ FB.Modules.Slideshow.prototype = {
   fullScreenClickAreaHtml: null,
   photoContainerHtml: null,
   isFullScreen: false,
-  isMaximizing: false,
-  isMinimizing: false,
+  isResizing: false,
 
   getHtml: function() {
     this.html = FB.util.Dom.get('slideshow');
@@ -435,63 +434,55 @@ FB.Modules.Slideshow.prototype = {
   },
 
   toggleFullScreen: function() {
-    if (this.isMaximizing || this.isMinimizing) {
+    if (this.isResizing) {
       return;
     }
     var photoRect = this.photoSequenceHtml.getBoundingClientRect();
     var photoPickerRect = this.photoPickerHtml.getBoundingClientRect();
     var pageHeight = FB.util.getPageSize()[3];
+    var slideshow = this;
     if (this.isFullScreen) {
       this.isFullScreen = false;
-      this.isMinimizing = true;
       this.hideButtons();
       this.showButtons();
-      this.minimizePhoto(photoRect.top, photoRect.height, photoPickerRect.bottom, Math.max(this.autoResizeMin, pageHeight - this.autoResizeDelta));
+      var startPos = {top: photoRect.top, height: photoRect.height};
+      var endPos = {top: photoPickerRect.bottom, height: Math.max(this.autoResizeMin, pageHeight - this.autoResizeDelta)};
+      var callback = function() {
+        slideshow.setPhotoTop(endPos.top);
+        slideshow.setPhotoHeight(endPos.height);
+      };
+      this.isResizing = true;
+      this.smoothResizePhoto(startPos, endPos, callback);
     } else {
-      this.isMaximizing = true;
       FB.util.Dom.addClassName(this.html, 'full-screen');
-      this.maximizePhoto(photoRect.top, photoRect.height, 0, pageHeight);
+      this.isResizing = true;
+      this.smoothResizePhoto(
+        {top: photoRect.top, height: photoRect.height},
+        {top: 0, height: pageHeight},
+        function() {
+          slideshow.isFullScreen = true;
+          slideshow.setPhotoTop('0');
+          slideshow.setPhotoHeight('100%');
+        });
     }
   },
 
-  maximizePhoto: function(startTop, startHeight, endTop, endHeight, progress) {
+  smoothResizePhoto: function(startPos, endPos, callback, progress) {
     if (progress === undefined) {
       progress = 0.025;
     }
-    if (progress < 1 && this.isMaximizing) {
-      var newTop = startTop + (endTop - startTop) * (0.5 - 0.5 * Math.cos(progress * Math.PI));
-      var newHeight = startHeight + (endHeight - startHeight) * (0.5 - 0.5 * Math.cos(progress * Math.PI));
+    if (progress < 1 && this.isResizing) {
+      var newTop = startPos.top + (endPos.top - startPos.top) * (0.5 - 0.5 * Math.cos(progress * Math.PI));
+      var newHeight = startPos.height + (endPos.height - startPos.height) * (0.5 - 0.5 * Math.cos(progress * Math.PI));
       this.setPhotoTop(newTop + 'px');
       this.setPhotoHeight(newHeight + 'px');
       this.renderArrows();
       var slideshow = this;
-      setTimeout(function() { slideshow.maximizePhoto(startTop, startHeight, endTop, endHeight, progress + 0.025) }, 10);
+      setTimeout(function() { slideshow.smoothResizePhoto(startPos, endPos, callback, progress + 0.025) }, 10);
     } else {
-      this.isMaximizing = false;
-      this.isFullScreen = true;
-      this.setPhotoTop('0');
-      this.setPhotoHeight('100%');
+      this.isResizing = false;
+      callback();
       this.showButtons();
-      this.render();
-    }
-  },
-
-  minimizePhoto: function(startTop, startHeight, endTop, endHeight, progress) {
-    if (progress === undefined) {
-      progress = 0.025;
-    }
-    if (progress < 1 && this.isMinimizing) {
-      var newTop = startTop + (endTop - startTop) * (0.5 - 0.5 * Math.cos(progress * Math.PI));
-      var newHeight = startHeight + (endHeight - startHeight) * (0.5 - 0.5 * Math.cos(progress * Math.PI));
-      this.setPhotoTop(newTop + 'px');
-      this.setPhotoHeight(newHeight + 'px');
-      this.renderArrows();
-      var slideshow = this;
-      setTimeout(function() { slideshow.minimizePhoto(startTop, startHeight, endTop, endHeight, progress + 0.025) }, 10);
-    } else {
-      this.isMinimizing = false;
-      this.setPhotoTop(endTop);
-      this.setPhotoHeight(endHeight);
       this.render();
     }
   },
