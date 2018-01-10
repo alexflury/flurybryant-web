@@ -1105,3 +1105,9 @@ table#towns td {
   cursor: -moz-grab;
   cursor: -webkit-grab;
 }
+
+#slideshow.zoomable.dragging.full-screen .full-screen-click-area {
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+}

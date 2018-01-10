@@ -547,6 +547,7 @@ FB.Modules.Slideshow.prototype = {
   startDrag: function(x, y) {
     this.dragStartPos = {x: x, y: y};
     this.isDragging = true;
+    FB.util.Dom.addClassName(this.html, 'dragging');
   },
 
   dragTo: function(x, y) {
@@ -555,6 +556,7 @@ FB.Modules.Slideshow.prototype = {
 
   endDrag: function() {
     this.isDragging = false;
+    FB.util.Dom.removeClassName(this.html, 'dragging');
   }
 
 };
