@@ -545,14 +545,14 @@ FB.Modules.Slideshow.prototype = {
   },
 
   startDrag: function(x, y) {
-    var zoomPosition = this.photoSequence.getZoomPosition();
-    this.dragStartPos = {mouseX: x, mouseY: y, photoX: zoomPosition.x, photoY: zoomPosition.y};
+    var focalPoint = this.photoSequence.getFocalPoint();
+    this.dragStartPos = {mouseX: x, mouseY: y, photoX: focalPoint.x, photoY: focalPoint.y};
     this.isDragging = true;
     FB.util.Dom.addClassName(this.html, 'dragging');
   },
 
   dragTo: function(x, y) {
-    this.photoSequence.setZoomPosition(
+    this.photoSequence.setFocalPoint(
       this.dragStartPos.photoX - (x - this.dragStartPos.mouseX),
       this.dragStartPos.photoY - (y - this.dragStartPos.mouseY));
   },

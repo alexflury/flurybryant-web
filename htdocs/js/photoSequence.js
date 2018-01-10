@@ -92,7 +92,6 @@ FB.Modules.PhotoSequence.prototype = {
     }
     frameNum = this.prevFrameNum(newFrameNum);
     photoNum = this.prevPhotoNum(this.photoNum);
-    this.setZoomLevel(0, this.frames[newFrameNum]);
     for (var f = 0; f < this.frames.length - this.numFutureFrames; f++) {
       if (frameNum == this.frameNum) {
         this.loadLater = this.photos[photoNum];
@@ -102,6 +101,9 @@ FB.Modules.PhotoSequence.prototype = {
       frameNum = this.prevFrameNum(frameNum);
       photoNum = this.prevPhotoNum(photoNum);
     }
+    this.frames[newFrameNum].zoomLevel = 0;
+    this.frames[newFrameNum].focalPoint = {x: 0.5, y: 0.5};
+    this.renderFrame(this.frames[newFrameNum]);
     this.showFrame(newFrameNum, speed);
     return true;
   },
@@ -210,13 +212,14 @@ FB.Modules.PhotoSequence.prototype = {
       progress = 0.025;
     }
     if (progress < 1) {
-      var newZoomLevel = startZoomLevel + (endZoomLevel - startZoomLevel) * (0.5 - 0.5 * Math.cos(progress * Math.PI));
-      this.setZoomLevel(newZoomLevel, frame);
+      frame.zoomLevel = startZoomLevel + (endZoomLevel - startZoomLevel) * (0.5 - 0.5 * Math.cos(progress * Math.PI));
+      this.renderFrame(frame);
       var photoSequence = this;
       setTimeout(function() { photoSequence.smoothZoom(startZoomLevel, endZoomLevel, frame, progress + 0.025); }, 10);
     } else {
       this.isZooming = false;
-      this.setZoomLevel(endZoomLevel, frame);
+      frame.zoomLevel = endZoomLevel;
+      this.renderFrame(frame);
     }
   },
 
@@ -224,15 +227,8 @@ FB.Modules.PhotoSequence.prototype = {
     if (frame === undefined) {
       frame = this.frames[this.frameNum];
     }
-    var photoSequenceRect = this.html.getBoundingClientRect();
-    var newHeight = photoSequenceRect.height * Math.pow(2, zoomLevel);
-    var newWidth = photoSequenceRect.width * Math.pow(2, zoomLevel);
-    var frameHtml = frame.html;
-    frameHtml.style.height = newHeight + 'px';
-    frameHtml.style.width = newWidth + 'px';
-    frameHtml.style.left = Math.floor((photoSequenceRect.width - newWidth) / 2) + 'px';
-    frameHtml.style.top = Math.floor((photoSequenceRect.height - newHeight) / 2) + 'px';
     frame.zoomLevel = zoomLevel;
+    this.renderFrame(frame);
   },
 
   getZoomLevel: function(frame) {
@@ -247,29 +243,47 @@ FB.Modules.PhotoSequence.prototype = {
   },
 
   render: function() {
-    this.setZoomLevel(this.getZoomLevel());
+    this.renderFrame(this.frames[this.frameNum]);
   },
 
-  setZoomPosition: function(x, y, frame) {
+  setFocalPoint: function(x, y, frame) {
     if (frame === undefined) {
       frame = this.frames[this.frameNum];
     }
+    var rect = frame.html.getBoundingClientRect();
+    frame.focalPoint = {
+      x: x / rect.width,
+      y: y / rect.height
+    };
+    this.renderFrame(frame);
+  },
+
+  getFocalPoint: function(frame) {
+    if (frame === undefined) {
+      frame = this.frames[this.frameNum];
+    }
+    var rect = frame.html.getBoundingClientRect();
+    return {
+      x: Math.floor(frame.focalPoint.x * rect.width),
+      y: Math.floor(frame.focalPoint.y * rect.height)
+    };
+  },
+
+  renderFrame: function(frame) {
     var photoSequenceRect = this.html.getBoundingClientRect();
     var frameRect = frame.html.getBoundingClientRect();
-    if (x >= 0 && x <= frameRect.width - photoSequenceRect.width) {
+    var height = photoSequenceRect.height * Math.pow(2, frame.zoomLevel);
+    var width = photoSequenceRect.width * Math.pow(2, frame.zoomLevel);
+    var x = frame.focalPoint.x * width - Math.floor(photoSequenceRect.width / 2);
+    var y = frame.focalPoint.y * height - Math.floor(photoSequenceRect.height / 2);
+    frame.html.style.height = height + 'px';
+    frame.html.style.width = width + 'px';
+    if (x >= 0 && x <= width - photoSequenceRect.width) {
       frame.html.style.left = (-x) + 'px';
     }
-    if (y >= 0 && y <= frameRect.height - photoSequenceRect.height) {
+    if (y >= 0 && y <= height - photoSequenceRect.height) {
       frame.html.style.top = (-y) + 'px';
     }
-  },
-
-  getZoomPosition: function(frame) {
-    if (frame === undefined) {
-      frame = this.frames[this.frameNum];
-    }
-    var frameRect = frame.html.getBoundingClientRect();
-    return {x: -frameRect.x, y: -frameRect.y};
   }
 
 };
@@ -286,6 +300,7 @@ FB.Modules.PhotoSequence.Frame = function(html, speed, width, height, thumbs) {
   if (height >= 0) {
     this.html.style.height = height + 'px';
   }
+  this.focalPoint = {x: 0.5, y: 0.5};
 };
 
 FB.Modules.PhotoSequence.Frame.prototype = {
@@ -297,6 +312,7 @@ FB.Modules.PhotoSequence.Frame.prototype = {
   opacity: 1,
   thumbs: false,
   zoomLevel: 0,
+  focalPoint: null,
 
   hide: function() {
     this.html.style.visibility = 'hidden';
