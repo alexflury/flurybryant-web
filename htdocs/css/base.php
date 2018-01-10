@@ -877,13 +877,18 @@ table#towns td {
 }
 
 #slideshow .photo-sequence .photo-frame {
-  width: 100%;
   min-width: <?php echo $SIZE['MIN_PAGE_WIDTH'] ?>px;
 }
 
-#slideshow .photo {
-  text-align: center;
-  position: relative;
+#slideshow .photo,
+#slideshow .photo-sequence,
+#slideshow .photo-frame {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1002;
   overflow: hidden;
 }
 
@@ -1095,13 +1100,8 @@ table#towns td {
   z-index: 1002;
 }
 
-#slideshow.full-screen .photo,
-#slideshow.full-screen .photo-sequence,
-#slideshow.full-screen .photo-frame {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1002;
+#slideshow.full-screen .full-screen-click-area {
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
 }

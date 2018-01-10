@@ -299,6 +299,7 @@ FB.Modules.Slideshow.prototype = {
       }
       var bottom = FB.util.Dom.get('ft').getBoundingClientRect().top;
       var height = bottom - top;
+      this.setPhotoTop(top + 'px');
       this.setPhotoHeight(height + 'px');
       if (this.fullScreenClickAreaHtml !== undefined) {
         this.fullScreenClickAreaHtml.style.height = height + 'px';
@@ -439,6 +440,7 @@ FB.Modules.Slideshow.prototype = {
     var slideshow = this;
     if (this.isFullScreen) {
       this.isFullScreen = false;
+      FB.util.Dom.removeClassName(slideshow.html, 'full-screen');
       this.hideButtons();
       this.showButtons();
       var endPos = {top: photoPickerRect.bottom, height: Math.max(this.autoResizeMin, pageHeight - this.autoResizeDelta), zoomLevel: 0};
@@ -452,6 +454,7 @@ FB.Modules.Slideshow.prototype = {
         {top: 0, height: pageHeight, zoomLevel: 0},
         function() {
           slideshow.isFullScreen = true;
+          FB.util.Dom.addClassName(slideshow.html, 'full-screen');
           slideshow.setPhotoTop('0');
           slideshow.setPhotoHeight('100%');
         });
@@ -463,7 +466,6 @@ FB.Modules.Slideshow.prototype = {
     var photoPickerRect = this.photoPickerHtml.getBoundingClientRect();
     var pageHeight = FB.util.getPageSize()[3];
     var startPos = {top: photoRect.top, height: photoRect.height, zoomLevel: this.photoSequence.getZoomLevel()};
-    FB.util.Dom.addClassName(this.html, 'full-screen');
     this.isResizing = true;
     this.smoothResizePhoto(startPos, endPos, callback);
   },
