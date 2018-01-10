@@ -444,7 +444,7 @@ FB.Modules.Slideshow.prototype = {
       this.isFullScreen = false;
       this.hideButtons();
       this.showButtons();
-      var endPos = {top: photoPickerRect.bottom, height: Math.max(this.autoResizeMin, pageHeight - this.autoResizeDelta)};
+      var endPos = {top: photoPickerRect.bottom, height: Math.max(this.autoResizeMin, pageHeight - this.autoResizeDelta), zoomLevel: 0};
       var callback = function() {
         slideshow.setPhotoTop(endPos.top);
         slideshow.setPhotoHeight(endPos.height);
@@ -452,7 +452,7 @@ FB.Modules.Slideshow.prototype = {
       this.startSmoothResizePhoto(endPos, callback);
     } else {
       this.startSmoothResizePhoto(
-        {top: 0, height: pageHeight},
+        {top: 0, height: pageHeight, zoomLevel: 0},
         function() {
           slideshow.isFullScreen = true;
           slideshow.setPhotoTop('0');
@@ -465,7 +465,7 @@ FB.Modules.Slideshow.prototype = {
     var photoRect = this.photoSequenceHtml.getBoundingClientRect();
     var photoPickerRect = this.photoPickerHtml.getBoundingClientRect();
     var pageHeight = FB.util.getPageSize()[3];
-    var startPos = {top: photoRect.top, height: photoRect.height};
+    var startPos = {top: photoRect.top, height: photoRect.height, zoomLevel: this.photoSequence.getZoomLevel()};
     FB.util.Dom.addClassName(this.html, 'full-screen');
     this.isResizing = true;
     this.smoothResizePhoto(startPos, endPos, callback);
@@ -478,13 +478,18 @@ FB.Modules.Slideshow.prototype = {
     if (progress < 1 && this.isResizing) {
       var newTop = startPos.top + (endPos.top - startPos.top) * (0.5 - 0.5 * Math.cos(progress * Math.PI));
       var newHeight = startPos.height + (endPos.height - startPos.height) * (0.5 - 0.5 * Math.cos(progress * Math.PI));
+      var newZoomLevel = startPos.zoomLevel + (endPos.zoomLevel - startPos.zoomLevel) * (0.5 - 0.5 * Math.cos(progress * Math.PI));
       this.setPhotoTop(newTop + 'px');
       this.setPhotoHeight(newHeight + 'px');
+      this.photoSequence.setZoomLevel(newZoomLevel);
       this.renderArrows();
       var slideshow = this;
       setTimeout(function() { slideshow.smoothResizePhoto(startPos, endPos, callback, progress + 0.025) }, 10);
     } else {
       this.isResizing = false;
+      this.photoSequence.setZoomLevel(endPos.zoomLevel);
+      this.setPhotoTop(endPos.top + 'px');
+      this.setPhotoHeight(endPos.height + 'px');
       callback();
       this.showButtons();
       this.render();
@@ -494,10 +499,6 @@ FB.Modules.Slideshow.prototype = {
   setPhotoHeight: function(height) {
     this.photoHtml.style.height = height;
     this.photoSequenceHtml.style.height = height;
-    var framesHtml = this.photoSequence.getFramesHtml();
-    for (var e = 0; e < framesHtml.length; e++) {
-      framesHtml[e].style.height = height;
-    }
     if (this.fullScreenClickAreaHtml !== undefined) {
       this.fullScreenClickAreaHtml.style.height = height;
     }

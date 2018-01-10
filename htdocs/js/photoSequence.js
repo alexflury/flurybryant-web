@@ -194,6 +194,9 @@ FB.Modules.PhotoSequence.prototype = {
   },
 
   setZoomLevel: function(zoomLevel, frame) {
+    if (frame === undefined) {
+      frame = this.frames[this.frameNum];
+    }
     var photoSequenceRect = this.html.getBoundingClientRect();
     var newHeight = photoSequenceRect.height * Math.pow(2, zoomLevel);
     var newWidth = photoSequenceRect.width * Math.pow(2, zoomLevel);
@@ -203,6 +206,13 @@ FB.Modules.PhotoSequence.prototype = {
     frameHtml.style.left = Math.floor((photoSequenceRect.width - newWidth) / 2) + 'px';
     frameHtml.style.top = Math.floor((photoSequenceRect.height - newHeight) / 2) + 'px';
     frame.zoomLevel = zoomLevel;
+  },
+
+  getZoomLevel: function(frame) {
+    if (frame == undefined) {
+      frame = this.frames[this.frameNum];
+    }
+    return frame.zoomLevel;
   },
 
   getCurrentFrame: function() {
