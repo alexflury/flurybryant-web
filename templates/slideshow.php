@@ -1,5 +1,7 @@
 <?php
 
+$slideshow_class = '';
+
 if (!isset($slideshow_photos)) {
   $slideshow_photos = get_photos(array('new-homes', 'remodels', 'interiors', 'details'));
   shuffle($slideshow_photos);
@@ -45,12 +47,16 @@ if (!isset($slideshow_auto_resize_min)) {
   }
 }
 
+if ($slideshow_has_zoom) {
+  $slideshow_class .= ' zoomable';
+}
+
 $prev_style = $slideshow_photo > 1 ? '' : ' style="visibility: hidden;"';
 $next_style = $slideshow_photo < count($slideshow_photos) ? '' : ' style="visibility: hidden;"';
 
 ?>
 
-<div id="slideshow">
+<div id="slideshow" class="<?php echo $slideshow_class; ?>">
   <?php if (isset($slideshow_has_photo_picker) && $slideshow_has_photo_picker) { ?>
     <div class="photo-picker-container">
       <div class="photo-picker">

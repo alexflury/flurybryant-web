@@ -1100,7 +1100,7 @@ table#towns td {
   z-index: 1002;
 }
 
-#slideshow.full-screen .full-screen-click-area {
+#slideshow.zoomable.full-screen .full-screen-click-area {
   cursor: grab;
   cursor: -moz-grab;
   cursor: -webkit-grab;
