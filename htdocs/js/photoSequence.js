@@ -25,6 +25,7 @@ FB.Modules.PhotoSequence.prototype = {
   loadLater: null,
   finishLoadingCallback: null,
   html: null,
+  isZooming: false,
 
   getRootHtml: function() {
     return this.html;
@@ -194,9 +195,13 @@ FB.Modules.PhotoSequence.prototype = {
   },
 
   startSmoothZoom: function(zoomLevel, frame) {
+    if (this.isZooming) {
+      return;
+    }
     if (frame === undefined) {
       frame = this.frames[this.frameNum];
     }
+    this.isZooming = true;
     this.smoothZoom(frame.zoomLevel, zoomLevel, frame);
   },
 
@@ -210,6 +215,7 @@ FB.Modules.PhotoSequence.prototype = {
       var photoSequence = this;
       setTimeout(function() { photoSequence.smoothZoom(startZoomLevel, endZoomLevel, frame, progress + 0.025); }, 10);
     } else {
+      this.isZooming = false;
       this.setZoomLevel(endZoomLevel, frame);
     }
   },
