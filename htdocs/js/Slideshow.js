@@ -545,13 +545,17 @@ FB.Modules.Slideshow.prototype = {
   },
 
   startDrag: function(x, y) {
-    this.dragStartPos = {x: x, y: y};
+    var zoomPosition = this.photoSequence.getZoomPosition();
+    this.dragStartPos = {mouseX: x, mouseY: y, photoX: zoomPosition.x, photoY: zoomPosition.y};
     this.isDragging = true;
     FB.util.Dom.addClassName(this.html, 'dragging');
   },
 
   dragTo: function(x, y) {
     console.log('drag(' + (x - this.dragStartPos.x) + ',' + (y - this.dragStartPos.y) + ')');
+    this.photoSequence.setZoomPosition(
+      this.dragStartPos.photoX - (x - this.dragStartPos.mouseX),
+      this.dragStartPos.photoY - (y - this.dragStartPos.mouseY));
   },
 
   endDrag: function() {
