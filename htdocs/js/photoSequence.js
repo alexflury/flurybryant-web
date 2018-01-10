@@ -183,13 +183,34 @@ FB.Modules.PhotoSequence.prototype = {
 
   zoomIn: function() {
     if (this.frames[this.frameNum].zoomLevel < 3) {
-      this.setZoomLevel(this.frames[this.frameNum].zoomLevel + 1, this.frames[this.frameNum]);
+      this.startSmoothZoom(this.frames[this.frameNum].zoomLevel + 1, this.frames[this.frameNum]);
     }
   },
 
   zoomOut: function() {
     if (this.frames[this.frameNum].zoomLevel > 0) {
-      this.setZoomLevel(this.frames[this.frameNum].zoomLevel - 1, this.frames[this.frameNum]);
+      this.startSmoothZoom(this.frames[this.frameNum].zoomLevel - 1, this.frames[this.frameNum]);
+    }
+  },
+
+  startSmoothZoom: function(zoomLevel, frame) {
+    if (frame === undefined) {
+      frame = this.frames[this.frameNum];
+    }
+    this.smoothZoom(frame.zoomLevel, zoomLevel, frame);
+  },
+
+  smoothZoom: function(startZoomLevel, endZoomLevel, frame, progress) {
+    if (progress == undefined) {
+      progress = 0.025;
+    }
+    if (progress < 1) {
+      var newZoomLevel = startZoomLevel + (endZoomLevel - startZoomLevel) * (0.5 - 0.5 * Math.cos(progress * Math.PI));
+      this.setZoomLevel(newZoomLevel, frame);
+      var photoSequence = this;
+      setTimeout(function() { photoSequence.smoothZoom(startZoomLevel, endZoomLevel, frame, progress + 0.025); }, 10);
+    } else {
+      this.setZoomLevel(endZoomLevel, frame);
     }
   },
 
