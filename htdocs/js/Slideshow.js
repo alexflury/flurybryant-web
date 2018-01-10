@@ -119,7 +119,7 @@ FB.Modules.Slideshow.prototype = {
       FB.util.Event.addListener(this.photoPickerPrevLinkHtml, 'click', function() { slideshow.clickPhotoPickerPrev(); });
     }
     if (this.fullScreenClickAreaHtml !== undefined) {
-      FB.util.Event.addListener(this.fullScreenClickAreaHtml, 'click', function() { slideshow.toggleFullScreen(); });
+      FB.util.Event.addListener(this.fullScreenClickAreaHtml, 'click', function() { slideshow.clickPhoto(); });
     }
     FB.util.Event.addListener(document, 'keyup', function(e) {
       if (e.keyCode == 27) {
@@ -513,6 +513,12 @@ FB.Modules.Slideshow.prototype = {
 
   zoomOut: function() {
     this.photoSequence.zoomOut();
+  },
+
+  clickPhoto: function() {
+    if (!this.isFullScreen || (this.plusLinkHtml === undefined && this.minusLinkHtml === undefined)) {
+      this.toggleFullScreen();
+    }
   }
 
 };
