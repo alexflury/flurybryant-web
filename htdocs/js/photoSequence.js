@@ -285,7 +285,7 @@ FB.Modules.PhotoSequence.Frame.prototype = {
   },
 
   loadPhoto: function(photo) {
-    if (this.curPhoto == photo) { return; }
+    if (this.isZooming || this.curPhoto == photo) { return; }
     this.curPhoto = photo;
     var sizeProps = '';
     var photoUrl = '';

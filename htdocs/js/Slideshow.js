@@ -432,7 +432,7 @@ FB.Modules.Slideshow.prototype = {
   },
 
   toggleFullScreen: function() {
-    if (this.isResizing) {
+    if (this.isResizing || this.photoSequence.isZooming) {
       return;
     }
     var photoPickerRect = this.photoPickerHtml.getBoundingClientRect();
