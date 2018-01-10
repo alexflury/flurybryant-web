@@ -254,8 +254,14 @@ FB.Modules.PhotoSequence.prototype = {
     if (frame === undefined) {
       frame = this.frames[this.frameNum];
     }
-    frame.html.style.left = (-x) + 'px';
-    frame.html.style.top = (-y) + 'px';
+    var photoSequenceRect = this.html.getBoundingClientRect();
+    var frameRect = frame.html.getBoundingClientRect();
+    if (x >= 0 && x <= frameRect.width - photoSequenceRect.width) {
+      frame.html.style.left = (-x) + 'px';
+    }
+    if (y >= 0 && y <= frameRect.height - photoSequenceRect.height) {
+      frame.html.style.top = (-y) + 'px';
+    }
   },
 
   getZoomPosition: function(frame) {

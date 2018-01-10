@@ -527,7 +527,7 @@ FB.Modules.Slideshow.prototype = {
   },
 
   photoMouseDown: function(e) {
-    if (this.isFullScreen && this.plusLinkHtml !== undefined && this.minusLinkHtml !== undefined) {
+    if (this.isFullScreen && !this.photoSequence.isZooming && this.plusLinkHtml !== undefined && this.minusLinkHtml !== undefined) {
       this.startDrag(e.pageX, e.pageY);
     }
   },
@@ -552,7 +552,6 @@ FB.Modules.Slideshow.prototype = {
   },
 
   dragTo: function(x, y) {
-    console.log('drag(' + (x - this.dragStartPos.x) + ',' + (y - this.dragStartPos.y) + ')');
     this.photoSequence.setZoomPosition(
       this.dragStartPos.photoX - (x - this.dragStartPos.mouseX),
       this.dragStartPos.photoY - (y - this.dragStartPos.mouseY));
