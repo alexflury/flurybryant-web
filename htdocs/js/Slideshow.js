@@ -45,6 +45,8 @@ FB.Modules.Slideshow.prototype = {
   photoContainerHtml: null,
   isFullScreen: false,
   isResizing: false,
+  isDragging: false,
+  dragStartPos: null,
 
   getHtml: function() {
     this.html = FB.util.Dom.get('slideshow');
@@ -106,6 +108,9 @@ FB.Modules.Slideshow.prototype = {
       FB.util.Event.addListener(this.minusLinkHtml, 'mouseover', function() { slideshow.darkenMinusLink(); });
       FB.util.Event.addListener(this.minusLinkHtml, 'mouseout', function() { slideshow.lightenMinusLink(); });
       FB.util.Event.addListener(this.minusLinkHtml, 'click', function() { slideshow.zoomOut(); });
+      FB.util.Event.addListener(this.fullScreenClickAreaHtml, 'mousedown', function(e) { slideshow.photoMouseDown(e); });
+      FB.util.Event.addListener(this.fullScreenClickAreaHtml, 'mouseup', function() { slideshow.photoMouseUp(); });
+      FB.util.Event.addListener(this.fullScreenClickAreaHtml, 'mousemove', function(e) { slideshow.photoMouseMove(e); });
     }
     FB.util.Event.addListener(this.html, 'click', function() { header.hideMenuPanel(); });
     if (this.photoPickerHtml !== undefined) {
@@ -519,6 +524,37 @@ FB.Modules.Slideshow.prototype = {
     if (!this.isFullScreen || (this.plusLinkHtml === undefined && this.minusLinkHtml === undefined)) {
       this.toggleFullScreen();
     }
+  },
+
+  photoMouseDown: function(e) {
+    if (this.isFullScreen && this.plusLinkHtml !== undefined && this.minusLinkHtml !== undefined) {
+      this.startDrag(e.pageX, e.pageY);
+    }
+  },
+
+  photoMouseUp: function() {
+    if (this.isDragging) {
+      this.endDrag();
+    }
+  },
+
+  photoMouseMove: function(e) {
+    if (this.isDragging) {
+      this.dragTo(e.pageX, e.pageY);
+    }
+  },
+
+  startDrag: function(x, y) {
+    this.dragStartPos = {x: x, y: y};
+    this.isDragging = true;
+  },
+
+  dragTo: function(x, y) {
+    console.log('drag(' + (x - this.dragStartPos.x) + ',' + (y - this.dragStartPos.y) + ')');
+  },
+
+  endDrag: function() {
+    this.isDragging = false;
   }
 
 };
