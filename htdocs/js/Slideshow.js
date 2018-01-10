@@ -299,15 +299,12 @@ FB.Modules.Slideshow.prototype = {
       }
       var bottom = FB.util.Dom.get('ft').getBoundingClientRect().top;
       var height = bottom - top;
-      this.photoSequenceHtml.style.height = height + 'px';
-      var framesHtml = this.photoSequence.getFramesHtml();
-      for (var e = 0; e < framesHtml.length; e++) {
-        framesHtml[e].style.height = height + 'px';
-      }
+      this.setPhotoHeight(height + 'px');
       if (this.fullScreenClickAreaHtml !== undefined) {
         this.fullScreenClickAreaHtml.style.height = height + 'px';
       }
     }
+    this.photoSequence.render();
     this.renderArrows();
     if (this.photoPickerHtml !== undefined) {
       this.renderPhotoPicker();

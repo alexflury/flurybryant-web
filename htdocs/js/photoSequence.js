@@ -217,6 +217,10 @@ FB.Modules.PhotoSequence.prototype = {
 
   getCurrentFrame: function() {
     return this.frames[this.frameNum];
+  },
+
+  render: function() {
+    this.setZoomLevel(this.getZoomLevel());
   }
 
 };
