@@ -243,7 +243,9 @@ FB.Modules.PhotoSequence.prototype = {
   },
 
   render: function() {
-    this.renderFrame(this.frames[this.frameNum]);
+    for (var f = 0; f < this.frames.length; f++) {
+      this.renderFrame(this.frames[f]);
+    }
   },
 
   setFocalPoint: function(x, y, frame) {
