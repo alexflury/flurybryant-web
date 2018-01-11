@@ -278,12 +278,14 @@ FB.Modules.PhotoSequence.prototype = {
     var y = frame.focalPoint.y * height - Math.floor(photoSequenceRect.height / 2);
     frame.html.style.height = height + 'px';
     frame.html.style.width = width + 'px';
-    if (x >= 0 && x <= width - photoSequenceRect.width) {
-      frame.html.style.left = (-x) + 'px';
-    }
-    if (y >= 0 && y <= height - photoSequenceRect.height) {
-      frame.html.style.top = (-y) + 'px';
-    }
+    x = Math.max(0, Math.min(width - photoSequenceRect.width, x));
+    y = Math.max(0, Math.min(height - photoSequenceRect.height, y));
+    frame.html.style.left = (-x) + 'px';
+    frame.html.style.top = (-y) + 'px';
+    frame.focalPoint = {
+      x: (x + photoSequenceRect.width / 2) / width,
+      y: (y + photoSequenceRect.height / 2) / height
+    };
   }
 
 };
