@@ -303,7 +303,7 @@ FB.Modules.Slideshow.prototype = {
         var top = this.photoPickerHtml.getBoundingClientRect().bottom;
       }
       var bottom = FB.util.Dom.get('ft').getBoundingClientRect().top;
-      var height = bottom - top;
+      var height = Math.max(this.autoResizeMin, bottom - top);
       this.setPhotoTop(top + 'px');
       this.setPhotoHeight(height + 'px');
       if (this.fullScreenClickAreaHtml !== undefined) {
