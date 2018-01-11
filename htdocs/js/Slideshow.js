@@ -296,7 +296,12 @@ FB.Modules.Slideshow.prototype = {
   },
 
   render: function() {
-    if (!this.isFullScreen) {
+    if (this.isFullScreen) {
+      var pageSize = FB.util.getPageSize();
+      var top = 0;
+      var bottom = pageSize[3];
+      var height = Math.max(400, bottom - top);
+    } else {
       if (this.photoPickerHtml === undefined) {
         var top = FB.util.Dom.get('hd').getBoundingClientRect().bottom;
       } else {
@@ -304,11 +309,11 @@ FB.Modules.Slideshow.prototype = {
       }
       var bottom = FB.util.Dom.get('ft').getBoundingClientRect().top;
       var height = Math.max(this.autoResizeMin, bottom - top);
-      this.setPhotoTop(top + 'px');
-      this.setPhotoHeight(height + 'px');
-      if (this.fullScreenClickAreaHtml !== undefined) {
-        this.fullScreenClickAreaHtml.style.height = height + 'px';
-      }
+    }
+    this.setPhotoTop(top + 'px');
+    this.setPhotoHeight(height + 'px');
+    if (this.fullScreenClickAreaHtml !== undefined) {
+      this.fullScreenClickAreaHtml.style.height = height + 'px';
     }
     this.photoSequence.render();
     this.renderArrows();
@@ -444,24 +449,22 @@ FB.Modules.Slideshow.prototype = {
     var pageHeight = FB.util.getPageSize()[3];
     var slideshow = this;
     if (this.isFullScreen) {
+      this.isFullScreen = false;
       this.hideButtons();
       this.showButtons();
       var endPos = {top: photoPickerRect.bottom, height: Math.max(this.autoResizeMin, pageHeight - this.autoResizeDelta), zoomLevel: 0};
       var callback = function() {
-        slideshow.isFullScreen = false;
         FB.util.Dom.removeClassName(slideshow.html, 'full-screen');
-        slideshow.hideButtons();
-        slideshow.showButtons();
       };
       this.startSmoothResizePhoto(endPos, callback);
     } else {
-      this.isFullScreen = true;
       FB.util.Dom.addClassName(this.html, 'full-screen');
       this.startSmoothResizePhoto(
         {top: 0, height: pageHeight, zoomLevel: 0},
         function() {
-          slideshow.setPhotoTop('0');
-          slideshow.setPhotoHeight('100%');
+          slideshow.isFullScreen = true;
+          slideshow.hideButtons();
+          slideshow.showButtons();
         });
     }
   },
