@@ -448,10 +448,10 @@ FB.Modules.Slideshow.prototype = {
       this.showButtons();
       var endPos = {top: photoPickerRect.bottom, height: Math.max(this.autoResizeMin, pageHeight - this.autoResizeDelta), zoomLevel: 0};
       var callback = function() {
-        slideshow.setPhotoTop(endPos.top);
-        slideshow.setPhotoHeight(endPos.height);
         slideshow.isFullScreen = false;
         FB.util.Dom.removeClassName(slideshow.html, 'full-screen');
+        slideshow.hideButtons();
+        slideshow.showButtons();
       };
       this.startSmoothResizePhoto(endPos, callback);
     } else {
