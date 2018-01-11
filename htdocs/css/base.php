@@ -291,7 +291,7 @@ ul {
   height: <?php echo $SIZE['FT_HEIGHT']; ?>px;
   position: fixed;
   bottom: 0;
-  z-index: 1000;
+  z-index: 1999;
 }
 
 #ft .moulding {
