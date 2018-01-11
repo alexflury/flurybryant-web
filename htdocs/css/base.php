@@ -85,7 +85,7 @@ ul {
   border-bottom: 1px solid #214536;
 
   position: fixed;
-  z-index: 1001;
+  z-index: 2000;
 }
 
 #hd .house-logo-container {
