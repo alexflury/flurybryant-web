@@ -444,22 +444,22 @@ FB.Modules.Slideshow.prototype = {
     var pageHeight = FB.util.getPageSize()[3];
     var slideshow = this;
     if (this.isFullScreen) {
-      this.isFullScreen = false;
-      FB.util.Dom.removeClassName(slideshow.html, 'full-screen');
       this.hideButtons();
       this.showButtons();
       var endPos = {top: photoPickerRect.bottom, height: Math.max(this.autoResizeMin, pageHeight - this.autoResizeDelta), zoomLevel: 0};
       var callback = function() {
         slideshow.setPhotoTop(endPos.top);
         slideshow.setPhotoHeight(endPos.height);
+        slideshow.isFullScreen = false;
+        FB.util.Dom.removeClassName(slideshow.html, 'full-screen');
       };
       this.startSmoothResizePhoto(endPos, callback);
     } else {
+      this.isFullScreen = true;
+      FB.util.Dom.addClassName(this.html, 'full-screen');
       this.startSmoothResizePhoto(
         {top: 0, height: pageHeight, zoomLevel: 0},
         function() {
-          slideshow.isFullScreen = true;
-          FB.util.Dom.addClassName(slideshow.html, 'full-screen');
           slideshow.setPhotoTop('0');
           slideshow.setPhotoHeight('100%');
         });
