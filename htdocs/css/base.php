@@ -261,6 +261,12 @@ ul {
   display: block;
 }
 
+.resources-page #banner {
+  background-image: url(/images/photos/interiors/0013.jpg);
+  background-position: center 55%;
+  display: block;
+}
+
 #banner .banner-title-container {
   display: none;
   width: 100%;

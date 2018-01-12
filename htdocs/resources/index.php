@@ -2,14 +2,12 @@
 
 include('../../lib/base.php');
 
-print_header();
+print_header(array('page_classname' => 'resources-page', 'banner_title' => 'BUILDERS'));
 
 ?>
 
-<div id="resources" class="center-page">
-  <h1>Resources</h1>
-  <div class="column left">
-    <h2>Builders</h2>
+<a class="anchor" name="builders"></a>
+
     <div class="resource">
       <div class="name">Art of Construction</div>
       <div class="contact">David Tapia and Kyle Mortz</div>
@@ -150,9 +148,10 @@ print_header();
       <div class="contact">Randy Wenke</div>
       <div class="phone">(650) 568-9410</div>
     </div>
-  </div>
-  <div class="column">
-    <h2>Landscape Architects</h2>
+
+<a class="anchor" name="landscape-architects"></a>
+<h1>LANDSCAPE ARCHITECTS</h1>
+
     <div class="resource">
       <div class="name">Artscapes</div>
       <div class="contact">Scott Soden</div>
@@ -218,9 +217,10 @@ print_header();
       <div class="contact">Linn Winterbotham</div>
       <div class="phone">(650) 325-3137</div>
     </div>
-  </div>
-  <div class="column">
-    <h2>Interior Designers</h2>
+
+<a class="anchor" name="interior-designers"></a>
+<h1>INTERIOR DESIGNERS</h1>
+
     <div class="resource">
       <div class="name">Jane Antonacci Interior Design</div>
       <div class="contact">Jane Antonacci</div>
@@ -321,10 +321,12 @@ print_header();
       <div class="contact">Brooke Grafstrom</div>
       <div class="phone">(650) 269-0924</div>
     </div>
-  </div>
-  <div class="column">
-    <h2>Other Consultants</h2>
-    <h3>Arborists:</h3>    
+
+<a class="anchor" name="OTHER CONSULTANTS"></a>
+<h1>OTHER CONSULTANTS</h1>
+
+<h2>ARBORISTS</h2>
+
     <div class="resource">
       <div class="name">Kielty Arborist Services</div>
       <div class="contact">Kevin Kielty</div>
@@ -334,12 +336,16 @@ print_header();
       <div class="name">Mayne Tree Experts</div>
       <div class="phone">(650) 593-4400</div>
     </div>
-    <h3>Asbestos Testing:</h3>
+
+<h2>ASBESTOS TESTING</h2>
+
     <div class="resource">
       <div class="name">Environmental Remediation Technologies</div>
       <div class="phone">(408) 866-4141</div>
     </div>
-    <h3>Civil Engineering:</h3>
+
+<h2>CIVIL ENGINEERING</h2>
+
     <div class="resource">
       <div class="name">Hoskins Quilici Engineers</div>
       <div class="contact">Joe Quilici</div>
@@ -360,7 +366,9 @@ print_header();
       <div class="contact">Jitka Cymbal</div>
       <div class="phone">(408) 867-0244</div>
     </div>
-    <h3>Energy Consultant:</h3>
+
+<h2>ENERGY CONSULTANTS</h2>
+
     <div class="resource">
       <div class="name">Baumann Energy Calc Company</div>
       <div class="contact">Chris Baumann</div>
@@ -371,7 +379,9 @@ print_header();
       <div class="contact">Heather Clark</div>
       <div class="phone">(408) 202-9075</div>
     </div>
-    <h3>Fire Protection:</h3>
+
+<h2>FIRE PROTECTION</h2>
+
     <div class="resource">
       <div class="name">Adanac Fire Protection</div>
       <div class="phone">(408) 735-1550</div>
@@ -380,7 +390,9 @@ print_header();
       <div class="name">Creative Plumbing</div>
       <div class="phone">(650) 726-6795</div>
     </div>
-    <h3>Geotechnical Engineers:</h3>
+
+<h2>GEOTECHNICAL ENGINEERS</h2>
+
     <div class="resource">
       <div class="name">JF Consulting</div>
       <div class="contact">Jerry Freeman</div>
@@ -401,7 +413,9 @@ print_header();
       <div class="contact">Paul Grishaber</div>
       <div class="phone">(650) 347-3934</div>
     </div>
-    <h3>Lighting Design:</h3>
+
+<h2>LIGHTING DESIGN</h2>
+
     <div class="resource">
       <div class="name">DWP Lighting Design</div>
       <div class="contact">David Patton</div>
@@ -412,7 +426,9 @@ print_header();
       <div class="contact">Epifanio Juarez</div>
       <div class="phone">(650) 322-6550</div>
     </div>
-    <h3>Septic System Design:</h3>
+
+<h2>SEPTIC SYSTEM DESIGN</h2>
+
     <div class="resource">
       <div class="name">Steve Hartsell</div>
       <div class="phone">(650) 359-8853</div>
@@ -422,7 +438,9 @@ print_header();
       <div class="contact">Pat Dempsey</div>
       <div class="phone">(650) 851-0129</div>
     </div>
-    <h3>Structural Engineering:</h3>
+
+<h2>STRUCTURAL ENGINEERING</h2>
+
     <div class="resource">
       <div class="name">Peter Boyce</div>
       <div class="phone">(831) 429-9633</div>
@@ -471,7 +489,9 @@ print_header();
       <div class="contact">Matt Jordan</div>
       <div class="phone">(650) 216-9351</div>
     </div>
-    <h3>Surveying:</h3>
+
+<h2>SURVEYING</h2>
+
     <div class="resource">
       <div class="name">Arcturus Land Surveying</div>
       <div class="contact">Bruce Woodworth</div>
@@ -499,8 +519,6 @@ print_header();
       <div class="contact">Joe and Matt Ward</div>
       <div class="phone">(831) 425-5005</div>
     </div>
-  </div>
-  <div style="clear: both;"></div>
-</div>
+
 
 <?php print_footer(); ?>
