@@ -622,8 +622,8 @@ table#towns td {
 .resources-page .resource {
   padding: 15px;
   float: left;
-  width: 170px;
-  height: 80px;
+  width: 160px;
+  height: 60px;
 }
 
 .resources-page .resource .name {
