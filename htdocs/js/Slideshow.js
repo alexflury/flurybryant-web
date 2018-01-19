@@ -425,14 +425,14 @@ FB.Modules.Slideshow.prototype = {
     var photoPickerRect = this.photoPickerHtml.getBoundingClientRect();
     var thumbWidth = Math.floor((photoPickerRect.height - 20) * 4/3);
     var numThumbs = Math.floor(photoPickerRect.width / (thumbWidth + 10));
-    this.slidePhotoPickerToThumb(this.getThumbIndex(this.centeredThumb) + numThumbs);
+    this.slidePhotoPickerToThumb(this.getThumbIndex(this.centeredThumb) + numThumbs - 1);
   },
 
   clickPhotoPickerPrev: function() {
     var photoPickerRect = this.photoPickerHtml.getBoundingClientRect();
     var thumbWidth = Math.floor((photoPickerRect.height - 20) * 4/3);
     var numThumbs = Math.floor(photoPickerRect.width / (thumbWidth + 10));
-    this.slidePhotoPickerToThumb(this.getThumbIndex(this.centeredThumb) - numThumbs);
+    this.slidePhotoPickerToThumb(this.getThumbIndex(this.centeredThumb) - numThumbs + 1);
   },
 
   exitFullScreen: function() {
