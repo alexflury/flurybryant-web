@@ -12,7 +12,6 @@ print_header(array('page_classname' => 'home-page'));
 		'new-homes/0001.jpg',
 		'new-homes/0002.jpg',
 		'new-homes/0004.jpg',
-		'new-homes/0015.jpg',
 		'new-homes/0017.jpg',
 		'new-homes/0018.jpg',
 		'new-homes/0021.jpg',
