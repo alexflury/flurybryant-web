@@ -31,7 +31,7 @@ print_header(array('page_classname' => 'documents-page documents-index-page', 'b
   <div class="clearb"></div>
 </div>
 
-<?
+<?php
 
 global $JS;
 $JS .= js('documents-index.js') . raw_js("var documentsIndex = new FB.Modules.DocumentsIndex();");
