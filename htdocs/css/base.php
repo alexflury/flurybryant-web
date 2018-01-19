@@ -325,6 +325,17 @@ ul {
   z-index: 1998;
 }
 
+body.loaded #loading {
+  display: none;
+}
+
+body {
+  overflow: hidden;
+}
+
+body.loaded {
+  overflow: auto;
+}
 
 /* Body */
 

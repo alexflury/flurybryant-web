@@ -18,9 +18,11 @@ FB.Modules.Header.prototype = {
 	isContactClicked: false,
 	bannerTitleText: null,
 	sectionTitlesHtml: [],
+	bodyHtml: null,
 
 	getHtml: function() {
 		this.html = FB.util.Dom.get('hd');
+		this.bodyHtml = document.getElementsByTagName('body')[0];
 		this.menuPanelHtml = FB.util.Dom.getElementsByClassName('menu-panel', this.html)[0];
 		this.linksContainerHtml = FB.util.Dom.getElementsByClassName('links-container', this.html)[0];
 		this.linksHtml.home = FB.util.Dom.getElementsByClassName('home-link', this.html)[0];
@@ -71,6 +73,7 @@ FB.Modules.Header.prototype = {
 
 	addListeners: function() {
 		var hd = this;
+		FB.util.Event.addListener(window, 'load', function() { hd.showBody(); });
 		FB.util.Event.addListener(this.html, 'mouseover', function() { hd.headerMouseOver(); });
 		FB.util.Event.addListener(this.html, 'mouseout', function() { hd.headerMouseOut(); });
 		FB.util.Event.addListener(this.menuPanelHtml, 'mouseover', function() { hd.menuPanelMouseOver(); });
@@ -171,6 +174,10 @@ FB.Modules.Header.prototype = {
 			}
 		}
 		this.bannerTitleHtml.innerHTML = title;
+	},
+
+	showBody: function() {
+		FB.util.Dom.addClassName(this.bodyHtml, 'loaded');
 	}
 
 };
