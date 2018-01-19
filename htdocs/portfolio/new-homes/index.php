@@ -9,6 +9,7 @@ $slideshow_photos = get_photos(array('new-homes'));
 $slideshow_has_photo_picker = true;
 $slideshow_auto = false;
 $slideshow_has_full_screen = true;
+$slideshow_photo = 1;
 include('../../../templates/slideshow.php');
 
 print_footer();

@@ -9,6 +9,7 @@ $slideshow_photos = get_photos(array('interiors'));
 $slideshow_has_photo_picker = true;
 $slideshow_auto = false;
 $slideshow_has_full_screen = true;
+$slideshow_photo = 7;
 include('../../../templates/slideshow.php');
 
 print_footer();
