@@ -322,7 +322,7 @@ print_header(array('page_classname' => 'resources-page', 'banner_title' => 'BUIL
       <div class="phone">(650) 269-0924</div>
     </div>
 
-<a class="anchor" name="OTHER CONSULTANTS"></a>
+<a class="anchor" name="consultants"></a>
 <h1>OTHER CONSULTANTS</h1>
 
 <h2>ARBORISTS</h2>

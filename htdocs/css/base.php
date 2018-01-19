@@ -654,6 +654,14 @@ table#towns td {
   margin: 0;
 }
 
+.resources-page a.anchor {
+  display: block;
+  position: relative;
+  top: -<?php echo $SIZE['HD_HEIGHT'] + 1 + $SIZE['BANNER_HEIGHT'] - 100 ?>px;
+  visibility: hidden;
+  clear: both;
+}
+
 /* Photo Album */
 
 #photo-album {

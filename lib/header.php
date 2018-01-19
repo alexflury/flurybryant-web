@@ -54,10 +54,10 @@
         </div>
         <div class="sublink-menu-panel resources-menu-panel">
           <ul>
-            <li><a href="/resources/builders/">Builders</a></li>
-            <li><a href="/documents/landscape-architects/">Landscape Architects</a></li>
-            <li><a href="/documents/interior-designers/">Interior Designers</a></li>
-            <li><a href="/documents/consultants/">Other Consultants</a></li>
+            <li><a href="/resources/">Builders</a></li>
+            <li><a href="/resources#landscape-architects">Landscape Architects</a></li>
+            <li><a href="/resources#interior-designers">Interior Designers</a></li>
+            <li><a href="/resources#consultants">Other Consultants</a></li>
           </ul>
         </div>
         <div class="sublink-menu-panel contact-menu-panel">
