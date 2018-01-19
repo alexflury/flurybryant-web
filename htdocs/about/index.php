@@ -173,7 +173,7 @@ print_header(array('page_classname' => 'about-page', 'banner_title' => 'WHO WE A
 <p>Mike has since gone on to apply his superior drafting skills to a variety of projects and disciplines ranging from residential architecture to electrical, plumbing, and mechanical engineering. He joined our team in 2004. His past experience working with software engineers and computer programmers has made him an invaluable asset to <em>Flury Bryant Design Group</em> as we work to continually upgrade our CAD-based drafting technology.</p>
 <p>Mike is married, with two children, and enjoys spending his free time on family bicycling outings and riding at the BMX track.</p>
 
-<h2>Dan Blankenbiller</h2>
+<h2>Dean Blankenbiller</h2>
 
 <p>Dean joined the <em>Flury Bryant Design Group</em> in 2013 following fifteen years as a design/build general contractor in the Sacramento foothills of California. He brings a tremendous amount of CAD design and drafting experience to our group, as well as many years of hands-on construction experience building new homes as well as remodel projects.</p>
 <p>In addition to his passion for fine home design and construction, Dean enjoys making music and designing and building custom guitars, and is a member of the Northern California Luthier Association.</p>
