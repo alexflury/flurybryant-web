@@ -451,6 +451,10 @@ table#towns td {
   background: <?php echo $COLOR['ODD_ROW']; ?>;
 }
 
+.about-page #bd p:last-child {
+  padding-bottom: <?php echo $SIZE['FT_HEIGHT'] + 10; ?>px;
+}
+
 /* Portfolio */
 
 #photo-menu {
