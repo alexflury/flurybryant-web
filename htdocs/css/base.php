@@ -262,7 +262,7 @@ ul {
 }
 
 .resources-page #banner {
-  background-image: url(/images/photos/interiors/0013.jpg);
+  background-image: url(/images/photos/interiors/0011.jpg);
   background-position: center 55%;
   display: block;
 }
