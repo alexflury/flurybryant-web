@@ -322,7 +322,7 @@ ul {
   background-color: <?php echo $COLOR['BODY']; ?>;
   background-size: 80px 80px;
   background-image: url(/images/loading.gif);
-  z-index: 1998;
+  z-index: 1997;
 }
 
 body.loaded #loading {
@@ -335,6 +335,16 @@ body {
 
 body.loaded {
   overflow: auto;
+}
+
+#noscript {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: <?php echo $COLOR['BODY']; ?>;
+  padding-top: <?php echo $SIZE['HD_HEIGHT'] + 100 ?>px;
+  text-align: center;
+  z-index: 1998;
 }
 
 /* Body */

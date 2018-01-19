@@ -122,6 +122,8 @@
       </div>
     </div>
     <div id="loading"></div>
+    <div id="noscript">Please enable JavaScript to view this page.</div>
+    <?php echo raw_js("document.getElementById('noscript').style.display = 'none';"); ?>
     <div id="bd">
 
 <?php
