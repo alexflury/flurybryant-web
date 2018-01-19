@@ -121,6 +121,7 @@
         <div class="banner-title"></div>
       </div>
     </div>
+    <div id="loading"></div>
     <div id="bd">
 
 <?php
