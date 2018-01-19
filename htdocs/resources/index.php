@@ -519,6 +519,6 @@ print_header(array('page_classname' => 'resources-page', 'banner_title' => 'BUIL
       <div class="contact">Joe and Matt Ward</div>
       <div class="phone">(831) 425-5005</div>
     </div>
-
+    <div class="clearb"></div>
 
 <?php print_footer(); ?>

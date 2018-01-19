@@ -619,6 +619,25 @@ table#towns td {
   font-weight: bold;
 }
 
+.resources-page .resource {
+  padding: 15px;
+  float: left;
+  width: 170px;
+  height: 80px;
+}
+
+.resources-page .resource .name {
+  font-weight: bold;
+}
+
+.resources-page h1, .resources-page h2 {
+  clear: both;
+}
+
+.resources-page #bd {
+  padding-bottom: <?php echo $SIZE['FT_HEIGHT'] + 10 ?>px;
+}
+
 /* Photo Album */
 
 #photo-album {
