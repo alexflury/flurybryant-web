@@ -638,6 +638,22 @@ table#towns td {
   padding-bottom: <?php echo $SIZE['FT_HEIGHT'] + 10 ?>px;
 }
 
+.resources-page #bd h1 {
+  font-size: 54px;
+  font-weight: bold;
+  color: <?php echo $COLOR['BANNER_TITLE']; ?>;
+  padding: 15px;
+  display: block;
+}
+
+.resources-page #bd h2 {
+  font-size: 24px;
+  font-weight: bold;
+  padding: 15px;
+  display: block;
+  margin: 0;
+}
+
 /* Photo Album */
 
 #photo-album {
