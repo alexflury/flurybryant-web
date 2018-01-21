@@ -188,6 +188,7 @@ ul {
 
 #hd .menu-panel li {
   padding: 6px 17px;
+  height: 18px;
 }
 
 #hd .menu-panel a:hover {
