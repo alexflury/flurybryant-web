@@ -534,6 +534,10 @@ table#towns td {
   display: block;
 }
 
+body.portfolio-page {
+  background: <?php echo $COLOR['PORTFOLIO_BACKGROUND'] ?>;
+}
+
 .portfolio-page #bd {
   padding-top: <?php echo ($SIZE['HD_HEIGHT'] + 1); ?>px;
   background: <?php echo $COLOR['PORTFOLIO_BACKGROUND']; ?>;
@@ -872,6 +876,10 @@ table#towns td {
 
 #documents #view.dragged div {
   cursor: url(/cursors/closedhand.cur), default;
+}
+
+body.documents-page {
+  background: <?php echo $COLOR['PORTFOLIO_BACKGROUND'] ?>;
 }
 
 .documents-page #bd {
