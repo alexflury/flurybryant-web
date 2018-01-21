@@ -115,7 +115,7 @@ ul {
   left: 232px;
   top: 75px;
   z-index: 20;
-  width: <?php echo ($SIZE['MIN_PAGE_WIDTH'] - 252); ?>px;
+  width: <?php echo ($SIZE['MIN_PAGE_WIDTH'] - 232); ?>px;
   height: <?php echo ($SIZE['HD_HEIGHT'] - 75); ?>px;
 }
 
