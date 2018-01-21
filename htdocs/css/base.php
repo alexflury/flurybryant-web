@@ -12,7 +12,7 @@ body {
   font-size: 16px;
   color: <?php echo $COLOR['TEXT']; ?>;
   margin: 0;
-  background: <?php echo $COLOR['HEADER']; ?>;
+  background: <?php echo $COLOR['BODY']; ?>;
 }
 
 a {
