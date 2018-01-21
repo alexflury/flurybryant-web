@@ -1170,6 +1170,7 @@ body.documents-page {
   margin: 10px 5px;
   float: left;
   cursor: pointer;
+  overflow: hidden;
 }
 
 #slideshow .photo-picker .thumb:first-child {
