@@ -202,7 +202,7 @@ body.full-screen #hd {
 
 #hd .sublink-menu-panel.contact-menu-panel {
   width: 100%;
-  min-width: 950px;
+  min-width: 960px;
 }
 
 #hd .contact-menu-panel ul {
