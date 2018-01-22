@@ -115,7 +115,7 @@ FB.Modules.Slideshow.prototype = {
       // FB.util.Event.addListener(this.fullScreenClickAreaHtml, 'mousemove', function(e) { slideshow.photoMouseMove(e); });
       FB.util.Event.addListener(this.fullScreenClickAreaHtml, 'touchstart', function(e) { slideshow.photoMouseDown(e); });
       FB.util.Event.addListener(this.fullScreenClickAreaHtml, 'touchend', function() { slideshow.photoMouseUp(); });
-      FB.util.Event.addListener(this.fullScreenClickAreaHtml, 'touchmove', function(e) { slideshow.photoMouseMove(e); });
+      FB.util.Event.addListener(this.fullScreenClickAreaHtml, 'touchmove', function(e) { slideshow.photoMouseMove(e.originalEvent.touches[0] || e.originalEvent.changedTouches[0]); });
     }
     FB.util.Event.addListener(this.html, 'click', function() { header.hideMenuPanel(); });
     if (this.photoPickerHtml !== undefined) {
@@ -582,7 +582,6 @@ FB.Modules.Slideshow.prototype = {
   },
 
   endDrag: function() {
-    alert('end drag');
     this.isDragging = false;
     FB.util.Dom.removeClassName(this.html, 'dragging');
   }
