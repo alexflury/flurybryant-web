@@ -307,8 +307,8 @@ FB.Modules.Slideshow.prototype = {
       var photoPosition = this.getMinimizedPhotoPosition();
     }
     this.setPhotoTop(photoPosition.top + 'px');
-    alert('pause 2');
     this.setPhotoHeight(photoPosition.height + 'px');
+    alert(JSON.stringify({top: this.photoHtml.style.top, height: this.photoHtml.style.height}));
     if (this.fullScreenClickAreaHtml !== undefined) {
       this.fullScreenClickAreaHtml.style.height = photoPosition.height + 'px';
     }
