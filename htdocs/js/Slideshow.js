@@ -320,6 +320,7 @@ FB.Modules.Slideshow.prototype = {
       var top = FB.util.Dom.get('hd').getBoundingClientRect().bottom;
     } else {
       var top = this.photoPickerHtml.getBoundingClientRect().bottom;
+      console.log('photo picker bottom = ' + top);
     }
     var bottom = FB.util.Dom.get('ft').getBoundingClientRect().top;
     var height = Math.max(this.autoResizeMin, bottom - top);
