@@ -323,6 +323,9 @@ FB.Modules.Slideshow.prototype = {
       console.log('photo picker bottom = ' + top);
     }
     var bottom = FB.util.Dom.get('ft').getBoundingClientRect().top;
+    console.log('footer top = ' + bottom);
+    console.log('top var = ' + top);
+    console.log('scrollY = ' + window.scrollY);
     var height = Math.max(this.autoResizeMin, bottom - top);
     return {top: window.scrollY + top, height: height};
   },
