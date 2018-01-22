@@ -298,6 +298,9 @@ FB.Modules.Slideshow.prototype = {
   },
 
   render: function() {
+    if (this.photoPickerHtml !== undefined) {
+      this.renderPhotoPicker();
+    }
     if (this.isFullScreen) {
       var photoPosition = this.getMaximizedPhotoPosition();
     } else {
@@ -310,9 +313,6 @@ FB.Modules.Slideshow.prototype = {
     }
     this.photoSequence.render();
     this.renderArrows();
-    if (this.photoPickerHtml !== undefined) {
-      this.renderPhotoPicker();
-    }
   },
 
   getMinimizedPhotoPosition: function() {
