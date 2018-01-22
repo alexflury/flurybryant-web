@@ -306,7 +306,7 @@ FB.Modules.Slideshow.prototype = {
     } else {
       var photoPosition = this.getMinimizedPhotoPosition();
     }
-    alert(JSON.stringify({top: photoPosition.top, height: photoPosition.height}));
+    //alert(JSON.stringify({top: photoPosition.top, height: photoPosition.height}));
     this.setPhotoTop(photoPosition.top + 'px');
     this.setPhotoHeight(photoPosition.height + 'px');
     //alert(JSON.stringify({top: this.photoHtml.style.top, height: this.photoHtml.style.height}));
@@ -326,6 +326,7 @@ FB.Modules.Slideshow.prototype = {
     }
     var bottom = FB.util.Dom.get('ft').getBoundingClientRect().top;
     var height = Math.max(this.autoResizeMin, bottom - top);
+    alert(JSON.stringify({top: top, bottom: bottom, height: height}));
     return {top: window.pageYOffset + top, height: height};
   },
 
