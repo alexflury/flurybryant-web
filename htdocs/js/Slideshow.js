@@ -329,7 +329,7 @@ FB.Modules.Slideshow.prototype = {
       var top = 0;
       var bottom = pageSize[3];
       var height = Math.max(400, bottom - top);
-      return {top: top, height: height};
+      return {top: window.scrollY + top, height: height};
   },
 
   renderArrows: function() {
