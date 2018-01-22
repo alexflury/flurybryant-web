@@ -485,7 +485,6 @@ FB.Modules.Slideshow.prototype = {
           slideshow.isFullScreen = true;
           slideshow.hideButtons();
           slideshow.showButtons();
-          alert('full screen');
         });
     }
   },
@@ -551,8 +550,8 @@ FB.Modules.Slideshow.prototype = {
   },
 
   photoMouseDown: function(e) {
-    alert('touchstart');
     if (this.isFullScreen && !this.photoSequence.isZooming && this.plusLinkHtml !== undefined && this.minusLinkHtml !== undefined) {
+      alert('touchstart ' + e.pageX + ',' + e.pageY);
       this.startDrag(e.pageX, e.pageY);
     }
   },
