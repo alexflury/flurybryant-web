@@ -325,9 +325,9 @@ FB.Modules.Slideshow.prototype = {
     var bottom = FB.util.Dom.get('ft').getBoundingClientRect().top;
     console.log('footer top = ' + bottom);
     console.log('top var = ' + top);
-    console.log('scrollY = ' + window.scrollY);
+    console.log('pageYOffset = ' + window.pageYOffset);
     var height = Math.max(this.autoResizeMin, bottom - top);
-    return {top: window.scrollY + top, height: height};
+    return {top: window.pageYOffset + top, height: height};
   },
 
   getMaximizedPhotoPosition: function() {
@@ -335,7 +335,7 @@ FB.Modules.Slideshow.prototype = {
       var top = 0;
       var bottom = pageSize[3];
       var height = Math.max(400, bottom - top);
-      return {top: window.scrollY + top, height: height};
+      return {top: window.pageYOffset + top, height: height};
   },
 
   renderArrows: function() {
@@ -494,7 +494,7 @@ FB.Modules.Slideshow.prototype = {
     var photoRect = this.photoSequenceHtml.getBoundingClientRect();
     var photoPickerRect = this.photoPickerHtml.getBoundingClientRect();
     var pageHeight = FB.util.getPageSize()[3];
-    var startPos = {top: window.scrollY + photoRect.top, height: photoRect.height, zoomLevel: this.photoSequence.getZoomLevel()};
+    var startPos = {top: window.pageYOffset + photoRect.top, height: photoRect.height, zoomLevel: this.photoSequence.getZoomLevel()};
     this.isResizing = true;
     this.smoothResizePhoto(startPos, endPos, callback);
   },
