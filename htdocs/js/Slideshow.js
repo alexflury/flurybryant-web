@@ -306,9 +306,10 @@ FB.Modules.Slideshow.prototype = {
     } else {
       var photoPosition = this.getMinimizedPhotoPosition();
     }
+    alert(JSON.stringify({top: photoPosition.top, height: photoPosition.height}));
     this.setPhotoTop(photoPosition.top + 'px');
     this.setPhotoHeight(photoPosition.height + 'px');
-    alert(JSON.stringify({top: this.photoHtml.style.top, height: this.photoHtml.style.height}));
+    //alert(JSON.stringify({top: this.photoHtml.style.top, height: this.photoHtml.style.height}));
     //alert('pause 2');
     if (this.fullScreenClickAreaHtml !== undefined) {
       this.fullScreenClickAreaHtml.style.height = photoPosition.height + 'px';
