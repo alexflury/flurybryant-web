@@ -77,6 +77,10 @@ ul {
 
 /* Header */
 
+body.full-screen #hd {
+  visibility: hidden;
+}
+
 #hd {
   background: <?php echo $COLOR['HEADER']; ?>;
   height: <?php echo $SIZE['HD_HEIGHT']; ?>px;
@@ -299,6 +303,10 @@ ul {
   position: fixed;
   bottom: 0;
   z-index: 1999;
+}
+
+body.full-screen #ft {
+  visibility: hidden;
 }
 
 #ft .moulding {
@@ -1137,6 +1145,10 @@ body.documents-page {
   z-index: 1000;
 }
 
+body.full-screen #slideshow .photo-picker {
+  visibility: hidden;
+}
+
 #slideshow .photo-picker .right-arrow {
   top: <?php echo floor(($SIZE['PHOTO_PICKER_HEIGHT'] - 64) / 2) ?>px;
   z-index: 1000;
@@ -1147,6 +1159,8 @@ body.documents-page {
   height: <?php echo $SIZE['PHOTO_PICKER_HEIGHT']; ?>px;
   width: 100%;
 }
+
+
 
 #slideshow .photo-picker {
   height: <?php echo $SIZE['PHOTO_PICKER_HEIGHT']; ?>px;

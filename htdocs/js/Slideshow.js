@@ -47,9 +47,11 @@ FB.Modules.Slideshow.prototype = {
   isResizing: false,
   isDragging: false,
   dragStartPos: null,
+  bodyHtml: null,
 
   getHtml: function() {
     this.html = FB.util.Dom.get('slideshow');
+    this.bodyHtml = document.getElementsByTagName('body')[0];
     this.photoHtml = FB.util.Dom.getElementsByClassName('photo', this.html)[0];
     this.photoSequenceHtml = FB.util.Dom.getElementsByClassName('photo-sequence', this.html)[0];
     this.prevLinkHtml = FB.util.Dom.getElementsByClassName('left-arrow', this.photoHtml)[0];
@@ -468,6 +470,7 @@ FB.Modules.Slideshow.prototype = {
       var callback = function() {
         FB.util.Dom.removeClassName(slideshow.html, 'full-screen');
       };
+      FB.util.Dom.removeClassName(this.bodyHtml, 'full-screen');
       this.startSmoothResizePhoto(endPos, callback);
     } else {
       FB.util.Dom.addClassName(this.html, 'full-screen');
@@ -475,6 +478,7 @@ FB.Modules.Slideshow.prototype = {
       this.startSmoothResizePhoto(
         {top: endDimensions.top, height: endDimensions.height, zoomLevel: 0},
         function() {
+          FB.util.Dom.addClassName(slideshow.bodyHtml, 'full-screen');
           slideshow.isFullScreen = true;
           slideshow.hideButtons();
           slideshow.showButtons();
