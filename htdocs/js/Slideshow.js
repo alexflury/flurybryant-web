@@ -582,6 +582,7 @@ FB.Modules.Slideshow.prototype = {
   },
 
   endDrag: function() {
+    alert('end drag');
     this.isDragging = false;
     FB.util.Dom.removeClassName(this.html, 'dragging');
   }
