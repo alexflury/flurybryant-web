@@ -297,29 +297,39 @@ FB.Modules.Slideshow.prototype = {
 
   render: function() {
     if (this.isFullScreen) {
-      var pageSize = FB.util.getPageSize();
-      var top = 0;
-      var bottom = pageSize[3];
-      var height = Math.max(400, bottom - top);
+      var photoPosition = this.getMaximizedPhotoPosition();
     } else {
-      if (this.photoPickerHtml === undefined) {
-        var top = FB.util.Dom.get('hd').getBoundingClientRect().bottom;
-      } else {
-        var top = this.photoPickerHtml.getBoundingClientRect().bottom;
-      }
-      var bottom = FB.util.Dom.get('ft').getBoundingClientRect().top;
-      var height = Math.max(this.autoResizeMin, bottom - top);
+      var photoPosition = this.getMinimizedPhotoPosition();
     }
-    this.setPhotoTop(top + 'px');
-    this.setPhotoHeight(height + 'px');
+    this.setPhotoTop(photoPosition.top + 'px');
+    this.setPhotoHeight(photoPosition.height + 'px');
     if (this.fullScreenClickAreaHtml !== undefined) {
-      this.fullScreenClickAreaHtml.style.height = height + 'px';
+      this.fullScreenClickAreaHtml.style.height = photoPosition.height + 'px';
     }
     this.photoSequence.render();
     this.renderArrows();
     if (this.photoPickerHtml !== undefined) {
       this.renderPhotoPicker();
     }
+  },
+
+  getMinimizedPhotoPosition: function() {
+    if (this.photoPickerHtml === undefined) {
+      var top = FB.util.Dom.get('hd').getBoundingClientRect().bottom;
+    } else {
+      var top = this.photoPickerHtml.getBoundingClientRect().bottom;
+    }
+    var bottom = FB.util.Dom.get('ft').getBoundingClientRect().top;
+    var height = Math.max(this.autoResizeMin, bottom - top);
+    return {top: window.scrollY + top, height: height};
+  },
+
+  getMaximizedPhotoPosition: function() {
+      var pageSize = FB.util.getPageSize();
+      var top = 0;
+      var bottom = pageSize[3];
+      var height = Math.max(400, bottom - top);
+      return {top: top, height: height};
   },
 
   renderArrows: function() {
@@ -446,21 +456,24 @@ FB.Modules.Slideshow.prototype = {
       return;
     }
     var photoPickerRect = this.photoPickerHtml.getBoundingClientRect();
+    var footerRect = FB.util.Dom.get('ft').getBoundingClientRect();
     var pageHeight = FB.util.getPageSize()[3];
     var slideshow = this;
     if (this.isFullScreen) {
       this.isFullScreen = false;
       this.hideButtons();
       this.showButtons();
-      var endPos = {top: photoPickerRect.bottom, height: Math.max(this.autoResizeMin, pageHeight - this.autoResizeDelta), zoomLevel: 0};
+      var endDimensions = this.getMinimizedPhotoPosition();
+      var endPos = {top: endDimensions.top, height: endDimensions.height, zoomLevel: 0};
       var callback = function() {
         FB.util.Dom.removeClassName(slideshow.html, 'full-screen');
       };
       this.startSmoothResizePhoto(endPos, callback);
     } else {
       FB.util.Dom.addClassName(this.html, 'full-screen');
+      var endDimensions = this.getMaximizedPhotoPosition();
       this.startSmoothResizePhoto(
-        {top: 0, height: pageHeight, zoomLevel: 0},
+        {top: endDimensions.top, height: endDimensions.height, zoomLevel: 0},
         function() {
           slideshow.isFullScreen = true;
           slideshow.hideButtons();
@@ -473,7 +486,7 @@ FB.Modules.Slideshow.prototype = {
     var photoRect = this.photoSequenceHtml.getBoundingClientRect();
     var photoPickerRect = this.photoPickerHtml.getBoundingClientRect();
     var pageHeight = FB.util.getPageSize()[3];
-    var startPos = {top: photoRect.top, height: photoRect.height, zoomLevel: this.photoSequence.getZoomLevel()};
+    var startPos = {top: window.scrollY + photoRect.top, height: photoRect.height, zoomLevel: this.photoSequence.getZoomLevel()};
     this.isResizing = true;
     this.smoothResizePhoto(startPos, endPos, callback);
   },
