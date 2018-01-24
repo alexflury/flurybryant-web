@@ -552,12 +552,14 @@ FB.Modules.Slideshow.prototype = {
   },
 
   photoMouseDown: function(e) {
+    e.preventDefault();
     if (this.isFullScreen && !this.photoSequence.isZooming && this.plusLinkHtml !== undefined && this.minusLinkHtml !== undefined) {
       this.startDrag(e.pageX, e.pageY);
     }
   },
 
   photoMouseUp: function() {
+    e.preventDefault();
     if (this.isDragging) {
       this.endDrag();
     }
