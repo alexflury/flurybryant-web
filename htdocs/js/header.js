@@ -177,10 +177,10 @@ FB.Modules.Header.prototype = {
 	},
 
 	showBody: function() {
-		var hd = this;
-		setTimeout(function() {
-			FB.util.Dom.addClassName(hd.bodyHtml, 'loaded');
-		}, 20);
+		// var hd = this;
+		// setTimeout(function() {
+		// 	FB.util.Dom.addClassName(hd.bodyHtml, 'loaded');
+		// }, 20);
 
 		FB.util.Dom.addClassName(this.bodyHtml, 'loaded');
 	}

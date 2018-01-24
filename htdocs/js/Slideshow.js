@@ -89,7 +89,7 @@ FB.Modules.Slideshow.prototype = {
   addListeners: function() {
     var slideshow = this;
     FB.util.Event.addListener(window, 'resize', function() { slideshow.render(); });
-    FB.util.Event.addListener(window, 'load', function() { setTimeout(function() { slideshow.render(); }, 10); });
+    FB.util.Event.addListener(window, 'load', function() { slideshow.render(); });
     FB.util.Event.addListener(this.photoHtml, 'mouseover', function() { slideshow.showButtons(); });
     FB.util.Event.addListener(this.photoHtml, 'mouseout', function() { slideshow.hideButtons(); });
     FB.util.Event.addListener(this.nextLinkHtml, 'mouseover', function() { slideshow.darkenNextLink(); });
