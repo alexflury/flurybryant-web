@@ -564,6 +564,7 @@ FB.Modules.Slideshow.prototype = {
   },
 
   photoMouseMove: function(e) {
+    e.preventDefault();
     if (this.isDragging) {
       this.dragTo(e.pageX, e.pageY);
     }
