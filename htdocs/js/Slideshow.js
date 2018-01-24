@@ -111,10 +111,10 @@ FB.Modules.Slideshow.prototype = {
       FB.util.Event.addListener(this.minusLinkHtml, 'mouseout', function() { slideshow.lightenMinusLink(); });
       FB.util.Event.addListener(this.minusLinkHtml, 'click', function() { slideshow.zoomOut(); });
       FB.util.Event.addListener(this.fullScreenClickAreaHtml, 'mousedown', function(e) { slideshow.photoMouseDown(e); });
-      FB.util.Event.addListener(this.fullScreenClickAreaHtml, 'mouseup', function() { slideshow.photoMouseUp(); });
+      FB.util.Event.addListener(this.fullScreenClickAreaHtml, 'mouseup', function(e) { slideshow.photoMouseUp(e); });
       FB.util.Event.addListener(this.fullScreenClickAreaHtml, 'mousemove', function(e) { slideshow.photoMouseMove(e); });
       FB.util.Event.addListener(this.fullScreenClickAreaHtml, 'touchstart', function(e) { slideshow.photoMouseDown(e); });
-      FB.util.Event.addListener(this.fullScreenClickAreaHtml, 'touchend', function() { slideshow.photoMouseUp(); });
+      FB.util.Event.addListener(this.fullScreenClickAreaHtml, 'touchend', function(e) { slideshow.photoMouseUp(e); });
       FB.util.Event.addListener(this.fullScreenClickAreaHtml, 'touchmove', function(e) { slideshow.photoMouseMove(e); });
     }
     FB.util.Event.addListener(this.html, 'click', function() { header.hideMenuPanel(); });
@@ -558,7 +558,7 @@ FB.Modules.Slideshow.prototype = {
     }
   },
 
-  photoMouseUp: function() {
+  photoMouseUp: function(e) {
     e.preventDefault();
     if (this.isDragging) {
       this.endDrag();
