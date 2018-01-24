@@ -113,6 +113,9 @@ FB.Modules.Slideshow.prototype = {
       FB.util.Event.addListener(this.fullScreenClickAreaHtml, 'mousedown', function(e) { slideshow.photoMouseDown(e); });
       FB.util.Event.addListener(this.fullScreenClickAreaHtml, 'mouseup', function() { slideshow.photoMouseUp(); });
       FB.util.Event.addListener(this.fullScreenClickAreaHtml, 'mousemove', function(e) { slideshow.photoMouseMove(e); });
+      FB.util.Event.addListener(this.fullScreenClickAreaHtml, 'touchstart', function(e) { slideshow.photoMouseDown(e); });
+      FB.util.Event.addListener(this.fullScreenClickAreaHtml, 'touchend', function() { slideshow.photoMouseUp(); });
+      FB.util.Event.addListener(this.fullScreenClickAreaHtml, 'touchmove', function(e) { slideshow.photoMouseMove(e); });
     }
     FB.util.Event.addListener(this.html, 'click', function() { header.hideMenuPanel(); });
     if (this.photoPickerHtml !== undefined) {
