@@ -89,7 +89,7 @@ FB.Modules.Slideshow.prototype = {
   addListeners: function() {
     var slideshow = this;
     FB.util.Event.addListener(window, 'resize', function() { slideshow.render(); });
-    FB.util.Event.addListener(window, 'load', function() { slideshow.render(); });
+    FB.util.Event.addListener(window, 'load', function() { setTimeout(function() { slideshow.render(); }, 10); });
     FB.util.Event.addListener(this.photoHtml, 'mouseover', function() { slideshow.showButtons(); });
     FB.util.Event.addListener(this.photoHtml, 'mouseout', function() { slideshow.hideButtons(); });
     FB.util.Event.addListener(this.nextLinkHtml, 'mouseover', function() { slideshow.darkenNextLink(); });
@@ -326,7 +326,7 @@ FB.Modules.Slideshow.prototype = {
     }
     var bottom = FB.util.Dom.get('ft').getBoundingClientRect().top;
     var height = Math.max(this.autoResizeMin, bottom - top);
-    alert(JSON.stringify({top: top, bottom: bottom, height: height}));
+    //alert(JSON.stringify({top: top, bottom: bottom, height: height}));
     return {top: window.pageYOffset + top, height: height};
   },
 
