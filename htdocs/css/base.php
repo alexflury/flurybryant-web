@@ -13,6 +13,7 @@ body {
   color: <?php echo $COLOR['TEXT']; ?>;
   margin: 0;
   background: <?php echo $COLOR['BODY']; ?>;
+  position: fixed;
 }
 
 a {
