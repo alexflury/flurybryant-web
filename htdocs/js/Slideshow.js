@@ -327,7 +327,8 @@ FB.Modules.Slideshow.prototype = {
     var bottom = FB.util.Dom.get('ft').getBoundingClientRect().top;
     var height = Math.max(this.autoResizeMin, bottom - top);
     var pageSize = FB.util.getPageSize();
-    alert(JSON.stringify({top: top, bottom: bottom, height: height, windowHeight: pageSize[3], innerHeight: window.innerHeight}));
+    //alert(JSON.stringify({top: top, bottom: bottom, height: height, windowHeight: pageSize[3], innerHeight: window.innerHeight}));
+    var windowHeight = window.innerHeight;
     return {top: window.pageYOffset + top, height: height};
   },
 
