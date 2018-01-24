@@ -116,6 +116,9 @@ FB.Modules.Slideshow.prototype = {
       FB.util.Event.addListener(this.fullScreenClickAreaHtml, 'touchstart', function(e) { slideshow.photoMouseDown(e); });
       FB.util.Event.addListener(this.fullScreenClickAreaHtml, 'touchend', function(e) { slideshow.photoMouseUp(e); });
       FB.util.Event.addListener(this.fullScreenClickAreaHtml, 'touchmove', function(e) { slideshow.photoMouseMove(e); });
+      FB.util.Event.addListener(this.fullScreenClickAreaHtml, 'gesturestart', function(e) { e.preventDefault(); });
+      FB.util.Event.addListener(this.fullScreenClickAreaHtml, 'gesturechange', function(e) { e.preventDefault(); });
+      FB.util.Event.addListener(this.fullScreenClickAreaHtml, 'gesturecend', function(e) { e.preventDefault(); });
     }
     FB.util.Event.addListener(this.html, 'click', function() { header.hideMenuPanel(); });
     if (this.photoPickerHtml !== undefined) {
@@ -552,14 +555,12 @@ FB.Modules.Slideshow.prototype = {
   },
 
   photoMouseDown: function(e) {
-    e.preventDefault();
     if (this.isFullScreen && !this.photoSequence.isZooming && this.plusLinkHtml !== undefined && this.minusLinkHtml !== undefined) {
       this.startDrag(e.pageX, e.pageY);
     }
   },
 
   photoMouseUp: function(e) {
-    e.preventDefault();
     if (this.isDragging) {
       this.endDrag();
     }
