@@ -180,13 +180,13 @@ FB.Modules.Header.prototype = {
 			var titleRect = FB.util.Dom.getBoundingRect(this.sectionTitlesHtml[t]);
 			if (titleRect.bottom - 30 < bannerRect.bottom) {
 				title = this.sectionTitlesHtml[t].innerHTML;
-				bools += 'true ';
+				bools += (titleRect.bottom - 30) + ' < ' + bannerRect.bottom + ';';
 			} else {
-				bools += 'false ';
+				bools += (titleRect.bottom - 30) + ' >= ' + bannerRect.bottom + ';';
 			}
 		}
 		this.scrollCount++;
-		this.bannerTitleHtml.innerHTML = '(' + this.scrollCount + ', ' + FB.util.Dom.getBoundingRect(this.sectionTitlesHtml[0]).bottom + ', ' + bools + ') ' + title;
+		this.bannerTitleHtml.innerHTML = '(' + this.scrollCount + ', ' + bools + ') ' + title;
 	},
 
 	showBody: function() {
