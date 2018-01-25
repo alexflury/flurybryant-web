@@ -274,6 +274,9 @@ FB.Modules.PhotoSequence.prototype = {
   renderFrame: function(frame) {
     var photoSequenceRect = this.html.getBoundingClientRect();
     console.log('photoSequenceRect=' + JSON.stringify(photoSequenceRect));
+    if (photoSequenceRect === undefined) {
+      return;
+    }
     var frameRect = frame.html.getBoundingClientRect();
     var height = photoSequenceRect.height * Math.pow(2, frame.zoomLevel);
     var width = photoSequenceRect.width * Math.pow(2, frame.zoomLevel);
