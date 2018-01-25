@@ -1,6 +1,10 @@
 var FB = {
   Modules: {},
   util: {
+    isUndefined: function(var val) {
+      return val === void(0);
+    },
+
     getNumFromPx: function(px) {
       return Number(px.substr(0, px.indexOf('px')));
     },

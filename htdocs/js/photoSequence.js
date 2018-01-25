@@ -274,7 +274,7 @@ FB.Modules.PhotoSequence.prototype = {
   renderFrame: function(frame) {
     var photoSequenceRect = this.html.getBoundingClientRect();
     console.log('photoSequenceRect=' + JSON.stringify(photoSequenceRect));
-    if (typeof photoSequenceRect === "undefined" || photoSequenceRect === undefined || photoSequence === void(0)) {
+    if (FB.util.isUndefined(photoSequenceRect)) {
       console.log('photoSequenceRect is undefined');
       return;
     }
