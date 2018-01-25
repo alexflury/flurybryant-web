@@ -252,7 +252,7 @@ FB.Modules.PhotoSequence.prototype = {
     if (frame === undefined) {
       frame = this.frames[this.frameNum];
     }
-    var rect = frame.html.getBoundingClientRect();
+    var rect = FB.util.Dom.getBoundingRect(frame.html);
     frame.focalPoint = {
       x: x / rect.width,
       y: y / rect.height
@@ -264,7 +264,7 @@ FB.Modules.PhotoSequence.prototype = {
     if (frame === undefined) {
       frame = this.frames[this.frameNum];
     }
-    var rect = frame.html.getBoundingClientRect();
+    var rect = FB.util.Dom.getBoundingRect(frame.html);
     return {
       x: Math.floor(frame.focalPoint.x * rect.width),
       y: Math.floor(frame.focalPoint.y * rect.height)

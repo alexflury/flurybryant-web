@@ -257,7 +257,7 @@ FB.Modules.Slideshow.prototype = {
 
   renderPhotoPicker: function() {
     this.isSliding = false;
-    var photoPickerRect = this.photoPickerHtml.getBoundingClientRect();
+    var photoPickerRect = FB.util.Dom.getBoundingRect(this.photoPickerHtml);
     var thumbWidth = Math.floor((photoPickerRect.height - 20) * 4/3);
     var numThumbs = Math.ceil((photoPickerRect.width * 3/2) / (thumbWidth + 10));
     var numThumbsInScreen = Math.ceil((photoPickerRect.width / 2) / (thumbWidth + 10));
@@ -323,11 +323,11 @@ FB.Modules.Slideshow.prototype = {
 
   getMinimizedPhotoPosition: function() {
     if (this.photoPickerHtml === undefined) {
-      var top = FB.util.Dom.get('hd').getBoundingClientRect().bottom;
+      var top = FB.util.Dom.getBoundingRect(FB.util.Dom.get('hd')).bottom;
     } else {
-      var top = this.photoPickerHtml.getBoundingClientRect().bottom;
+      var top = FB.util.Dom.getBoundingRect(this.photoPickerHtml).bottom;
     }
-    var bottom = FB.util.Dom.get('ft').getBoundingClientRect().top;
+    var bottom = FB.util.Dom.getBoundingRect(FB.util.Dom.get('ft')).top;
     var height = Math.max(this.autoResizeMin, bottom - top);
     var windowHeight = window.innerHeight;
     var windowHeightCopy = windowHeight;
@@ -343,9 +343,9 @@ FB.Modules.Slideshow.prototype = {
   },
 
   renderArrows: function() {
-    var photoSequenceRect = this.photoSequenceHtml.getBoundingClientRect();
-    var leftArrowRect = this.prevLinkHtml.getBoundingClientRect();
-    var rightArrowRect = this.nextLinkHtml.getBoundingClientRect();
+    var photoSequenceRect = FB.util.Dom.getBoundingRect(this.photoSequenceHtml);
+    var leftArrowRect = FB.util.Dom.getBoundingRect(this.prevLinkHtml);
+    var rightArrowRect = FB.util.Dom.getBoundingRect(this.nextLinkHtml);
     this.prevLinkHtml.style.top = Math.floor((photoSequenceRect.height - leftArrowRect.height) / 2) + 'px';
     this.nextLinkHtml.style.top = Math.floor((photoSequenceRect.height - rightArrowRect.height) / 2) + 'px';
   },
@@ -442,14 +442,14 @@ FB.Modules.Slideshow.prototype = {
   },
 
   clickPhotoPickerNext: function() {
-    var photoPickerRect = this.photoPickerHtml.getBoundingClientRect();
+    var photoPickerRect = FB.util.Dom.getBoundingRect(this.photoPickerHtml);
     var thumbWidth = Math.floor((photoPickerRect.height - 20) * 4/3);
     var numThumbs = Math.floor(photoPickerRect.width / (thumbWidth + 10));
     this.slidePhotoPickerToThumb(this.getThumbIndex(this.centeredThumb) + numThumbs - 1);
   },
 
   clickPhotoPickerPrev: function() {
-    var photoPickerRect = this.photoPickerHtml.getBoundingClientRect();
+    var photoPickerRect = FB.util.Dom.getBoundingRect(this.photoPickerHtml);
     var thumbWidth = Math.floor((photoPickerRect.height - 20) * 4/3);
     var numThumbs = Math.floor(photoPickerRect.width / (thumbWidth + 10));
     this.slidePhotoPickerToThumb(this.getThumbIndex(this.centeredThumb) - numThumbs + 1);
@@ -465,8 +465,8 @@ FB.Modules.Slideshow.prototype = {
     if (this.isResizing || this.photoSequence.isZooming) {
       return;
     }
-    var photoPickerRect = this.photoPickerHtml.getBoundingClientRect();
-    var footerRect = FB.util.Dom.get('ft').getBoundingClientRect();
+    var photoPickerRect = FB.util.Dom.getBoundingRect(this.photoPickerHtml);
+    var footerRect = FB.util.Dom.getBoundingRect(FB.util.Dom.get('ft'));
     var pageHeight = FB.util.getPageSize()[3];
     var slideshow = this;
     if (this.isFullScreen) {
@@ -495,8 +495,8 @@ FB.Modules.Slideshow.prototype = {
   },
 
   startSmoothResizePhoto: function(endPos, callback) {
-    var photoRect = this.photoSequenceHtml.getBoundingClientRect();
-    var photoPickerRect = this.photoPickerHtml.getBoundingClientRect();
+    var photoRect = FB.util.Dom.getBoundingRect(this.photoSequenceHtml);
+    var photoPickerRect = FB.util.Dom.getBoundingRect(this.photoPickerHtml);
     var pageHeight = FB.util.getPageSize()[3];
     var startPos = {top: window.pageYOffset + photoRect.top, height: photoRect.height, zoomLevel: this.photoSequence.getZoomLevel()};
     this.isResizing = true;

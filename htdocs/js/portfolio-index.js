@@ -33,8 +33,8 @@ FB.Modules.PortfolioIndex.prototype = {
 		var windowWidth = pageSize[2];
 		var windowHeight = pageSize[3];
 		var linkWidth = Math.max(Math.floor((windowWidth - 60) / 2), 420);
-		var top = FB.util.Dom.get('banner').getBoundingClientRect().bottom;
-		var bottom = FB.util.Dom.get('ft').getBoundingClientRect().top;
+		var top = FB.util.Dom.getBoundingRect(FB.util.Dom.get('banner')).bottom;
+		var bottom = FB.util.Dom.getBoundingRect(FB.util.Dom.get('ft')).top;
 		var height = bottom - top;
 		var linkHeight = Math.max(Math.floor((height - 60) / 2), 150);
 		for (var s = 0; s < this.slideshowLinksHtml.length; s++) {
@@ -45,7 +45,7 @@ FB.Modules.PortfolioIndex.prototype = {
 			linkShadeHtml.style.height = linkHeight + 'px';
 			linkShadeHtml.style.width = linkWidth + 'px';
 			var linkTextHtml = FB.util.Dom.getElementsByClassName('slideshow-link-text', this.slideshowLinksHtml[s])[0];
-			var linkTextHeight = linkTextHtml.getBoundingClientRect().height;
+			var linkTextHeight = FB.util.Dom.getBoundingRect(linkTextHtml).height;
 			linkTextHtml.style.marginTop = Math.floor((linkHeight - linkTextHeight) / 2) + 'px';
 		}
 	}

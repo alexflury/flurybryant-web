@@ -54,7 +54,7 @@ FB.Modules.Header.prototype = {
 			}
 		}
 		for (var linkName in this.sublinkPanelsHtml) {
-			var linkRect = this.linksHtml[linkName].getBoundingClientRect();
+			var linkRect = FB.util.Dom.getBoundingRect(this.linksHtml[linkName]);
 			this.sublinkPanelsHtml[linkName].style.left = linkRect.left + 'px';
 		}
 		this.sublinkPanelsHtml.contact.style.left = '0';
@@ -150,13 +150,13 @@ FB.Modules.Header.prototype = {
 
 	renderContactMenu: function() {
 		this.sublinkPanelsHtml.contact.style.display = 'block';
-		panelWidth = this.sublinkPanelsHtml.contact.getBoundingClientRect().width;
+		panelWidth = FB.util.Dom.getBoundingRect(this.sublinkPanelsHtml.contact).width;
 		var contactListItems = this.sublinkPanelsHtml.contact.getElementsByTagName("li");
 		var contactListItemsTotalWidth = 0;
 		for (var i = 0; i < contactListItems.length; i++) {
 			contactListItems[i].style.display = 'block';
-			contactListItemsTotalWidth += contactListItems[i].getBoundingClientRect().width;
-			var rect = contactListItems[i].getBoundingClientRect();
+			contactListItemsTotalWidth += FB.util.Dom.getBoundingRect(contactListItems[i]).width;
+			var rect = FB.util.Dom.getBoundingRect(contactListItems[i]);
 		}
 		var padding = Math.max(10, Math.floor((panelWidth - contactListItemsTotalWidth) / (1 + contactListItems.length)));
 		for (var i = 0; i < contactListItems.length; i++) {
@@ -166,9 +166,9 @@ FB.Modules.Header.prototype = {
 
 	renderBanner: function() {
 		var title = this.bannerTitleText;
-		var bannerRect = this.bannerHtml.getBoundingClientRect();
+		var bannerRect = FB.util.Dom.getBoundingRect(this.bannerHtml);
 		for (var t = 0; t < this.sectionTitlesHtml.length; t++) {
-			var titleRect = this.sectionTitlesHtml[t].getBoundingClientRect();
+			var titleRect = FB.util.Dom.getBoundingRect(this.sectionTitlesHtml[t]);
 			if (titleRect.bottom - 30 < bannerRect.bottom) {
 				title = this.sectionTitlesHtml[t].innerHTML;
 			}
@@ -177,11 +177,6 @@ FB.Modules.Header.prototype = {
 	},
 
 	showBody: function() {
-		// var hd = this;
-		// setTimeout(function() {
-		// 	FB.util.Dom.addClassName(hd.bodyHtml, 'loaded');
-		// }, 20);
-
 		FB.util.Dom.addClassName(this.bodyHtml, 'loaded');
 	}
 
