@@ -19,7 +19,6 @@ FB.Modules.Header.prototype = {
 	bannerTitleText: null,
 	sectionTitlesHtml: [],
 	bodyHtml: null,
-	scrollCount: 0,
 
 	getHtml: function() {
 		this.html = FB.util.Dom.get('hd');
@@ -177,18 +176,13 @@ FB.Modules.Header.prototype = {
 		var headerRect = FB.util.Dom.getBoundingRect(this.html);
 		var bannerRect = FB.util.Dom.getBoundingRect(this.bannerHtml);
 		var bannerBottom = headerRect.height + bannerRect.height;
-		var bools = '';
 		for (var t = 0; t < this.sectionTitlesHtml.length; t++) {
 			var titleRect = FB.util.Dom.getBoundingRect(this.sectionTitlesHtml[t]);
 			if (titleRect.bottom - 30 < bannerBottom) {
 				title = this.sectionTitlesHtml[t].innerHTML;
-				bools += (titleRect.bottom - 30) + ' < ' + bannerBottom + ';';
-			} else {
-				bools += (titleRect.bottom - 30) + ' >= ' + bannerBottom + ';';
 			}
 		}
-		this.scrollCount++;
-		this.bannerTitleHtml.innerHTML = '(' + this.scrollCount + ', ' + bools + ') ' + title;
+		this.bannerTitleHtml.innerHTML = title;
 	},
 
 	showBody: function() {
