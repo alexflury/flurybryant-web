@@ -2,7 +2,7 @@ var FB = {
   Modules: {},
   util: {
     isUndefined: function(val) {
-      return val === void(0);
+      return (val === void(0));
     },
 
     getNumFromPx: function(px) {
