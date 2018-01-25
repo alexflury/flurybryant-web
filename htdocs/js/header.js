@@ -182,7 +182,7 @@ FB.Modules.Header.prototype = {
 			}
 		}
 		this.scrollCount++;
-		this.bannerTitleHtml.innerHTML = '(' + this.scrollCount + ') ' + title;
+		this.bannerTitleHtml.innerHTML = '(' + this.scrollCount + ', ' + FB.util.Dom.getBoundingRect(this.sectionTitlesHtml[0]).bottom + ') ' + title;
 	},
 
 	showBody: function() {
