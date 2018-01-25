@@ -273,20 +273,11 @@ FB.Modules.PhotoSequence.prototype = {
 
   renderFrame: function(frame) {
     var photoSequenceRect = FB.util.Dom.getBoundingRect(this.html);
-    console.log('photoSequenceRect=' + JSON.stringify(photoSequenceRect));
-    console.log(photoSequenceRect.top + ' ' + photoSequenceRect.right + ' ' + photoSequenceRect.bottom + ' ' + photoSequenceRect.left);
-    if (FB.util.isUndefined(photoSequenceRect) || photoSequenceRect === undefined || typeof photoSequenceRect === "undefined" || photoSequenceRect === void(0) || photoSequenceRect + "" === "undefined" || JSON.stringify(photoSequenceRect) === "undefined") {
-      console.log('photoSequenceRect is undefined');
-      return;
-    }
-    console.log('photoSequenceRect is defined');
-    var frameRect = frame.html.getBoundingClientRect();
+    var frameRect = FB.util.Dom.getBoundingRect(frame.html);
     var height = photoSequenceRect.height * Math.pow(2, frame.zoomLevel);
     var width = photoSequenceRect.width * Math.pow(2, frame.zoomLevel);
     var x = frame.focalPoint.x * width - Math.floor(photoSequenceRect.width / 2);
-    console.log(JSON.stringify({focalPoint: frame.focalPoint, height: height, photoSequenceRect: photoSequenceRect}));
     var y = frame.focalPoint.y * height - Math.floor(photoSequenceRect.height / 2);
-    console.log(JSON.stringify({width: width, height: height}));
     frame.html.style.height = height + 'px';
     frame.html.style.width = width + 'px';
     x = Math.max(0, Math.min(width - photoSequenceRect.width, x));
