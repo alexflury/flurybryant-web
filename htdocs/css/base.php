@@ -100,7 +100,7 @@ body.full-screen #hd {
 }
 
 #hd .house-logo {
-
+  border: 0;
 }
 
 #hd .flurybryant-logo {
