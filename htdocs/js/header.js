@@ -87,6 +87,7 @@ FB.Modules.Header.prototype = {
 		FB.util.Event.addListener(window, 'resize', function() { hd.renderContactMenu(); });
 		if (this.bannerTitleText !== null && this.bannerTitleText.length > 0) {
 			FB.util.Event.addListener(window, 'scroll', function() { hd.renderBanner(); });
+			FB.util.Event.addListener(window, 'touchmove', function() { hd.renderBanner(); });
 		}
 	},
 
