@@ -92,6 +92,20 @@ var FB = {
 
       autoResizeElements: null,
 
+      getBoundingRect: function(el) {
+        var rect = el.getBoundingClientRect();
+        return {
+          top: rect.top,
+          right: rect.right,
+          bottom: rect.bottom,
+          left: rect.left,
+          x: rect.left,
+          y: rect.top,
+          width: rect.right - rect.left,
+          height: rect.bottom - rect.top
+        };
+      },
+
       get: function(name) {
 	return document.getElementById(name);
       },
