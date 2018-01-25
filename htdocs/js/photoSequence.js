@@ -277,6 +277,7 @@ FB.Modules.PhotoSequence.prototype = {
     var height = photoSequenceRect.height * Math.pow(2, frame.zoomLevel);
     var width = photoSequenceRect.width * Math.pow(2, frame.zoomLevel);
     var x = frame.focalPoint.x * width - Math.floor(photoSequenceRect.width / 2);
+    console.log(JSON.stringify({focalPoint: frame.focalPoint, height: height, photoSequenceRect: photoSequenceRect}));
     var y = frame.focalPoint.y * height - Math.floor(photoSequenceRect.height / 2);
     console.log(JSON.stringify({width: width, height: height}));
     frame.html.style.height = height + 'px';
