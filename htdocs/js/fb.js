@@ -1,7 +1,7 @@
 var FB = {
   Modules: {},
   util: {
-    isUndefined: function(var val) {
+    isUndefined: function(val) {
       return val === void(0);
     },
 
