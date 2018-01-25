@@ -174,15 +174,17 @@ FB.Modules.Header.prototype = {
 
 	renderBanner: function() {
 		var title = this.bannerTitleText;
+		var headerRect = FB.util.Dom.getBoundingRect(this.html);
 		var bannerRect = FB.util.Dom.getBoundingRect(this.bannerHtml);
+		var bannerBottom = headerRect.height + bannerRect.height;
 		var bools = '';
 		for (var t = 0; t < this.sectionTitlesHtml.length; t++) {
 			var titleRect = FB.util.Dom.getBoundingRect(this.sectionTitlesHtml[t]);
-			if (titleRect.bottom - 30 < bannerRect.bottom) {
+			if (titleRect.bottom - 30 < bannerBottom) {
 				title = this.sectionTitlesHtml[t].innerHTML;
-				bools += (titleRect.bottom - 30) + ' < ' + bannerRect.bottom + ';';
+				bools += (titleRect.bottom - 30) + ' < ' + bannerBottom + ';';
 			} else {
-				bools += (titleRect.bottom - 30) + ' >= ' + bannerRect.bottom + ';';
+				bools += (titleRect.bottom - 30) + ' >= ' + bannerBottom + ';';
 			}
 		}
 		this.scrollCount++;
