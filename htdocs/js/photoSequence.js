@@ -274,6 +274,7 @@ FB.Modules.PhotoSequence.prototype = {
   renderFrame: function(frame) {
     var photoSequenceRect = this.html.getBoundingClientRect();
     console.log('photoSequenceRect=' + JSON.stringify(photoSequenceRect));
+    console.log(photoSequenceRect.top + ' ' + photoSequenceRect.right + ' ' + photoSequenceRect.bottom + ' ' + photoSequenceRect.left);
     if (FB.util.isUndefined(photoSequenceRect) || photoSequenceRect === undefined || typeof photoSequenceRect === "undefined" || photoSequenceRect === void(0) || photoSequenceRect + "" === "undefined" || JSON.stringify(photoSequenceRect) === "undefined") {
       console.log('photoSequenceRect is undefined');
       return;
