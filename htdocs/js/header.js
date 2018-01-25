@@ -90,6 +90,10 @@ FB.Modules.Header.prototype = {
 			FB.util.Event.addListener(window, 'touchmove', function() { hd.renderBanner(); });
 			FB.util.Event.addListener(window, 'touchstart', function() { hd.renderBanner(); });
 			FB.util.Event.addListener(window, 'touchend', function() { hd.renderBanner(); });
+			FB.util.Event.addListener(document, 'scroll', function() { hd.renderBanner(); });
+			FB.util.Event.addListener(document, 'touchmove', function() { hd.renderBanner(); });
+			FB.util.Event.addListener(document, 'touchstart', function() { hd.renderBanner(); });
+			FB.util.Event.addListener(document, 'touchend', function() { hd.renderBanner(); });
 		}
 	},
 
