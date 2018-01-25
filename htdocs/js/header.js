@@ -175,14 +175,18 @@ FB.Modules.Header.prototype = {
 	renderBanner: function() {
 		var title = this.bannerTitleText;
 		var bannerRect = FB.util.Dom.getBoundingRect(this.bannerHtml);
+		var bools = '';
 		for (var t = 0; t < this.sectionTitlesHtml.length; t++) {
 			var titleRect = FB.util.Dom.getBoundingRect(this.sectionTitlesHtml[t]);
 			if (titleRect.bottom - 30 < bannerRect.bottom) {
 				title = this.sectionTitlesHtml[t].innerHTML;
+				bools += 'true ';
+			} else {
+				bools += 'false ';
 			}
 		}
 		this.scrollCount++;
-		this.bannerTitleHtml.innerHTML = '(' + this.scrollCount + ', ' + FB.util.Dom.getBoundingRect(this.sectionTitlesHtml[0]).bottom + ') ' + title;
+		this.bannerTitleHtml.innerHTML = '(' + this.scrollCount + ', ' + FB.util.Dom.getBoundingRect(this.sectionTitlesHtml[0]).bottom + ', ' + bools + ') ' + title;
 	},
 
 	showBody: function() {
