@@ -19,6 +19,7 @@ FB.Modules.Header.prototype = {
 	bannerTitleText: null,
 	sectionTitlesHtml: [],
 	bodyHtml: null,
+	scrollCount: 0,
 
 	getHtml: function() {
 		this.html = FB.util.Dom.get('hd');
@@ -180,7 +181,8 @@ FB.Modules.Header.prototype = {
 				title = this.sectionTitlesHtml[t].innerHTML;
 			}
 		}
-		this.bannerTitleHtml.innerHTML = title;
+		this.scrollCount++;
+		this.bannerTitleHtml.innerHTML = '(' + this.scrollCount + ') ' + title;
 	},
 
 	showBody: function() {
