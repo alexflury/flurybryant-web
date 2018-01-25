@@ -88,6 +88,8 @@ FB.Modules.Header.prototype = {
 		if (this.bannerTitleText !== null && this.bannerTitleText.length > 0) {
 			FB.util.Event.addListener(window, 'scroll', function() { hd.renderBanner(); });
 			FB.util.Event.addListener(window, 'touchmove', function() { hd.renderBanner(); });
+			FB.util.Event.addListener(window, 'touchstart', function() { hd.renderBanner(); });
+			FB.util.Event.addListener(window, 'touchend', function() { hd.renderBanner(); });
 		}
 	},
 
