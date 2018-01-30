@@ -565,6 +565,7 @@ body.portfolio-page {
   background-size: cover;
   position: relative;
   cursor: pointer;
+  -ms-behavior: url(/backgroundsize.min.htc);
 }
 
 .portfolio-page .slideshow-link.new-homes-slideshow-link {
