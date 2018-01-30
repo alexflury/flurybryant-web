@@ -245,6 +245,7 @@ body.full-screen #hd {
   display: none;
   position: fixed;
   top: <?php echo ($SIZE['HD_HEIGHT'] + 1); ?>px;
+  z-index: 1000;
 }
 
 .about-page #banner {
