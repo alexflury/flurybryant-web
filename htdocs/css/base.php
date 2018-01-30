@@ -246,6 +246,7 @@ body.full-screen #hd {
   position: fixed;
   top: <?php echo ($SIZE['HD_HEIGHT'] + 1); ?>px;
   z-index: 1000;
+  -ms-behavior: url(/backgroundsize.min.htc);
 }
 
 .about-page #banner {
@@ -265,6 +266,7 @@ body.full-screen #hd {
   background-position: 40% 55%;
   background-size: 200%;
   display: block;
+  -ms-behavior: url(/backgroundsize.min.htc);
 }
 
 .resources-page #banner {
@@ -333,6 +335,7 @@ body.full-screen #ft {
   background-size: 80px 80px;
   background-image: url(/images/loading.gif);
   z-index: 1997;
+  -ms-behavior: url(/backgroundsize.min.htc);
 }
 
 body.loaded #loading {
@@ -555,6 +558,7 @@ body.portfolio-page {
 .portfolio-page .photo-sequence .photo-frame {
   background-size: contain;
   background-color: <?php echo $COLOR['PORTFOLIO_BACKGROUND']; ?>;
+  -ms-behavior: url(/backgroundsize.min.htc);
 }
 
 .portfolio-page .slideshow-link {
@@ -899,6 +903,7 @@ body.documents-page {
 .documents-page .photo-sequence .photo-frame {
   background-size: contain;
   background-color: <?php echo $COLOR['PORTFOLIO_BACKGROUND']; ?>;
+  -ms-behavior: url(/backgroundsize.min.htc);
 }
 
 .documents-page .slideshow-link {
@@ -908,6 +913,7 @@ body.documents-page {
   background-size: 300%;
   position: relative;
   cursor: pointer;
+  -ms-behavior: url(/backgroundsize.min.htc);
 }
 
 .documents-page .slideshow-link.new-home-slideshow-link {
@@ -973,6 +979,7 @@ body.documents-page {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  -ms-behavior: url(/backgroundsize.min.htc);
 }
 
 /* Slideshow */
@@ -1185,6 +1192,7 @@ body.full-screen #slideshow .photo-picker {
   float: left;
   cursor: pointer;
   overflow: hidden;
+  -ms-behavior: url(/backgroundsize.min.htc);
 }
 
 #slideshow .photo-picker .thumb:first-child {
