@@ -28,7 +28,7 @@ var FB = {
         scrollPosition.x = window.pageXOffset;
         scrollPosition.y = window.pageYOffset;
       } else {
-        scrollPosition.x = document.documnetElement.scrollLeft;
+        scrollPosition.x = document.documentElement.scrollLeft;
         scrollPosition.y = document.documentElement.scrollTop;
       }
 
