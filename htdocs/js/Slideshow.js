@@ -332,8 +332,9 @@ FB.Modules.Slideshow.prototype = {
     var height = Math.max(this.autoResizeMin, bottom - top);
     var windowHeight = window.innerHeight;
     var windowHeightCopy = windowHeight;
-    console.log('window.pageYOffset = ' + window.pageYOffset);
-    return {top: window.pageYOffset + top, height: height};
+    var scrollPosition = FB.util.getScrollPosition();
+    console.log('window.pageYOffset = ' + scrollPosition.y);
+    return {top: scrollPosition.y + top, height: height};
   },
 
   getMaximizedPhotoPosition: function() {

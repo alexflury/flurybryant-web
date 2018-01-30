@@ -22,20 +22,17 @@ var FB = {
     },
 
     getScrollPosition: function() {
-            var xScroll, yScroll;
+      var scrollPosition = {};
 
-      if (window.innerHeight && window.scrollMaxY) {
-  xScroll = document.body.scrollWidth;
-  yScroll = window.innerHeight + window.scrollMaxY;
-      } else if (document.body.scrollHeight > document.body.offsetHeight){ // all but Explorer Mac
-  xScroll = document.body.scrollWidth;
-  yScroll = document.body.scrollHeight;
-      } else { // Explorer Mac...would also work in Explorer 6 Strict, Mozilla and Safari
-  xScroll = document.body.offsetWidth;
-  yScroll = document.body.offsetHeight;
+      if (window.pageXOffset !== undefined && window.pageYOffset !== undefined) {
+        scrollPosition.x = window.pageXOffset;
+        scrollPosition.y = window.pageYOffset;
+      } else {
+        scrollPosition.x = document.documnetElement.scrollLeft;
+        scrollPosition.y = document.documentElement.scrollTop;
       }
 
-      return {'x': xScroll, 'y': yScroll};
+      return scrollPosition;
     },
 
     //
