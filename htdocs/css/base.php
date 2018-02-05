@@ -910,7 +910,7 @@ body.documents-page {
   float: left;
   margin: 20px 0 0 20px;
   background-repeat: no-repeat;
-  background-size: 300%;
+  background-size: auto 300%;
   position: relative;
   cursor: pointer;
   -ms-behavior: url(/backgroundsize.min.htc);
