@@ -8,6 +8,7 @@
     echo $CSS;
     ?>
     <noscript><style> .script-only { display: none; } </style></noscript>
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
   </head>
 
   <body class="<?php echo $page_classname ?>">
