@@ -19,6 +19,8 @@ FB.Modules.Header.prototype = {
 	bannerTitleText: null,
 	sectionTitlesHtml: [],
 	bodyHtml: null,
+	footerHtml: null,
+	footerContactHtml: null,
 
 	getHtml: function() {
 		this.html = FB.util.Dom.get('hd');
@@ -40,6 +42,8 @@ FB.Modules.Header.prototype = {
 		this.bannerTitleContainerHtml = FB.util.Dom.getElementsByClassName("banner-title-container", this.bannerHtml)[0];
 		this.bannerTitleHtml = FB.util.Dom.getElementsByClassName("banner-title", this.bannerHtml)[0];
 		this.sectionTitlesHtml = FB.util.Dom.get('bd').getElementsByTagName('h1');
+		this.footerHtml = FB.util.Dom.get('ft');
+		this.footerContactHtml = FB.util.Dom.getElementsByClassName('contact', this.footerHtml)[0];
 	},
 
 	initHtml: function() {
@@ -73,7 +77,7 @@ FB.Modules.Header.prototype = {
 
 	addListeners: function() {
 		var hd = this;
-		FB.util.Event.addListener(window, 'load', function() { hd.showBody(); });
+		FB.util.Event.addListener(window, 'load', function() { hd.render(); hd.showBody(); });
 		FB.util.Event.addListener(this.html, 'mouseover', function() { hd.headerMouseOver(); });
 		FB.util.Event.addListener(this.html, 'mouseout', function() { hd.headerMouseOut(); });
 		FB.util.Event.addListener(this.menuPanelHtml, 'mouseover', function() { hd.menuPanelMouseOver(); });
@@ -84,7 +88,7 @@ FB.Modules.Header.prototype = {
 		FB.util.Event.addListener(this.linksHtml.resources, 'mouseover', function() { hd.showMenuPanel('resources'); });
 		FB.util.Event.addListener(this.linksHtml.contact, 'mouseover', function() { hd.showMenuPanel('contact'); });
 		FB.util.Event.addListener(this.linksHtml.contact, 'click', function() { hd.contactClick(); });
-		FB.util.Event.addListener(window, 'resize', function() { hd.renderContactMenu(); });
+		FB.util.Event.addListener(window, 'resize', function() { hd.render(); });
 		if (this.bannerTitleText !== null && this.bannerTitleText.length > 0) {
 			FB.util.Event.addListener(window, 'scroll', function() { hd.renderBanner(); });
 		}
@@ -148,6 +152,12 @@ FB.Modules.Header.prototype = {
 		this.isContactClicked = true;
 	},
 
+	render: function() {
+		this.renderContactMenu();
+		this.renderBanner();
+		this.renderFooter();
+	},
+
 	renderContactMenu: function() {
 		this.sublinkPanelsHtml.contact.style.display = 'block';
 		panelWidth = FB.util.Dom.getBoundingRect(this.sublinkPanelsHtml.contact).width;
@@ -176,6 +186,13 @@ FB.Modules.Header.prototype = {
 			}
 		}
 		this.bannerTitleHtml.innerHTML = title;
+	},
+
+	renderFooter: function() {
+		var footerRect = FB.util.Dom.getBoundingRect(this.footerHtml);
+		var footerContactRect = FB.util.Dom.getBoundingRect(this.footerContactHtml);
+		var footerLeft = Math.floor((footerRect.width - footerContactRect.width) / 2);
+		this.footerContactHtml.style.left = footerLeft + 'px';
 	},
 
 	showBody: function() {

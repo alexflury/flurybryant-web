@@ -306,6 +306,9 @@ body.full-screen #hd {
   position: fixed;
   bottom: 0;
   z-index: 1999;
+  color: #FFFFFF;
+  font-size: 18px;
+  min-width: <?php echo $SIZE['MIN_PAGE_WIDTH']; ?>px;
 }
 
 body.full-screen #ft {
@@ -321,6 +324,25 @@ body.full-screen #ft {
 #ft .houzz-container {
   padding: 10px 10px 0 10px;
   float: right;
+}
+
+#ft .contact {
+  position: absolute;
+  visibility: hidden;
+}
+
+body.loaded #ft .contact {
+  visibility: visible;
+}
+
+#ft .address {
+  float: left;
+  padding: 10px 10px 0 10px;
+}
+
+#ft .phone {
+  float: left;
+  padding: 10px 10px 0 10px;
 }
 
 /* Loading */

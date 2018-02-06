@@ -79,7 +79,7 @@
               <table cellpadding="0" cellspacing="0">
                 <tr>
                   <td class="left label">Phone</td>
-                  <td>(408) 356-5550</td>
+                  <td>(408) 356-5500</td>
                 </tr>
                 <tr>
                   <td class="left label">Fax</td>
