@@ -89,8 +89,6 @@ function get_photos($album_name) {
   }
   $dir = opendir(getenv('DOCUMENT_ROOT') . '/images/photos/' . $album_name);
   $photos = array();
-  readdir($dir);
-  readdir($dir);
   while ($filename = readdir($dir)) {
     if (substr($filename, 0, 1) != '.') {
       $photos[] = $album_name . '/' . $filename;
