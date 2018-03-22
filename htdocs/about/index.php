@@ -177,12 +177,19 @@ print_header(array('page_classname' => 'about-page', 'banner_title' => 'WHO WE A
 
 <p>Dean joined the <em>Flury Bryant Design Group</em> in 2013 following fifteen years as a design/build general contractor in the Sacramento foothills of California. He brings a tremendous amount of CAD design and drafting experience to our group, as well as many years of hands-on construction experience building new homes as well as remodel projects.</p>
 <p>In addition to his passion for fine home design and construction, Dean enjoys making music and designing and building custom guitars, and is a member of the Northern California Luthier Association.</p>
-<p>Dean is married, with three children and three grandchildren.</p>
+<p>Dean is married, with three children and five grandchildren.</p>
 
-<h2>Albert Alfonzo</h2>
+<h2>Albert Alfonso</h2>
 
 <p>Prior to joining Flury Bryant Design Group in 2013, Albert spent 21 years gaining experience in the field of architecture in numerous bay area architectural and structural engineering firms, as well as international firms in Saudi Arabia. His skills include both CAD and hand-drafting techniques, as well as 3-D modeling.</p>
 <p>Albert received his Bachelor of Science in Architecture degree in the Philippines in 1992. He is married, with three children, and is an avid San Francisco Giants fan.</p>
+
+<h2>Todd Bayless</h2>
+
+<p>Todd is a licensed architect and joined Flury Bryant design group in 2017 bringing with him over 12 years of experience in the fields of architecture, construction and design.  This includes over five years in restaurant design, four years in commercial design and brief stints in both furniture design and MEP engineering.</p>
+<p>Todd's father is a residential developer and his brother would go on to become a structural engineer.  So growing up he was always around construction and wanted to be an engineer himself.  But while studying at UC Davis, Todd discovered that architecture perfectly balanced his creative side with his engineering side.</p>
+
+<p>Todd is married and has one dog.  He enjoys disc golf, backpacking, board games, and going to A's or Warrior's games.</p>
 
 </span>
 
