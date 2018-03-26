@@ -509,7 +509,7 @@ FB.Modules.Slideshow.prototype = {
 
   smoothResizePhoto: function(startPos, endPos, callback, progress) {
     if (progress === undefined) {
-      progress = 0.025;
+      progress = 0.10;
     }
     if (progress < 1 && this.isResizing) {
       var newTop = startPos.top + (endPos.top - startPos.top) * (0.5 - 0.5 * Math.cos(progress * Math.PI));
@@ -520,7 +520,7 @@ FB.Modules.Slideshow.prototype = {
       this.photoSequence.setZoomLevel(newZoomLevel);
       this.renderArrows();
       var slideshow = this;
-      setTimeout(function() { slideshow.smoothResizePhoto(startPos, endPos, callback, progress + 0.025) }, 10);
+      setTimeout(function() { slideshow.smoothResizePhoto(startPos, endPos, callback, progress + 0.10) }, 40);
     } else {
       this.isResizing = false;
       this.photoSequence.setZoomLevel(endPos.zoomLevel);

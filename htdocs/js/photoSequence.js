@@ -209,13 +209,13 @@ FB.Modules.PhotoSequence.prototype = {
 
   smoothZoom: function(startZoomLevel, endZoomLevel, frame, progress) {
     if (progress == undefined) {
-      progress = 0.025;
+      progress = 0.10;
     }
     if (progress < 1) {
       frame.zoomLevel = startZoomLevel + (endZoomLevel - startZoomLevel) * (0.5 - 0.5 * Math.cos(progress * Math.PI));
       this.renderFrame(frame);
       var photoSequence = this;
-      setTimeout(function() { photoSequence.smoothZoom(startZoomLevel, endZoomLevel, frame, progress + 0.025); }, 10);
+      setTimeout(function() { photoSequence.smoothZoom(startZoomLevel, endZoomLevel, frame, progress + 0.10); }, 40);
     } else {
       this.isZooming = false;
       frame.zoomLevel = endZoomLevel;
