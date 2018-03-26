@@ -102,7 +102,7 @@ print_header(array('page_classname' => 'about-page', 'banner_title' => 'WHO WE A
 <p>Over the past thirty-five years, <em>Flury Bryant Design Group</em>, originally doing business as <em>The Bob Flury Design Group</em>, has been commissioned to design and detail over 1,250 residential projects, ranging in size from small remodels and additions to large estate properties with multiple buildings. We work with a large group of consultants and builders, giving us the capability of handling all aspects of a project, from conception and budget-building, through site development, architectural and structural detail development, interior architecture and detailing, and ultimately, completed construction.</p>
 <p>Our preferred approach to preparation of our construction documents is unusual, in that we prefer to prepare all of the structural drawings ourselves, creating a set of documents that integrates the structural detailing with the architectural in a seamless, user-friendly fashion.</p>
 <p>Our design work is always sensitive to the specific needs and wishes of our clients. We listen to their goals, making the accomplishment of these goals our top priority.</p>
-<p>Our staff has had extensive experience working with the Planning and Building Departments of literally every municipality in the area. We know what it takes to get projects approved. If we don't have the answers to your zoning and building questions, we know who to contact at City Hall to get the answers.</p>
+<p>Our staff has had extensive experience working with the Planning and Building Departments of literally every municipality in the area. We know what it takes to get projects approved. If we don&rsquo;t have the answers to your zoning and building questions, we know who to contact at City Hall to get the answers.</p>
 
 <p>Whether your preference is timeless, traditional design, state-of-the-art contemporary architecture, or seamless blending of new construction to existing, our staff of dedicated professionals has the resources and the passion to create an environment designed around your tastes, personality, and dreams, with the specific purpose of enhancing your lifestyle.</p>
 
@@ -124,7 +124,7 @@ print_header(array('page_classname' => 'about-page', 'banner_title' => 'WHO WE A
 <h1>OUR PROCESS</h1>
 
 <h2>Design Programming</h2>
-<p>Before design work can begin in earnest, a written program for the project is developed. This program describes, in as much detail as possible, the client's architectural and functional objectives, as well as the overall project scope.</p>
+<p>Before design work can begin in earnest, a written program for the project is developed. This program describes, in as much detail as possible, the client&rsquo;s architectural and functional objectives, as well as the overall project scope.</p>
 <p>Some of our clients come to us having already developed a design program, while others merely have general objectives in mind. Our staff can work with clients to fully develop their written program in either case.</p>
 
 <h2>Code/Zoning Research</h2>
@@ -164,12 +164,12 @@ print_header(array('page_classname' => 'about-page', 'banner_title' => 'WHO WE A
 
 <h2>Bob Bryant</h2>
 <p>Bob Bryant has been involved in residential construction since 1976. He spent eight years as a carpenter, followed by five years as a construction project manager and, over the course of seventeen years provided design and detailing services on a variety of residential projects throughout the Bay Area. During that time, he created and managed the architectural department for a leading remodeling contractor in the South Bay.</p>
-<p>Bob joined <em>The Bob Flury Design Group</em> in 1993 as a senior draftsman. He became a partner in conjunction with the firm's incorporation in 2005, thereby forming <em>Flury Bryant Design Group, Inc.</em></p>
-<p>Bob is married and has three daughters. He enjoys golf, the sea, and he gets a great deal of satisfaction from being part of a team making contributions to the Bay Area's architectural landscape.</p>
+<p>Bob joined <em>The Bob Flury Design Group</em> in 1993 as a senior draftsman. He became a partner in conjunction with the firm&rsquo;s incorporation in 2005, thereby forming <em>Flury Bryant Design Group, Inc.</em></p>
+<p>Bob is married and has three daughters. He enjoys golf, the sea, and he gets a great deal of satisfaction from being part of a team making contributions to the Bay Area&rsquo;s architectural landscape.</p>
 
 <h2>Mike Pursell</h2>
 
-<p>Mike's passion for architecture was sparked when, as a young boy, his grandmother gave him an art set with floor plans and perspective views of houses and other buildings. He pursued his interest in creating architectural drawings through his high school years where he developed CAD drafting skills and went on to compete and win in local and statewide drafting competitions.</p>
+<p>Mike&rsquo;s passion for architecture was sparked when, as a young boy, his grandmother gave him an art set with floor plans and perspective views of houses and other buildings. He pursued his interest in creating architectural drawings through his high school years where he developed CAD drafting skills and went on to compete and win in local and statewide drafting competitions.</p>
 <p>Mike has since gone on to apply his superior drafting skills to a variety of projects and disciplines ranging from residential architecture to electrical, plumbing, and mechanical engineering. He joined our team in 2004. His past experience working with software engineers and computer programmers has made him an invaluable asset to <em>Flury Bryant Design Group</em> as we work to continually upgrade our CAD-based drafting technology.</p>
 <p>Mike is married, with two children, and enjoys spending his free time on family bicycling outings and riding at the BMX track.</p>
 
@@ -187,9 +187,9 @@ print_header(array('page_classname' => 'about-page', 'banner_title' => 'WHO WE A
 <h2>Todd Bayless</h2>
 
 <p>Todd is a licensed architect and joined Flury Bryant design group in 2017 bringing with him over 12 years of experience in the fields of architecture, construction and design.  This includes over five years in restaurant design, four years in commercial design and brief stints in both furniture design and MEP engineering.</p>
-<p>Todd's father is a residential developer and his brother would go on to become a structural engineer.  So growing up he was always around construction and wanted to be an engineer himself.  But while studying at UC Davis, Todd discovered that architecture perfectly balanced his creative side with his engineering side.</p>
+<p>Todd&rsquo;s father is a residential developer and his brother would go on to become a structural engineer.  So growing up he was always around construction and wanted to be an engineer himself.  But while studying at UC Davis, Todd discovered that architecture perfectly balanced his creative side with his engineering side.</p>
 
-<p>Todd is married and has one dog.  He enjoys disc golf, backpacking, board games, and going to A's or Warrior's games.</p>
+<p>Todd is married and has one dog.  He enjoys disc golf, backpacking, board games, and going to A&rsquo;s or Warrior&rsquo;s games.</p>
 
 </span>
 
