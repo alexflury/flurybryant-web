@@ -262,7 +262,7 @@ body.full-screen #hd {
 }
 
 .documents-index-page #banner {
-  background-image: url(/images/photos/new-home-docs/0003.gif);
+  background-image: url(/images/photos/new-home-docs/012.png);
   background-position: 40% 55%;
   background-size: 200%;
   display: block;
@@ -939,12 +939,12 @@ body.documents-page {
 }
 
 .documents-page .slideshow-link.new-home-slideshow-link {
-  background-image: url(/images/photos/new-home-docs/0001.gif);
+  background-image: url(/images/photos/new-home-docs/012.png);
   background-position: center 70%;
 }
 
 .documents-page .slideshow-link.remodel-slideshow-link {
-  background-image: url(/images/photos/remodel-docs/0001.gif);
+  background-image: url(/images/photos/remodel-docs/008.png);
   background-position: center 43%;
 }
 

@@ -18,7 +18,11 @@ var FB = {
     },
 
     getThumbUrl: function(photo) {
-      return '/images/thumbs/' + photo;
+      if (photo.startsWith("new-home-docs/") || photo.startsWith("remodel-docs/")) {
+        return '/images/thumbs/' + photo.substr(0, photo.length - 4) + '.jpg';
+      } else {
+        return '/images/thumbs/' + photo;
+      }
     },
 
     getScrollPosition: function() {
