@@ -124,11 +124,6 @@ print_header(array('page_classname' => 'resources-page', 'banner_title' => 'BUIL
       <div class="phone">(650) 328-7334</div>
     </div>
     <div class="resource">
-      <div class="name">Rehder Construction</div>
-      <div class="contact">Steve Rehder</div>
-      <div class="phone">(408) 364-1853</div>
-    </div>
-    <div class="resource">
       <div class="name">Roberts Construction</div>
       <div class="contact">Dave Roberts</div>
       <div class="phone">(408) 356-2185</div>
@@ -171,11 +166,6 @@ print_header(array('page_classname' => 'resources-page', 'banner_title' => 'BUIL
       <div class="name">Greenwood Landscape Design</div>
       <div class="contact">Kelly Bowman</div>
       <div class="phone">(650) 996-4612</div>
-    </div>
-    <div class="resource">
-      <div class="name">Todd Kalbfeld & Associates</div>
-      <div class="contact">Todd Kalbfeld</div>
-      <div class="phone">(408) 247-6634</div>
     </div>
     <div class="resource">
       <div class="name">Kikuchi and Associates</div>
@@ -390,14 +380,14 @@ print_header(array('page_classname' => 'resources-page', 'banner_title' => 'BUIL
       <div class="name">Creative Plumbing</div>
       <div class="phone">(650) 726-6795</div>
     </div>
+    <div class="resource">
+      <div class="name">Liberty Fire Systems, Inc.</div>
+      <div class="contact">Jim Bollier</div>
+      <div class="phone">(650) 678-1363</div>
+    </div>
 
 <h2>GEOTECHNICAL ENGINEERS</h2>
 
-    <div class="resource">
-      <div class="name">JF Consulting</div>
-      <div class="contact">Jerry Freeman</div>
-      <div class="phone">(408) 867-6321</div>
-    </div>
     <div class="resource">
       <div class="name">Michelucci & Associates</div>
       <div class="contact">Joe Michelucci</div>
@@ -412,6 +402,11 @@ print_header(array('page_classname' => 'resources-page', 'banner_title' => 'BUIL
       <div class="name">P. G. Soils</div>
       <div class="contact">Paul Grishaber</div>
       <div class="phone">(650) 347-3934</div>
+    </div>
+    <div class="resource">
+      <div class="name">Romig Engineers</div>
+      <div class="contact">Glenn Romig</div>
+      <div class="phone">(650) 591-5224</div>
     </div>
 
 <h2>LIGHTING DESIGN</h2>
@@ -488,6 +483,11 @@ print_header(array('page_classname' => 'resources-page', 'banner_title' => 'BUIL
       <div class="name">CRJ Structural Engineering</div>
       <div class="contact">Matt Jordan</div>
       <div class="phone">(650) 216-9351</div>
+    </div>
+    <div class="resource">
+      <div class="name">Sezen &amp; Moon Structural Engineering</div>
+      <div class="contact">Brian Moon</div>
+      <div class="phone">(408) 871-7273</div>
     </div>
 
 <h2>SURVEYING</h2>
