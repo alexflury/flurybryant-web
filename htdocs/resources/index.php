@@ -126,7 +126,7 @@ print_header(array('page_classname' => 'resources-page', 'banner_title' => 'BUIL
     <div class="resource">
       <div class="name">Roberts Construction</div>
       <div class="contact">Dave Roberts</div>
-      <div class="phone">(408) 356-2185</div>
+      <div class="phone">(408) 340-5287</div>
     </div>
     <div class="resource">
       <div class="name">S.E.A. Construction</div>
