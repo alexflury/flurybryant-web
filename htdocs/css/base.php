@@ -340,7 +340,7 @@ body.full-screen #ft {
   height: 25px;
   margin: 10px 10px 0 10px;
   background-image: url(/images/social-media.png);
-  background-position: 25px 0;
+  background-position: -25px 0;
   float: left;
 }
 
@@ -349,7 +349,7 @@ body.full-screen #ft {
   height: 25px;
   margin: 10px 10px 0 10px;
   background-image: url(/images/social-media.png);
-  background-position: 50px 0;
+  background-position: -50px 0;
   float: left;
 }
 
