@@ -329,7 +329,7 @@ body.full-screen #ft {
 #ft .facebook-button {
   width: 25px;
   height: 25px;
-  padding: 10px 10px 0 10px;
+  margin: 10px 10px 0 10px;
   background-image: url(/images/social-media.png);
   background-position: 0px 0px;
   float: left;
@@ -338,18 +338,18 @@ body.full-screen #ft {
 #ft .twitter-button {
   width: 25px;
   height: 25px;
-  padding: 10px 10px 0 10px;
+  margin: 10px 10px 0 10px;
   background-image: url(/images/social-media.png);
-  background-position: 0px -25px;
+  background-position: 25px 0;
   float: left;
 }
 
 #ft .instagram-button {
   width: 25px;
   height: 25px;
-  padding: 10px 10px 0 10px;
+  margin: 10px 10px 0 10px;
   background-image: url(/images/social-media.png);
-  background-position: 0px -50px;
+  background-position: 50px 0;
   float: left;
 }
 
