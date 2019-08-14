@@ -326,6 +326,33 @@ body.full-screen #ft {
   float: right;
 }
 
+#ft .facebook-button {
+  width: 25px;
+  height: 25px;
+  padding: 10px 10px 0 10px;
+  background-image: url(/images/social-media.png);
+  background-position: 0px 0px;
+  float: left;
+}
+
+#ft .twitter-button {
+  width: 25px;
+  height: 25px;
+  padding: 10px 10px 0 10px;
+  background-image: url(/images/social-media.png);
+  background-position: 0px -25px;
+  float: left;
+}
+
+#ft .instagram-button {
+  width: 25px;
+  height: 25px;
+  padding: 10px 10px 0 10px;
+  background-image: url(/images/social-media.png);
+  background-position: 0px -50px;
+  float: left;
+}
+
 #ft .contact {
   position: absolute;
   visibility: hidden;

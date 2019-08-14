@@ -1,5 +1,8 @@
     </div>
     <div id="ft">
+    	<div class="facebook-button"></div>
+    	<div class="twitter-button"></div>
+    	<div class="instagram-button"></div>
     	<div class="contact">
 	    	<div class="address">
 	    		761 University Avenue, Suite A, Los Gatos, CA 95032
