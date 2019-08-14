@@ -1,8 +1,14 @@
     </div>
     <div id="ft">
-    	<div class="facebook-button"></div>
-    	<div class="twitter-button"></div>
-    	<div class="instagram-button"></div>
+    	<a href="https://www.facebook.com/Flury-Bryant-Design-Group-349231532388914">
+    		<div class="facebook-button"></div>
+		</a>
+		<a href="https://twitter.com/FluryGroup">
+    		<div class="twitter-button"></div>
+    	</a>
+    	<a href="https://www.instagram.com/flurybryantdesigngroup/">
+    		<div class="instagram-button"></div>
+    	</a>
     	<div class="contact">
 	    	<div class="address">
 	    		761 University Avenue, Suite A, Los Gatos, CA 95032
